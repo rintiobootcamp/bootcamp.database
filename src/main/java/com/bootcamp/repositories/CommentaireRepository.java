@@ -5,14 +5,14 @@
  */
 package com.bootcamp.repositories;
 
-import com.bootcamp.entities.Comment;
+import com.bootcamp.entities.Commentaire;
 
 /**
  *
  * @author rosius
  */
-public class CommentRepository extends BaseRepository<Comment>{
-    public CommentRepository(String unitPersistence) {
-        super(unitPersistence, Comment.class);
+public class CommentaireRepository extends BaseRepository<Commentaire>{
+    public CommentaireRepository(String unitPersistence) {
+        super(unitPersistence, Commentaire.class);
     }    
 }
