@@ -1,5 +1,6 @@
 package com.bootcamp.entities;
 
+import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -12,39 +13,47 @@ import javax.validation.constraints.NotNull;
 @Entity
 @ApiModel(value="pilier",description = "the pilier model of the PAG")
 public class Pilier implements Serializable {
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value="Id of pilier' Model",notes = "This id is automatically generated ,it doesn't required")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value="the name of this particular pilier",notes ="this name is required during the creation of a pilier",required = true)
-    private String name;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String nom;
 
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value="the description of the pilar",notes="the description is not obligatory but necessary",required = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
 
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value="the date of creation of this particular pilar")
-    private long createAt;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private long dateCreation;
 
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value="the updated date",notes="the date when this pilar has been modified at last")
-    private long updateAt;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private long dateMiseAJour;
 
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value="comments list",notes = "the list of all comments related to this pilar")
-    private List<Integer> comments;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private List<Integer> commentaires;
 
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value="media list",notes = "the list of all media  related to this pilar")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private List<Integer> medias;
     
     @OneToMany
     @NotNull(message = "The list of axes field must not be empty")
-    private List<Axe> listAxes;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
+    private List<Axe> axes;
     
     public int getId() {
         return id;
@@ -54,13 +63,7 @@ public class Pilier implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getDescription() {
         return description;
@@ -70,29 +73,7 @@ public class Pilier implements Serializable {
         this.description = description;
     }
 
-    public long getCreateAt() {
-        return createAt;
-    }
 
-    public void setCreateAt(long createAt) {
-        this.createAt = createAt;
-    }
-
-    public long getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(long updateAt) {
-        this.updateAt = updateAt;
-    }
-
-    public List<Integer> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Integer> comments) {
-        this.comments = comments;
-    }
 
     public List<Integer> getMedias() {
         return medias;
@@ -102,17 +83,43 @@ public class Pilier implements Serializable {
         this.medias = medias;
     }
 
-    /**
-     * @return the listAxes
-     */
-    public List<Axe> getListaxes() {
-        return listAxes;
+    public String getNom() {
+        return nom;
     }
 
-    /**
-     * @param listAxes the listAxes to set
-     */
-    public void setListaxes(List<Axe> listAxes) {
-        this.listAxes = listAxes;
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public long getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(long dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public long getDateMiseAJour() {
+        return dateMiseAJour;
+    }
+
+    public void setDateMiseAJour(long dateMiseAJour) {
+        this.dateMiseAJour = dateMiseAJour;
+    }
+
+    public List<Integer> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Integer> commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public List<Axe> getAxes() {
+        return axes;
+    }
+
+    public void setAxes(List<Axe> axes) {
+        this.axes = axes;
     }
 }

@@ -5,10 +5,10 @@
  */
 package com.bootcamp.entities;
 
+import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,41 +18,44 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Bello
  */
 @Entity
-@Table(name = "pag_secteur")
 @ApiModel(value = "Secteur", description = "representation d'une signature Secteur")
 public class Secteur implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @ApiModelProperty(value = "Id of the Sector", required = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
     @Column(nullable = false, length = 50)
     @ApiModelProperty(value = "Name of the sector", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     @ApiModelProperty(value = "Description of the sector", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
     
-    @Column(nullable = false, length = 255)
-    @ApiModelProperty(value = "Objectif of the sector", required = true)
-    private String objectif;
+    @Column(nullable = false)
+    @ApiModelProperty(value = "Icone of the sector", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String icone;
 
     @Column(nullable = false)
     @ApiModelProperty(value = "The date when the sector is created", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long createAt;
 
     @Column(nullable = false)
     @ApiModelProperty(value = "The date when the sector is updated", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long updateAt;
 
     private List<Integer> projets;
@@ -64,6 +67,7 @@ public class Secteur implements Serializable {
     @ManyToOne
     @ApiModelProperty(value = "The Axe of Secteur", required = true)
     @JoinColumn(name = "axe", referencedColumnName = "id", insertable = false, updatable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Axe axe;
 
     public int getId() {
@@ -131,20 +135,6 @@ public class Secteur implements Serializable {
     }
 
     /**
-     * @return the objectif
-     */
-    public String getObjectif() {
-        return objectif;
-    }
-
-    /**
-     * @param objectif the objectif to set
-     */
-    public void setObjectif(String objectif) {
-        this.objectif = objectif;
-    }
-
-    /**
      * @return the axe
      */
     public Axe getAxe() {
@@ -156,5 +146,19 @@ public class Secteur implements Serializable {
      */
     public void setAxe(Axe axe) {
         this.axe = axe;
+    }
+
+    /**
+     * @return the icone
+     */
+    public String getIcone() {
+        return icone;
+    }
+
+    /**
+     * @param icone the icone to set
+     */
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 }

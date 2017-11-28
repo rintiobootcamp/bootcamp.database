@@ -1,6 +1,8 @@
 package com.bootcamp.entities;
 
+import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import com.bootcamp.commons.enums.EtatProjet;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -14,41 +16,108 @@ import javax.validation.constraints.NotNull;
 public class Projet implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value="Id of the project",notes = "This id is automatically generated ,it doesn't required")
     private int id;
-    
-    private int idIndicateur;
-    
-    @Column(length = 30)
+
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "Name of the Project", required = true)
     private String nom;
     
-    @Column(length = 50)
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "Reference of the Project", required = true)
     private String reference;
     
-    @Column(length = 255)
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "Description of the Project", required = true)
     private String description;
+
+    @ApiModelProperty(value = "Real started date of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateDebutReel;
     
-    @Column(length = 50)
-    private String phaseActuelle;
+    @ApiModelProperty(value = "Real ended date of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateFinReel;
     
-    private long dateDeDebutReelle;
+    @ApiModelProperty(value = "Estimate started date of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateDebutPrevisionnel;
     
-    private long dateDeFinReelle;
-    
-    private long dateDeDebutPrevisionnelle;
-    
-    private long dateDeFinPrevisionnelle;
+    @ApiModelProperty(value = "Estimate ended date of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateFinPrevisionnel;
     
     @Column(scale =2 )
+    @ApiModelProperty(value = "Estimate funds of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double budgetPrevisionnel;
     
     @Column(scale = 2)
+    @ApiModelProperty(value = "Real cost of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private double budgetReel;
+    
+    @Column(scale = 2)
+    @ApiModelProperty(value = "Real cost of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
-    
-    private EtatProjet etat ;
-    
+
+    @Column(scale = 2)
+    @ApiModelProperty(value = "Objectif of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String objectif;
+
+    @OneToMany(mappedBy = "projet",cascade = CascadeType.ALL)
+    @ApiModelProperty(value = "List of the project phases")
+    private List<Phase> phases;
+
+
+    private List<Integer> idSecteurs;
+
     private List<Integer> commentaires = new ArrayList<Integer>();
-    
-    private List<Integer> geographies = new ArrayList<Integer>();
+
+    @ManyToMany(mappedBy = "projets")
+    private List<Region> regions = new ArrayList<Region>();
+
+    public String getObjectif() {
+        return objectif;
+    }
+
+    public void setObjectif(String objectif) {
+        this.objectif = objectif;
+    }
+
+    public List<Region> getRegions() {
+        return regions;
+    }
+
+    public void setRegions(List<Region> regions) {
+        this.regions = regions;
+    }
+
+    public List<Integer> getIdSecteurs() {
+        return idSecteurs;
+    }
+
+    public void setIdSecteurs(List<Integer> idSecteurs) {
+        this.idSecteurs = idSecteurs;
+    }
+
+    public List<Phase> getPhases() {
+        return phases;
+    }
+
+    public void setPhases(List<Phase> phases) {
+        this.phases = phases;
+    }
 
     public int getId() {
         return id;
@@ -82,45 +151,7 @@ public class Projet implements Serializable{
         this.description = description;
     }
 
-    public String getPhaseActuelle() {
-        return phaseActuelle;
-    }
 
-    public void setPhaseActuelle(String phaseActuelle) {
-        this.phaseActuelle = phaseActuelle;
-    }
-
-    public long getDateDeDebutReelle() {
-        return dateDeDebutReelle;
-    }
-
-    public void setDateDeDebutReelle(long dateDeDebutReelle) {
-        this.dateDeDebutReelle = dateDeDebutReelle;
-    }
-
-    public long getDateDeFinReelle() {
-        return dateDeFinReelle;
-    }
-
-    public void setDateDeFinReelle(long dateDeFinReelle) {
-        this.dateDeFinReelle = dateDeFinReelle;
-    }
-
-    public long getDateDeDebutPrevisionnelle() {
-        return dateDeDebutPrevisionnelle;
-    }
-
-    public void setDateDeDebutPrevisionnelle(long dateDeDebutPrevisionnelle) {
-        this.dateDeDebutPrevisionnelle = dateDeDebutPrevisionnelle;
-    }
-
-    public long getDateDeFinPrevisionnelle() {
-        return dateDeFinPrevisionnelle;
-    }
-
-    public void setDateDeFinPrevisionnelle(long dateDeFinPrevisionnelle) {
-        this.dateDeFinPrevisionnelle = dateDeFinPrevisionnelle;
-    }
 
     public double getBudgetPrevisionnel() {
         return budgetPrevisionnel;
@@ -138,20 +169,36 @@ public class Projet implements Serializable{
         this.coutReel = coutReel;
     }
 
-    public EtatProjet getEtat() {
-        return etat;
+    public long getDateDebutReel() {
+        return dateDebutReel;
     }
 
-    public void setEtat(EtatProjet etat) {
-        this.etat = etat;
+    public void setDateDebutReel(long dateDebutReel) {
+        this.dateDebutReel = dateDebutReel;
     }
 
-    public int getIdIndicateur() {
-        return idIndicateur;
+    public long getDateFinReel() {
+        return dateFinReel;
     }
 
-    public void setIdIndicateur(int idIndicateur) {
-        this.idIndicateur = idIndicateur;
+    public void setDateFinReel(long dateFinReel) {
+        this.dateFinReel = dateFinReel;
+    }
+
+    public long getDateDebutPrevisionnel() {
+        return dateDebutPrevisionnel;
+    }
+
+    public void setDateDebutPrevisionnel(long dateDebutPrevisionnel) {
+        this.dateDebutPrevisionnel = dateDebutPrevisionnel;
+    }
+
+    public long getDateFinPrevisionnel() {
+        return dateFinPrevisionnel;
+    }
+
+    public void setDateFinPrevisionnel(long dateFinPrevisionnel) {
+        this.dateFinPrevisionnel = dateFinPrevisionnel;
     }
 
     /**
@@ -169,16 +216,16 @@ public class Projet implements Serializable{
     }
 
     /**
-     * @return the geographies
+     * @return the budgetReel
      */
-    public List<Integer> getGeographies() {
-        return geographies;
+    public double getBudgetReel() {
+        return budgetReel;
     }
 
     /**
-     * @param geographies the geographies to set
+     * @param budgetReel the budgetReel to set
      */
-    public void setGeographies(List<Integer> geographies) {
-        this.geographies = geographies;
+    public void setBudgetReel(double budgetReel) {
+        this.budgetReel = budgetReel;
     }
 }

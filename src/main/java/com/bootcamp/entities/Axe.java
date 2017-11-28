@@ -1,5 +1,6 @@
 package com.bootcamp.entities;
 
+import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.*;
 import java.io.Serializable;
 import java.util.List;
@@ -13,43 +14,68 @@ import javax.validation.constraints.NotNull;
 @Entity
 @ApiModel(value = "Axe", description = "Description of axe service")
 public class Axe implements Serializable {
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
     
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     @ApiModelProperty(value = "name of Axe", required = true)
-    private String name;
-    
-    @Column(nullable = false, length = 255)
-    @ApiModelProperty(value = "description of Axe", required = true)
-    private String description;
-    
-    @ApiModelProperty(value = "creation date of Axe")
-    private long createAt;
-    
-    @ApiModelProperty(value = "update date of Axe")
-    private long updateAt;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String nom;
     
     @Column(nullable = false)
-    @ApiModelProperty(value = "focus of Axe", required = true)
-    private String focus;
+    @ApiModelProperty(value = "description of Axe", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String description;
+
+    @Column(nullable = false)
+    @ApiModelProperty(value = "title of Axe", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String titre;
+
+    @Column(nullable = false)
+    @ApiModelProperty(value = "title of focus", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String titreFocus;
+
+    @Column(nullable = false)
+    @ApiModelProperty(value = "focus description", required = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String descriptionFocus;
     
+    @Column(nullable = false)
+    @ApiModelProperty(value = "creation date of Axe")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private long dateCreation;
+    
+    @Column(nullable = false)
+    @ApiModelProperty(value = "update date of Axe")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private long dateMiseAJour;
+    
+
     @OneToMany
     @ApiModelProperty(value = "list of sectors of Axe", required = true)
-    private List<Secteur> listSecteurs;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
+    private List<Secteur> secteurs;
     
     @ApiModelProperty(value = "list of medias of Axe", required = true)
-    private List<Integer> listMedias;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private List<Integer> medias;
     
     @ApiModelProperty(value = "list of comments of Axe", required = true)
-    private List<Integer> listComments;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private List<Integer> commentaires;
     
     @ManyToOne
     @ApiModelProperty(value = "The pilier of Axe", required = true)
     @JoinColumn(name = "pilier", referencedColumnName = "id", insertable = false, updatable = false)
-    Pilier pilier;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
+    private Pilier pilier;
+
+
     
     public int getId() {
         return id;
@@ -63,18 +89,7 @@ public class Axe implements Serializable {
     public String toString() {
         return "com.bootcamp.database.entities.Axe[ id=" + id + " ]";
     }
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+
     /**
      * @return the description
      */
@@ -87,88 +102,84 @@ public class Axe implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    /**
-     * @return the createAt
-     */
-    public long getCreateAt() {
-        return createAt;
+
+    public String getNom() {
+        return nom;
     }
-    /**
-     * @param createAt the createAt to set
-     */
-    public void setCreateAt(long createAt) {
-        this.createAt = createAt;
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
-    /**
-     * @return the updateAt
-     */
-    public long getUpdateAt() {
-        return updateAt;
+
+    public String getTitre() {
+        return titre;
     }
-    /**
-     * @param updateAt the updateAt to set
-     */
-    public void setUpdateAt(long updateAt) {
-        this.updateAt = updateAt;
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
-    /**
-     * @return the focus
-     */
-    public String getFocus() {
-        return focus;
+
+    public String getTitreFocus() {
+        return titreFocus;
     }
-    /**
-     * @param focus the focus to set
-     */
-    public void setFocus(String focus) {
-        this.focus = focus;
+
+    public void setTitreFocus(String titreFocus) {
+        this.titreFocus = titreFocus;
     }
-    
-    /**
-     * @return the listMedias
-     */
-    public List<Integer> getListMedias() {
-        return listMedias;
+
+    public String getDescriptionFocus() {
+        return descriptionFocus;
     }
-    /**
-     * @param listMedias the listMedias to set
-     */
-    public void setListMedias(List<Integer> listMedias) {
-        this.listMedias = listMedias;
+
+    public void setDescriptionFocus(String descriptionFocus) {
+        this.descriptionFocus = descriptionFocus;
     }
-    /**
-     * @return the listComments
-     */
-    public List<Integer> getListComments() {
-        return listComments;
+
+    public long getDateCreation() {
+        return dateCreation;
     }
-    /**
-     * @param listComments the listComments to set
-     */
-    public void setListComments(List<Integer> listComments) {
-        this.listComments = listComments;
+
+    public void setDateCreation(long dateCreation) {
+        this.dateCreation = dateCreation;
     }
-    
+
+    public long getDateMiseAJour() {
+        return dateMiseAJour;
+    }
+
+    public void setDateMiseAJour(long dateMiseAJour) {
+        this.dateMiseAJour = dateMiseAJour;
+    }
+
+    public List<Secteur> getSecteurs() {
+        return secteurs;
+    }
+
+    public void setSecteurs(List<Secteur> secteurs) {
+        this.secteurs = secteurs;
+    }
+
+    public List<Integer> getMedias() {
+        return medias;
+    }
+
+    public void setMedias(List<Integer> medias) {
+        this.medias = medias;
+    }
+
+    public List<Integer> getComments() {
+        return commentaires;
+    }
+
+    public void setComments(List<Integer> comments) {
+        this.commentaires = comments;
+    }
+
     public Pilier getPilier() {
         return pilier;
     }
-    
+
     public void setPilier(Pilier pilier) {
         this.pilier = pilier;
     }
-
-    /**
-     * @return the listSecteurs
-     */
-    public List<Secteur> getListSecteurs() {
-        return listSecteurs;
-    }
-
-    /**
-     * @param listSecteurs the listSecteurs to set
-     */
-    public void setListSecteurs(List<Secteur> listSecteurs) {
-        this.listSecteurs = listSecteurs;
-    }
-    
 }

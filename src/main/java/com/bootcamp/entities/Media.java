@@ -5,6 +5,7 @@
  */
 package com.bootcamp.entities;
 
+import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -13,7 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -22,28 +22,36 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Media implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
     
     @Column(name="originalName", length=45, nullable=false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String originalName;
 
     @Column(name="internalName", length=45, nullable=false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String internalName;
 
     @Column(name="type", length=45, nullable=false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String type;
 
     @Column(name="link", nullable=false)
-    private String link;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String lien;
 
     @ApiModelProperty(value = "creation date of Axe")
-    private long createAt;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateCreation;
 
     @ApiModelProperty(value = "update date of Axe")
-    private long updateAt;
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateMiseAJour;
 
     public int getId() {
         return id;
@@ -83,27 +91,27 @@ public class Media implements Serializable {
         this.type = type;
     }
 
-    public String getLink() {
-        return link;
+    public String getLien() {
+        return lien;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setLien(String lien) {
+        this.lien = lien;
     }
 
-    public long getCreateAt() {
-        return createAt;
+    public long getDateCreation() {
+        return dateCreation;
     }
 
-    public void setCreateAt(long createAt) {
-        this.createAt = createAt;
+    public void setDateCreation(long dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
-    public long getUpdateAt() {
-        return updateAt;
+    public long getDateMiseAJour() {
+        return dateMiseAJour;
     }
 
-    public void setUpdateAt(long updateAt) {
-        this.updateAt = updateAt;
+    public void setDateMiseAJour(long dateMiseAJour) {
+        this.dateMiseAJour = dateMiseAJour;
     }
 }
