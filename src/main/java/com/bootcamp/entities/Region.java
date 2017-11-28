@@ -2,7 +2,9 @@ package com.bootcamp.entities;
 
 
 
+import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import com.bootcamp.commons.enums.RegionType;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,10 +17,25 @@ public class Region implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 255)
+    
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "Name of the region", required = true)
     private String nom;
+    
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "The type of the region", required = true)
     private RegionType type;
+    
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "The longitude of the region", required = true)
     private long longitude;
+    
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @ApiModelProperty(value = "The latitude of the region", required = true)
     private long latitude;
 
     @ManyToMany(mappedBy = "regions")

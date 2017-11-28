@@ -42,17 +42,14 @@ public class Pilier implements Serializable {
 
     @Column(nullable = false)
     @ApiModelProperty(value="comments list",notes = "the list of all comments related to this pilar")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private List<Integer> commentaires;
 
     @Column(nullable = false)
     @ApiModelProperty(value="media list",notes = "the list of all media  related to this pilar")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private List<Integer> medias;
     
     @OneToMany
     @NotNull(message = "The list of axes field must not be empty")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private List<Axe> axes;
     
     public int getId() {

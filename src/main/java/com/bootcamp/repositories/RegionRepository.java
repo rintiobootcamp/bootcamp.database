@@ -5,14 +5,14 @@
  */
 package com.bootcamp.repositories;
 
-import com.bootcamp.entities.Media;
+import com.bootcamp.entities.Region;
 
 /**
  *
- * @author rosius
+ * @author Bello
  */
-public class MediaRepository extends BaseRepository<Media>{
-    public MediaRepository(String unitPersistence) {
-        super(unitPersistence, Media.class);
+public class RegionRepository extends BaseRepository<Region> {
+    public RegionRepository(String unitPersistence) {
+        super(unitPersistence, Region.class);
     }
 }

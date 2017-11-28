@@ -55,18 +55,14 @@ public class Axe implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
     
-
     @OneToMany
     @ApiModelProperty(value = "list of sectors of Axe", required = true)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private List<Secteur> secteurs;
     
     @ApiModelProperty(value = "list of medias of Axe", required = true)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private List<Integer> medias;
     
     @ApiModelProperty(value = "list of comments of Axe", required = true)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private List<Integer> commentaires;
     
     @ManyToOne

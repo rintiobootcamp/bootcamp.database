@@ -1,18 +1,13 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
-import com.bootcamp.commons.enums.EtatProjet;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.validation.constraints.NotNull;
 
 @Entity
-//@Table(name = "rest_projet")
 public class Projet implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,22 +50,22 @@ public class Projet implements Serializable{
     @Column(nullable = false)
     private long dateFinPrevisionnel;
     
-    @Column(scale =2 )
+    @Column(nullable = false)
     @ApiModelProperty(value = "Estimate funds of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double budgetPrevisionnel;
     
-    @Column(scale = 2)
+    @Column(nullable = false)
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double budgetReel;
     
-    @Column(scale = 2)
+    @Column(nullable = false)
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
 
-    @Column(scale = 2)
+    @Column(nullable = false)
     @ApiModelProperty(value = "Objectif of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String objectif;

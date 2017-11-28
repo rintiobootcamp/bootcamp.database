@@ -3,10 +3,7 @@ package com.bootcamp.entities;
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.*;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.*;
-import java.sql.Timestamp;
-import javax.validation.constraints.NotNull;
 /**
  *
  * @author Iso-Doss
