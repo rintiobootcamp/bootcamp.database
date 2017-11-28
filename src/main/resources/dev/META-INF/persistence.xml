@@ -7,7 +7,6 @@
     <class>com.bootcamp.entities.Departement</class>
     <class>com.bootcamp.entities.Axe</class>
     <class>com.bootcamp.entities.Comment</class>
-    <class>com.bootcamp.entities.Impact</class>
     <class>com.bootcamp.entities.Media</class>
     <class>com.bootcamp.entities.Pilier</class>
     <class>com.bootcamp.entities.Projet</class>
