@@ -49,11 +49,11 @@ public class Secteur implements Serializable {
 
     @Column(nullable = false)
     @ApiModelProperty(value = "The date when the sector is created", required = true)
-    private Timestamp createAt;
+    private long createAt;
 
     @Column(nullable = false)
     @ApiModelProperty(value = "The date when the sector is updated", required = true)
-    private Timestamp updateAt;
+    private long updateAt;
 
     private List<Integer> projets;
 
@@ -90,19 +90,19 @@ public class Secteur implements Serializable {
         this.description = description;
     }
 
-    public Timestamp getCreateAt() {
+    public long getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Timestamp createAt) {
+    public void setCreateAt(long createAt) {
         this.createAt = createAt;
     }
 
-    public Timestamp getUpdateAt() {
+    public long getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Timestamp updateAt) {
+    public void setUpdateAt(long updateAt) {
         this.updateAt = updateAt;
     }
 

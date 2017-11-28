@@ -27,10 +27,10 @@ public class Axe implements Serializable {
     private String description;
     
     @ApiModelProperty(value = "creation date of Axe")
-    private Timestamp createAt;
+    private long createAt;
     
     @ApiModelProperty(value = "update date of Axe")
-    private Timestamp updateAt;
+    private long updateAt;
     
     @Column(nullable = false)
     @ApiModelProperty(value = "focus of Axe", required = true)
@@ -90,25 +90,25 @@ public class Axe implements Serializable {
     /**
      * @return the createAt
      */
-    public Timestamp getCreateAt() {
+    public long getCreateAt() {
         return createAt;
     }
     /**
      * @param createAt the createAt to set
      */
-    public void setCreateAt(Timestamp createAt) {
+    public void setCreateAt(long createAt) {
         this.createAt = createAt;
     }
     /**
      * @return the updateAt
      */
-    public Timestamp getUpdateAt() {
+    public long getUpdateAt() {
         return updateAt;
     }
     /**
      * @param updateAt the updateAt to set
      */
-    public void setUpdateAt(Timestamp updateAt) {
+    public void setUpdateAt(long updateAt) {
         this.updateAt = updateAt;
     }
     /**

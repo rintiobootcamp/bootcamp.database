@@ -18,9 +18,8 @@ public class User {
     
     private String login;
     private String pwd;
-    
-    private Timestamp createAt;
-    private Timestamp updateAt;
+    private long createAt;
+    private long updateAt;
 
     public int getId() {
         return id;
@@ -46,19 +45,19 @@ public class User {
         this.pwd = pwd;
     }
 
-    public Timestamp getCreateAt() {
+    public long getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Timestamp createAt) {
+    public void setCreateAt(long createAt) {
         this.createAt = createAt;
     }
 
-    public Timestamp getUpdateAt() {
+    public long getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Timestamp updateAt) {
+    public void setUpdateAt(long updateAt) {
         this.updateAt = updateAt;
     }
 

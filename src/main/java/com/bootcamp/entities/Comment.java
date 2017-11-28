@@ -6,6 +6,7 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.enums.EntityType;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -34,7 +35,28 @@ public class Comment implements Serializable {
     
     @Column(name="Description", nullable=false)
     private String description;
-    
+
+    @ApiModelProperty(value = "creation date of Axe")
+    private long createAt;
+
+    @ApiModelProperty(value = "update date of Axe")
+    private long updateAt;
+
+    public long getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(long createAt) {
+        this.createAt = createAt;
+    }
+
+    public long getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(long updateAt) {
+        this.updateAt = updateAt;
+    }
 
     public int getId() {
         return id;

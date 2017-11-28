@@ -30,17 +30,13 @@ public class Projet implements Serializable{
     @Column(length = 50)
     private String phaseActuelle;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp dateDeDebutReelle;
+    private long dateDeDebutReelle;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp dateDeFinReelle;
+    private long dateDeFinReelle;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp dateDeDebutPrevisionnelle;
+    private long dateDeDebutPrevisionnelle;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp dateDeFinPrevisionnelle;
+    private long dateDeFinPrevisionnelle;
     
     @Column(scale =2 )
     private double budgetPrevisionnel;
@@ -94,38 +90,35 @@ public class Projet implements Serializable{
         this.phaseActuelle = phaseActuelle;
     }
 
-    public Date getDateDeDebutReelle() {
+    public long getDateDeDebutReelle() {
         return dateDeDebutReelle;
     }
 
-
-    public Date getDateDeFinReelle() {
-        return dateDeFinReelle;
-    }
-
-
-    public Date getDateDeDebutPrevisionnelle() {
-        return dateDeDebutPrevisionnelle;
-    }
-
-
-    public Date getDateDeFinPrevisionnelle() {
-        return dateDeFinPrevisionnelle;
-    }
-
-    public void setDateDeDebutReelle(Timestamp dateDeDebutReelle) {
+    public void setDateDeDebutReelle(long dateDeDebutReelle) {
         this.dateDeDebutReelle = dateDeDebutReelle;
     }
 
-    public void setDateDeFinReelle(Timestamp dateDeFinReelle) {
+    public long getDateDeFinReelle() {
+        return dateDeFinReelle;
+    }
+
+    public void setDateDeFinReelle(long dateDeFinReelle) {
         this.dateDeFinReelle = dateDeFinReelle;
     }
 
-    public void setDateDeDebutPrevisionnelle(Timestamp dateDeDebutPrevisionnelle) {
+    public long getDateDeDebutPrevisionnelle() {
+        return dateDeDebutPrevisionnelle;
+    }
+
+    public void setDateDeDebutPrevisionnelle(long dateDeDebutPrevisionnelle) {
         this.dateDeDebutPrevisionnelle = dateDeDebutPrevisionnelle;
     }
 
-    public void setDateDeFinPrevisionnelle(Timestamp dateDeFinPrevisionnelle) {
+    public long getDateDeFinPrevisionnelle() {
+        return dateDeFinPrevisionnelle;
+    }
+
+    public void setDateDeFinPrevisionnelle(long dateDeFinPrevisionnelle) {
         this.dateDeFinPrevisionnelle = dateDeFinPrevisionnelle;
     }
 

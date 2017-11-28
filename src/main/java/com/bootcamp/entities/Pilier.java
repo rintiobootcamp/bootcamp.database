@@ -28,11 +28,11 @@ public class Pilier implements Serializable {
 
     @Column
     @ApiModelProperty(value="the date of creation of this particular pilar")
-    private Timestamp createAt;
+    private long createAt;
 
     @Column
     @ApiModelProperty(value="the updated date",notes="the date when this pilar has been modified at last")
-    private Timestamp updateAt;
+    private long updateAt;
 
     @Column
     @ApiModelProperty(value="comments list",notes = "the list of all comments related to this pilar")
@@ -70,19 +70,19 @@ public class Pilier implements Serializable {
         this.description = description;
     }
 
-    public Timestamp getCreateAt() {
+    public long getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Timestamp createAt) {
+    public void setCreateAt(long createAt) {
         this.createAt = createAt;
     }
 
-    public Timestamp getUpdateAt() {
+    public long getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Timestamp updateAt) {
+    public void setUpdateAt(long updateAt) {
         this.updateAt = updateAt;
     }
 

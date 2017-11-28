@@ -5,6 +5,8 @@
  */
 package com.bootcamp.entities;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,8 +36,14 @@ public class Media implements Serializable {
     @Column(name="type", length=45, nullable=false)
     private String type;
 
-    @Column(name="lien", nullable=false)
-    private String lien;
+    @Column(name="link", nullable=false)
+    private String link;
+
+    @ApiModelProperty(value = "creation date of Axe")
+    private long createAt;
+
+    @ApiModelProperty(value = "update date of Axe")
+    private long updateAt;
 
     public int getId() {
         return id;
@@ -75,18 +83,27 @@ public class Media implements Serializable {
         this.type = type;
     }
 
-    /**
-     * @return the lien
-     */
-    public String getLien() {
-        return lien;
+    public String getLink() {
+        return link;
     }
 
-    /**
-     * @param lien the lien to set
-     */
-    public void setLien(String lien) {
-        this.lien = lien;
+    public void setLink(String link) {
+        this.link = link;
     }
-    
+
+    public long getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(long createAt) {
+        this.createAt = createAt;
+    }
+
+    public long getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(long updateAt) {
+        this.updateAt = updateAt;
+    }
 }
