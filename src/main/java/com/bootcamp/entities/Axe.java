@@ -25,7 +25,7 @@ public class Axe implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "description of Axe", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
@@ -40,7 +40,7 @@ public class Axe implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String titreFocus;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "focus description", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String descriptionFocus;
