@@ -13,6 +13,6 @@ public class GenerateTableTest {
 
     @Test
     public void generateTables(){
-        //Persistence.generateSchema(AppConstants.PERSISTENCE_UNIT, new Properties());
+        Persistence.generateSchema(AppConstants.PERSISTENCE_UNIT, new Properties());
     }
 }

@@ -4,6 +4,7 @@ package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import com.bootcamp.commons.enums.RegionType;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
@@ -12,8 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@ApiModel(value = "Region", description = "Description of region service")
 public class Region implements Serializable{
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -38,7 +40,7 @@ public class Region implements Serializable{
     @ApiModelProperty(value = "The latitude of the region", required = true)
     private long latitude;
 
-    @ManyToMany(mappedBy = "regions")
+    @ManyToMany
     private List<Projet> projets = new ArrayList<Projet>();
 
     public List<Projet> getProjets() {
