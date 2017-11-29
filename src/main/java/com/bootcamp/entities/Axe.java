@@ -61,9 +61,6 @@ public class Axe implements Serializable {
     @ApiModelProperty(value = "list of medias of Axe", required = true)
     private List<Integer> medias;
 
-    @ApiModelProperty(value = "list of comments of Axe", required = true)
-    private List<Integer> commentaires;
-
     @ManyToOne
     @ApiModelProperty(value = "The pilier of Axe", required = true)
     @JoinColumn(name = "pilier", referencedColumnName = "id", insertable = false, updatable = false)
@@ -208,20 +205,6 @@ public class Axe implements Serializable {
      */
     public void setMedias(List<Integer> medias) {
         this.medias = medias;
-    }
-
-    /**
-     * @return the commentaires
-     */
-    public List<Integer> getCommentaires() {
-        return commentaires;
-    }
-
-    /**
-     * @param commentaires the commentaires to set
-     */
-    public void setCommentaires(List<Integer> commentaires) {
-        this.commentaires = commentaires;
     }
 
     /**

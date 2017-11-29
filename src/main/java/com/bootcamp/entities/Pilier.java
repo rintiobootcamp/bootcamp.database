@@ -40,10 +40,6 @@ public class Pilier implements Serializable {
     private long dateMiseAJour;
 
     @Column(nullable = true)
-    @ApiModelProperty(value = "comments list", notes = "the list of all comments related to this pilar")
-    private List<Integer> commentaires;
-
-    @Column(nullable = true)
     @ApiModelProperty(value = "media list", notes = "the list of all media  related to this pilar")
     private List<Integer> medias;
 
@@ -119,20 +115,6 @@ public class Pilier implements Serializable {
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
-    }
-
-    /**
-     * @return the commentaires
-     */
-    public List<Integer> getCommentaires() {
-        return commentaires;
-    }
-
-    /**
-     * @param commentaires the commentaires to set
-     */
-    public void setCommentaires(List<Integer> commentaires) {
-        this.commentaires = commentaires;
     }
 
     /**

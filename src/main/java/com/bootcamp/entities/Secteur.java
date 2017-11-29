@@ -61,8 +61,6 @@ public class Secteur implements Serializable {
 
     private List<Integer> medias;
 
-    private List<Integer> commentaires;
-
     @ManyToOne
     @ApiModelProperty(value = "The Axe of Secteur", required = true)
     @JoinColumn(name = "axe", referencedColumnName = "id", insertable = false, updatable = false)
@@ -179,20 +177,6 @@ public class Secteur implements Serializable {
      */
     public void setMedias(List<Integer> medias) {
         this.medias = medias;
-    }
-
-    /**
-     * @return the commentaires
-     */
-    public List<Integer> getCommentaires() {
-        return commentaires;
-    }
-
-    /**
-     * @param commentaires the commentaires to set
-     */
-    public void setCommentaires(List<Integer> commentaires) {
-        this.commentaires = commentaires;
     }
 
     /**

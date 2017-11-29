@@ -77,8 +77,6 @@ public class Projet implements Serializable {
 
     private List<Integer> idSecteurs;
 
-    private List<Integer> commentaires = new ArrayList<Integer>();
-
     @ManyToMany(mappedBy = "projets")
     private List<Region> regions = new ArrayList<Region>();
 
@@ -276,20 +274,6 @@ public class Projet implements Serializable {
      */
     public void setIdSecteurs(List<Integer> idSecteurs) {
         this.idSecteurs = idSecteurs;
-    }
-
-    /**
-     * @return the commentaires
-     */
-    public List<Integer> getCommentaires() {
-        return commentaires;
-    }
-
-    /**
-     * @param commentaires the commentaires to set
-     */
-    public void setCommentaires(List<Integer> commentaires) {
-        this.commentaires = commentaires;
     }
 
     /**

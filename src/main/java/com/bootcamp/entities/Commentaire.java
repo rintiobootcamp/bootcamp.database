@@ -31,6 +31,10 @@ public class Commentaire implements Serializable {
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private EntityType entityType;
+    
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private int entityId;
 
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
@@ -47,6 +51,8 @@ public class Commentaire implements Serializable {
     private long dateMiseAJour;
 
     private String pseudo;
+    private int userId;
+    private String userMail;
 
     /**
      * @return the id
@@ -74,6 +80,20 @@ public class Commentaire implements Serializable {
      */
     public void setEntityType(EntityType entityType) {
         this.entityType = entityType;
+    }
+
+    /**
+     * @return the entityId
+     */
+    public int getEntityId() {
+        return entityId;
+    }
+
+    /**
+     * @param entityId the entityId to set
+     */
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 
     /**
@@ -130,6 +150,34 @@ public class Commentaire implements Serializable {
      */
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
+    }
+
+    /**
+     * @return the userId
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * @return the userMail
+     */
+    public String getUserMail() {
+        return userMail;
+    }
+
+    /**
+     * @param userMail the userMail to set
+     */
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
     }
 
 }
