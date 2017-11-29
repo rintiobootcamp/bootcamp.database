@@ -5,21 +5,15 @@
  */
 package com.bootcamp;
 
-import com.bootcamp.commons.utils.GsonUtils;
+import com.bootcamp.commons.exceptions.DatabaseException;
+import com.bootcamp.commons.models.*;
 import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.*;
 import com.bootcamp.repositories.*;
-import com.google.common.reflect.TypeToken;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -48,6 +42,37 @@ public class AxeTest {
 
         List<Axe> axes = axeRepository.findAll();
         //Assert.assertEquals(axes.size(), 7);
+    }
+
+    @Test(priority = 2, groups = {"Axe Test"})
+    public void getAxeByCriteria() throws SQLException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
+        List<Axe> axes = axeRepository.getDataByCriteria(criterias, "be");
+
+        Assert.assertNotEquals(axes.size(), 0);
+
+    }
+
+    @Test(priority = 3, groups = {"Axe Test"})
+    public void getAxeWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
+
+        List<String> fields = new ArrayList<String>() {
+            {
+                add("id");
+                add("nom");
+            }
+        };
+
+        List<Axe> axes = axeRepository.getDataByCriteria(criterias, "be", fields);
+
+        for (Axe axe : axes) {
+            Assert.assertNotNull(axe.getId());
+            Assert.assertNull(axe.getDescription());
+        }
+
     }
 
 }

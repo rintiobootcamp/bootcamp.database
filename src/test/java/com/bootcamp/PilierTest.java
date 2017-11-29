@@ -34,18 +34,13 @@ public class PilierTest {
     @Test
     public void createPilier() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Pilier Pilier 1", "Pilier Pilier 2", "Pilier Pilier 3", "Pilier Pilier 4", "Pilier Pilier 5", "Pilier Pilier 6", "Pilier Pilier 7"};
-        List<Integer> listCommentaires = new LinkedList();
-        List<Integer> listMedias = new LinkedList();
-        listCommentaires.add(10);
-        listMedias.add(10);
+
         for (int i = 0; i < nom.length; i++) {
             Pilier pilier = new Pilier();
             pilier.setNom(nom[i]);
             pilier.setDescription("Description pilier");
             pilier.setDateCreation(15118908400L);
             pilier.setDateMiseAJour(15118908400L);
-            pilier.setCommentaires(listCommentaires);
-            pilier.setCommentaires(listMedias);
             pilierRepository.create(pilier);
         }
 

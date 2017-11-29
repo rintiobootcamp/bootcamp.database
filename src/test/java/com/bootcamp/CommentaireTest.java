@@ -6,6 +6,9 @@
 package com.bootcamp;
 
 import com.bootcamp.commons.enums.EntityType;
+import com.bootcamp.commons.exceptions.DatabaseException;
+import com.bootcamp.commons.models.Criteria;
+import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.commons.utils.GsonUtils;
 import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.*;
@@ -17,7 +20,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -43,11 +48,42 @@ public class CommentaireTest {
             commentaire.setDateMiseAJour(1511890840L);
             commentaire.setEntityType(EntityType.PROJET);
             commentaireRepository.create(commentaire);
-            
+
         }
 
         List<Commentaire> commentaires = commentaireRepository.findAll();
         //Assert.assertEquals(commentaires.size(), 7);
+    }
+
+    @Test(priority = 2, groups = {"Commentaire Test"})
+    public void getCommentaireByCriteria() throws SQLException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("contenu", "<>", "TOTO"));
+        List<Commentaire> commentaires = commentaireRepository.getDataByCriteria(criterias, "be");
+
+        Assert.assertNotEquals(commentaires.size(), 0);
+
+    }
+
+    @Test(priority = 3, groups = {"Commentaire Test"})
+    public void getCommentaireWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("contenu", "<>", "TOTO"));
+
+        List<String> fields = new ArrayList<String>() {
+            {
+                add("id");
+                add("pseudo");
+            }
+        };
+
+//        List<Commentaire> commentaires = commentaireRepository.getDataByCriteria(criterias, "be", fields);
+
+//        for (Commentaire commentaire : commentaires) {
+//            Assert.assertNotNull(commentaire.getId());
+//            Assert.assertNull(commentaire.getPseudo());
+//        }
+
     }
 
 }

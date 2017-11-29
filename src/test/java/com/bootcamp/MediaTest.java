@@ -6,6 +6,9 @@
 package com.bootcamp;
 
 import com.bootcamp.commons.enums.EntityType;
+import com.bootcamp.commons.exceptions.DatabaseException;
+import com.bootcamp.commons.models.Criteria;
+import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.commons.utils.GsonUtils;
 import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.*;
@@ -17,7 +20,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -48,6 +53,37 @@ public class MediaTest {
 
         List<Media> medias = mediaRepository.findAll();
         //Assert.assertEquals(medias.size(), 7);
+    }
+
+    @Test(priority = 2, groups = {"Media Test"})
+    public void getMediaByCriteria() throws SQLException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("lien", "<>", "TOTO"));
+        List<Media> medias = mediaRepository.getDataByCriteria(criterias, "be");
+
+        Assert.assertNotEquals(medias.size(), 0);
+
+    }
+
+    @Test(priority = 3, groups = {"Media Test"})
+    public void getMediaWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("originalName", "<>", "TOTO"));
+
+        List<String> fields = new ArrayList<String>() {
+            {
+                add("id");
+                add("originalName");
+            }
+        };
+
+        List<Media> medias = mediaRepository.getDataByCriteria(criterias, "be", fields);
+
+//        for (Media media : medias) {
+//            Assert.assertNotNull(media.getId());
+//            Assert.assertNull(media.getOriginalName());
+//        }
+
     }
 
 }
