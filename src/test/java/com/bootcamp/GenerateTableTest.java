@@ -1,3 +1,5 @@
+package com.bootcamp;
+
 import com.bootcamp.constants.AppConstants;
 import org.testng.annotations.Test;
 
