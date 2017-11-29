@@ -26,20 +26,20 @@ public class Media implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
-    
-    @Column(name="originalName", length=45, nullable=false)
+
+    @Column(name = "originalName", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String originalName;
 
-    @Column(name="internalName", length=45, nullable=false)
+    @Column(name = "internalName", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String internalName;
 
-    @Column(name="type", length=45, nullable=false)
+    @Column(name = "type", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String type;
 
-    @Column(name="link", nullable=false)
+    @Column(name = "link", nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String lien;
 
@@ -53,26 +53,44 @@ public class Media implements Serializable {
     @Column(nullable = false)
     private long dateMiseAJour;
 
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @return the originalName
+     */
     public String getOriginalName() {
         return originalName;
     }
 
+    /**
+     * @param originalName the originalName to set
+     */
     public void setOriginalName(String originalName) {
         this.originalName = originalName;
     }
 
+    /**
+     * @return the internalName
+     */
     public String getInternalName() {
         return internalName;
     }
 
+    /**
+     * @param internalName the internalName to set
+     */
     public void setInternalName(String internalName) {
         this.internalName = internalName;
     }
@@ -91,27 +109,46 @@ public class Media implements Serializable {
         this.type = type;
     }
 
+    /**
+     * @return the lien
+     */
     public String getLien() {
         return lien;
     }
 
+    /**
+     * @param lien the lien to set
+     */
     public void setLien(String lien) {
         this.lien = lien;
     }
 
+    /**
+     * @return the dateCreation
+     */
     public long getDateCreation() {
         return dateCreation;
     }
 
+    /**
+     * @param dateCreation the dateCreation to set
+     */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
+    /**
+     * @return the dateMiseAJour
+     */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
+    /**
+     * @param dateMiseAJour the dateMiseAJour to set
+     */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
+
 }

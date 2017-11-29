@@ -44,7 +44,6 @@ public class MediaTest {
             media.setType("tof");
             media.setOriginalName("origin name");
             mediaRepository.create(media);
-
         }
 
         List<Media> medias = mediaRepository.findAll();

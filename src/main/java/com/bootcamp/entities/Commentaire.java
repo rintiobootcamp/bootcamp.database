@@ -27,12 +27,12 @@ public class Commentaire implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
-    
+
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private EntityType entityType;
-    
-    @Column(nullable = false)
+
+    @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenu;
 
@@ -44,54 +44,34 @@ public class Commentaire implements Serializable {
     @ApiModelProperty(value = "update date of Axe")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
-    private long DateMiseAJour;
+    private long dateMiseAJour;
 
     private String pseudo;
 
-    public String getContenu() {
-        return contenu;
-    }
-
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
-    }
-
-    public long getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(long dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
-    public long getDateMiseAJour() {
-        return DateMiseAJour;
-    }
-
-    public void setDateMiseAJour(long dateMiseAJour) {
-        DateMiseAJour = dateMiseAJour;
-    }
-
-    public String getPseudo() {
-        return pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @return the entityType
+     */
     public EntityType getEntityType() {
         return entityType;
     }
 
+    /**
+     * @param entityType the entityType to set
+     */
     public void setEntityType(EntityType entityType) {
         this.entityType = entityType;
     }
@@ -99,16 +79,57 @@ public class Commentaire implements Serializable {
     /**
      * @return the contenu
      */
-    public String getcontenu() {
+    public String getContenu() {
         return contenu;
     }
 
     /**
      * @param contenu the contenu to set
      */
-    public void setcontenu(String contenu) {
+    public void setContenu(String contenu) {
         this.contenu = contenu;
     }
 
+    /**
+     * @return the dateCreation
+     */
+    public long getDateCreation() {
+        return dateCreation;
+    }
+
+    /**
+     * @param dateCreation the dateCreation to set
+     */
+    public void setDateCreation(long dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    /**
+     * @return the dateMiseAJour
+     */
+    public long getDateMiseAJour() {
+        return dateMiseAJour;
+    }
+
+    /**
+     * @param dateMiseAJour the dateMiseAJour to set
+     */
+    public void setDateMiseAJour(long dateMiseAJour) {
+        this.dateMiseAJour = dateMiseAJour;
+    }
+
+    /**
+     * @return the pseudo
+     */
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    /**
+     * @param pseudo the pseudo to set
+     */
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
 
 }

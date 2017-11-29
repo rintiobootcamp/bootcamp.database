@@ -14,85 +14,120 @@ import javax.persistence.Column;
 
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(value = "Id of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
-    
-    @Column(nullable = false)
+
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Login of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String login;
-    
-    @Column(nullable = false)
+
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Password of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Password of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
-
     @Column(nullable = false)
     @ApiModelProperty(value = "Creation date of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private long createAt;
-    
+    private long dateCreation;
+
     @Column(nullable = false)
     @ApiModelProperty(value = "Update date of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private long updateAt;
+    private long dateMiseAJour;
 
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @return the login
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     * @param login the login to set
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     * @return the password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * @param password the password to set
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * @return the nom
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * @param nom the nom to set
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    public long getCreateAt() {
-        return createAt;
+    /**
+     * @return the dateCreation
+     */
+    public long getDateCreation() {
+        return dateCreation;
     }
 
-    public void setCreateAt(long createAt) {
-        this.createAt = createAt;
+    /**
+     * @param dateCreation the dateCreation to set
+     */
+    public void setDateCreation(long dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
-    public long getUpdateAt() {
-        return updateAt;
+    /**
+     * @return the dateMiseAJour
+     */
+    public long getDateMiseAJour() {
+        return dateMiseAJour;
     }
 
-    public void setUpdateAt(long updateAt) {
-        this.updateAt = updateAt;
+    /**
+     * @param dateMiseAJour the dateMiseAJour to set
+     */
+    public void setDateMiseAJour(long dateMiseAJour) {
+        this.dateMiseAJour = dateMiseAJour;
     }
 
-    
 }

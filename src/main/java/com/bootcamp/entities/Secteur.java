@@ -32,17 +32,17 @@ public class Secteur implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Name of the sector", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Description of the sector", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
-    
-    @Column(nullable = false)
+
+    @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Icone of the sector", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String icone;
@@ -50,87 +50,149 @@ public class Secteur implements Serializable {
     @Column(nullable = false)
     @ApiModelProperty(value = "The date when the sector is created", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private long createAt;
+    private long dateCreation;
 
     @Column(nullable = false)
     @ApiModelProperty(value = "The date when the sector is updated", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private long updateAt;
+    private long dateMiseAJour;
 
     private List<Integer> projets;
 
     private List<Integer> medias;
 
     private List<Integer> commentaires;
-    
+
     @ManyToOne
     @ApiModelProperty(value = "The Axe of Secteur", required = true)
     @JoinColumn(name = "axe", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Axe axe;
 
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @return the nom
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * @param nom the nom to set
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * @param description the description to set
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public long getCreateAt() {
-        return createAt;
+    /**
+     * @return the icone
+     */
+    public String getIcone() {
+        return icone;
     }
 
-    public void setCreateAt(long createAt) {
-        this.createAt = createAt;
+    /**
+     * @param icone the icone to set
+     */
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
-    public long getUpdateAt() {
-        return updateAt;
+    /**
+     * @return the dateCreation
+     */
+    public long getDateCreation() {
+        return dateCreation;
     }
 
-    public void setUpdateAt(long updateAt) {
-        this.updateAt = updateAt;
+    /**
+     * @param dateCreation the dateCreation to set
+     */
+    public void setDateCreation(long dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
+    /**
+     * @return the dateMiseAJour
+     */
+    public long getDateMiseAJour() {
+        return dateMiseAJour;
+    }
+
+    /**
+     * @param dateMiseAJour the dateMiseAJour to set
+     */
+    public void setDateMiseAJour(long dateMiseAJour) {
+        this.dateMiseAJour = dateMiseAJour;
+    }
+
+    /**
+     * @return the projets
+     */
     public List<Integer> getProjets() {
-        return this.projets;
+        return projets;
     }
 
+    /**
+     * @param projets the projets to set
+     */
     public void setProjets(List<Integer> projets) {
         this.projets = projets;
     }
 
-    public List<Integer> getCommentaires() {
-        return this.commentaires;
-    }
-
-    public void setCommentaires(List<Integer> commentaires) {
-        this.commentaires = commentaires;
-    }
-
+    /**
+     * @return the medias
+     */
     public List<Integer> getMedias() {
         return medias;
     }
 
+    /**
+     * @param medias the medias to set
+     */
     public void setMedias(List<Integer> medias) {
         this.medias = medias;
+    }
+
+    /**
+     * @return the commentaires
+     */
+    public List<Integer> getCommentaires() {
+        return commentaires;
+    }
+
+    /**
+     * @param commentaires the commentaires to set
+     */
+    public void setCommentaires(List<Integer> commentaires) {
+        this.commentaires = commentaires;
     }
 
     /**
@@ -147,17 +209,4 @@ public class Secteur implements Serializable {
         this.axe = axe;
     }
 
-    /**
-     * @return the icone
-     */
-    public String getIcone() {
-        return icone;
-    }
-
-    /**
-     * @param icone the icone to set
-     */
-    public void setIcone(String icone) {
-        this.icone = icone;
-    }
 }
