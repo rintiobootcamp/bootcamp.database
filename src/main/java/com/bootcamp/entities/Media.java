@@ -9,11 +9,14 @@ import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -27,18 +30,26 @@ public class Media implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "originalName", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String originalName;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "internalName", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String internalName;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "type", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String type;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "link", nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String lien;

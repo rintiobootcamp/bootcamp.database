@@ -1,38 +1,32 @@
 [
     { 
-        "id": 1,
         "nom": "Agriculture",
         "description": "",
         "objectif": ""
     },
     { 
-        "id": 2,
         "nom": "Numerique",
         "description": "",
         "objectif": ""
     },
 
     { 
-        "id": 3,
         "nom": "Infrastructure",
         "description": "",
         "objectif": ""
     },
 
     { 
-        "id": 4,
         "nom": "CIIS",
         "description": "",
         "objectif": ""
     },
     { 
-        "id": 5,
         "nom": "Electricité",
         "description": "",
         "objectif": ""
     },
     { 
-        "id": 6,
         "nom": "CadreDeVie",
         "description": "",
         "objectif": ""
@@ -44,13 +38,11 @@
         "objectif": ""
     },
     { 
-        "id": 8,
         "nom": "ProtectionSociale",
         "description": "",
         "objectif": ""
     },
     { 
-        "id": 9,
         "nom": "Tourisme",
         "description": "",
         "objectif": ""

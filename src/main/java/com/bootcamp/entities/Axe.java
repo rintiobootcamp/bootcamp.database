@@ -19,26 +19,36 @@ public class Axe implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 1024)
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @Column(nullable = false, length = 2000)
     @ApiModelProperty(value = "name of Axe", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
-    @Column(nullable = false, length = 1024)
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @Column(nullable = false, length = 2000)
     @ApiModelProperty(value = "description of Axe", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
 
-    @Column(nullable = false, length = 1024)
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @Column(nullable = false, length = 2000)
     @ApiModelProperty(value = "title of Axe", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String titre;
 
-    @Column(nullable = false, length = 1024)
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @Column(nullable = false, length = 2000)
     @ApiModelProperty(value = "title of focus", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String titreFocus;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "focus description", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
