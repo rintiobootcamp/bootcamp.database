@@ -10,11 +10,7 @@ import com.bootcamp.commons.enums.EntityType;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  *
@@ -30,6 +26,7 @@ public class Commentaire implements Serializable {
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Enumerated(EnumType.STRING)
     private EntityType entityType;
     
     @Column(nullable = false)
