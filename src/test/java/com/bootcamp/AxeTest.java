@@ -44,6 +44,11 @@ public class AxeTest {
         //Assert.assertEquals(axes.size(), 7);
     }
 
+    @Test
+    public void loadData() {
+
+    }
+
     @Test(priority = 2, groups = {"Axe Test"})
     public void getAxeByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
