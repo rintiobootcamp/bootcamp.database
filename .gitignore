@@ -5,3 +5,4 @@ batabase.iml
 lib
 nb-configuration.xml
 
+/src/main/resources/local/
