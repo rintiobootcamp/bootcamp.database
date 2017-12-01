@@ -6,24 +6,16 @@
 package com.bootcamp;
 
 import com.bootcamp.commons.exceptions.DatabaseException;
-import com.bootcamp.commons.utils.GsonUtils;
 import com.bootcamp.commons.models.*;
 import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.*;
 import com.bootcamp.repositories.*;
-import com.google.common.reflect.TypeToken;
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -38,7 +30,7 @@ public class ProjetTest {
     @Test
     public void createProjet() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Projet Projet 1", "Projet Projet 2", "Projet Projet 3", "Projet Projet 4", "Projet Projet 5", "Projet Projet 6", "Projet Projet 7"};
-
+//        int j=0;//number of sector incrementor
         for (int i = 0; i < nom.length; i++) {
             Projet projet = new Projet();
             projet.setNom(nom[i]);
@@ -52,6 +44,8 @@ public class ProjetTest {
             projet.setDateDebutReel(15118908400L);
             projet.setDateFinPrevisionnel(15118908400L);
             projet.setDateFinReel(15118908400L);
+            projet.setIdSecteur(1);
+
             projetRepository.create(projet);
         }
 

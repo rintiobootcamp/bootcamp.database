@@ -75,7 +75,10 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
 
-    private List<Integer> idSecteurs;
+    @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to",required = true)
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private int idSecteur;
 
     @ManyToMany(mappedBy = "projets")
     private List<Region> regions = new ArrayList<Region>();
@@ -262,18 +265,12 @@ public class Projet implements Serializable {
         this.phases = phases;
     }
 
-    /**
-     * @return the idSecteurs
-     */
-    public List<Integer> getIdSecteurs() {
-        return idSecteurs;
+    public int getIdSecteur() {
+        return idSecteur;
     }
 
-    /**
-     * @param idSecteurs the idSecteurs to set
-     */
-    public void setIdSecteurs(List<Integer> idSecteurs) {
-        this.idSecteurs = idSecteurs;
+    public void setIdSecteur(int idSecteur) {
+        this.idSecteur = idSecteur;
     }
 
     /**

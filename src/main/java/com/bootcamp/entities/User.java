@@ -46,86 +46,50 @@ public class User {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    /**
-     * @return the id
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the login
-     */
     public String getLogin() {
         return login;
     }
 
-    /**
-     * @param login the login to set
-     */
     public void setLogin(String login) {
         this.login = login;
     }
 
-    /**
-     * @return the password
-     */
     public String getPassword() {
         return password;
     }
 
-    /**
-     * @param password the password to set
-     */
     public void setPassword(String password) {
         this.password = password;
     }
 
-    /**
-     * @return the nom
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * @param nom the nom to set
-     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * @return the dateCreation
-     */
     public long getDateCreation() {
         return dateCreation;
     }
 
-    /**
-     * @param dateCreation the dateCreation to set
-     */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    /**
-     * @return the dateMiseAJour
-     */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
-    /**
-     * @param dateMiseAJour the dateMiseAJour to set
-     */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
