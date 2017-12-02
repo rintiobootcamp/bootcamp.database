@@ -57,10 +57,6 @@ public class Secteur implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    private List<Integer> projets;
-
-    private List<Integer> medias;
-
     @ManyToOne
     @ApiModelProperty(value = "The Axe of Secteur", required = true)
     @JoinColumn(name = "axe", referencedColumnName = "id", insertable = false, updatable = false)
@@ -149,34 +145,6 @@ public class Secteur implements Serializable {
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
-    }
-
-    /**
-     * @return the projets
-     */
-    public List<Integer> getProjets() {
-        return projets;
-    }
-
-    /**
-     * @param projets the projets to set
-     */
-    public void setProjets(List<Integer> projets) {
-        this.projets = projets;
-    }
-
-    /**
-     * @return the medias
-     */
-    public List<Integer> getMedias() {
-        return medias;
-    }
-
-    /**
-     * @param medias the medias to set
-     */
-    public void setMedias(List<Integer> medias) {
-        this.medias = medias;
     }
 
     /**

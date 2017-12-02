@@ -68,9 +68,6 @@ public class Axe implements Serializable {
     @ApiModelProperty(value = "list of sectors of Axe", required = true)
     private List<Secteur> secteurs;
 
-    @ApiModelProperty(value = "list of medias of Axe", required = true)
-    private List<Integer> medias;
-
     @ManyToOne
     @ApiModelProperty(value = "The pilier of Axe", required = true)
     @JoinColumn(name = "pilier", referencedColumnName = "id", insertable = false, updatable = false)
@@ -203,19 +200,6 @@ public class Axe implements Serializable {
         this.secteurs = secteurs;
     }
 
-    /**
-     * @return the medias
-     */
-    public List<Integer> getMedias() {
-        return medias;
-    }
-
-    /**
-     * @param medias the medias to set
-     */
-    public void setMedias(List<Integer> medias) {
-        this.medias = medias;
-    }
 
     /**
      * @return the pilier

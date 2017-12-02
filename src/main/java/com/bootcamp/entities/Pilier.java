@@ -39,10 +39,6 @@ public class Pilier implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @Column(nullable = true)
-    @ApiModelProperty(value = "media list", notes = "the list of all media  related to this pilar")
-    private List<Integer> medias;
-
     @OneToMany
     @NotNull(message = "The list of axes field must not be empty")
     private List<Axe> axes;
@@ -115,20 +111,6 @@ public class Pilier implements Serializable {
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
-    }
-
-    /**
-     * @return the medias
-     */
-    public List<Integer> getMedias() {
-        return medias;
-    }
-
-    /**
-     * @param medias the medias to set
-     */
-    public void setMedias(List<Integer> medias) {
-        this.medias = medias;
     }
 
     /**
