@@ -6,36 +6,29 @@
 package com.bootcamp;
 
 import com.bootcamp.commons.exceptions.DatabaseException;
-import com.bootcamp.commons.utils.GsonUtils;
-import com.bootcamp.commons.models.*;
+import com.bootcamp.commons.models.Criteria;
+import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.constants.AppConstants;
-import com.bootcamp.entities.*;
-import com.bootcamp.repositories.*;
-import com.google.common.reflect.TypeToken;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.lang.reflect.InvocationTargetException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import com.bootcamp.entities.User;
+import com.bootcamp.repositories.UserRepository;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author Iso-Doss
  */
 public class UserTest {
 
     private final UserRepository userRepository = new UserRepository(AppConstants.PERSISTENCE_UNIT);
 
-    //@Test
+    @Test(priority = 0, groups = {"User Test"})
     public void createUser() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"User User 1", "User User 2", "User User 3", "User User 4", "User User 5", "User User 6", "User User 7"};
 
@@ -50,37 +43,32 @@ public class UserTest {
         }
 
         List<User> users = userRepository.findAll();
-        //Assert.assertEquals(users.size(), 7);
+        Assert.assertEquals(users.size(), 7);
     }
 
-    //@Test(priority = 2, groups = {"User Test"})
+    @Test(priority = 1, groups = {"User Test"})
     public void getUserByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
         List<User> users = userRepository.getDataByCriteria(criterias, "be");
-
         Assert.assertNotEquals(users.size(), 0);
-
     }
 
-    //@Test(priority = 3, groups = {"User Test"})
+    //@Test(priority = 2, groups = {"User Test"})
     public void getUserWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
-
         List<String> fields = new ArrayList<String>() {
             {
                 add("id");
                 add("nom");
             }
         };
-
-//        List<User> users = userRepository.getDataByCriteria(criterias, "be", fields);
-//
-//        for (User user : users) {
-//            Assert.assertNotNull(user.getId());
-//            Assert.assertNull(user.getNom());
-//        }
+        List<User> users = userRepository.getDataByCriteria(criterias, "be", fields);
+        for (User user : users) {
+            Assert.assertNotNull(user.getId());
+            Assert.assertNull(user.getNom());
+        }
     }
 
 }

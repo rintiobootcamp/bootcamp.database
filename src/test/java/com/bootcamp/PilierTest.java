@@ -36,7 +36,7 @@ public class PilierTest {
 
     private final PilierRepository pilierRepository = new PilierRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 1, groups = {"Pilier Pilier"})
+    @Test(priority = 0, groups = {"Pilier Pilier"})
     public void createPilier() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Pilier 1", "Pilier 2", "Pilier 3", "Pilier 4", "Pilier 5", "Pilier 6", "Pilier 7"};
         for (int i = 0; i < nom.length; i++) {

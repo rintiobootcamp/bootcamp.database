@@ -35,10 +35,9 @@ public class SecteurTest {
 
     private final SecteurRepository secteurRepository = new SecteurRepository(AppConstants.PERSISTENCE_UNIT);
 
-    //@Test
+    @Test(priority = 0, groups = {"Secteur Test"})
     public void createSecteur() throws SQLException, FileNotFoundException, IOException {
-        String nom[] = {"Secteur Secteur 1", "Secteur Secteur 2", "Secteur Secteur 3", "Secteur Secteur 4", "Secteur Secteur 5", "Secteur Secteur 6", "Secteur Secteur 7"};
-
+        String nom[] = {"Secteur 1", "Secteur 2", "Secteur 3", "Secteur 4", "Secteur 5", "Secteur 6", "Secteur 7"};
         for (int i = 0; i < nom.length; i++) {
             Secteur secteur = new Secteur();
             secteur.setNom(nom[i]);
@@ -49,40 +48,33 @@ public class SecteurTest {
             secteur.setIcone("icone");
             secteurRepository.create(secteur);
         }
-
         List<Secteur> secteurs = secteurRepository.findAll();
-        //Assert.assertEquals(secteurs.size(), 7);
+        Assert.assertEquals(secteurs.size(), 7);
     }
 
-    //@Test(priority = 2, groups = {"Secteur Test"})
+    @Test(priority = 1, groups = {"Secteur Test"})
     public void getSecteurByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
         List<Secteur> secteurs = secteurRepository.getDataByCriteria(criterias, "be");
-
         Assert.assertNotEquals(secteurs.size(), 0);
-
     }
 
-    //@Test(priority = 3, groups = {"Secteur Test"})
+    @Test(priority = 2, groups = {"Secteur Test"})
     public void getSecteurWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
-
         List<String> fields = new ArrayList<String>() {
             {
                 add("id");
                 add("nom");
             }
         };
-
         List<Secteur> secteurs = secteurRepository.getDataByCriteria(criterias, "be", fields);
-
         for (Secteur secteur : secteurs) {
             Assert.assertNotNull(secteur.getId());
             Assert.assertNull(secteur.getDescription());
         }
-
     }
 
 }
