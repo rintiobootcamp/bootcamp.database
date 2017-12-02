@@ -6,17 +6,11 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
+import com.bootcamp.commons.enums.EntityType;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 /**
  *
@@ -41,6 +35,15 @@ public class Media implements Serializable {
     @Column(name = "internalName", length = 45, nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String internalName;
+
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Enumerated(EnumType.STRING)
+    private EntityType entityType;
+
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private int entityId;
 
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
@@ -162,4 +165,19 @@ public class Media implements Serializable {
         this.dateMiseAJour = dateMiseAJour;
     }
 
+    public EntityType getEntityType() {
+        return entityType;
+    }
+
+    public void setEntityType(EntityType entityType) {
+        this.entityType = entityType;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
+    }
 }
