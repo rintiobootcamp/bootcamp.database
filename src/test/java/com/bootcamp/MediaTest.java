@@ -40,7 +40,7 @@ public class MediaTest {
             media.setDateMiseAJour(1511890840L);
             media.setLien("lien");
             media.setType("tof");
-            media.setEntityType(EntityType.PROJET);
+            media.setEntityType(EntityType.PROJET.name());
             media.setOriginalName("origin name");
             media.setEntityId(1);
             mediaRepository.create(media);
