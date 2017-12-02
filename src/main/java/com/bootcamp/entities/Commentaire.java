@@ -26,8 +26,7 @@ public class Commentaire implements Serializable {
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @Enumerated(EnumType.STRING)
-    private EntityType entityType;
+    private String entityType;
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
@@ -65,20 +64,6 @@ public class Commentaire implements Serializable {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * @return the entityType
-     */
-    public EntityType getEntityType() {
-        return entityType;
-    }
-
-    /**
-     * @param entityType the entityType to set
-     */
-    public void setEntityType(EntityType entityType) {
-        this.entityType = entityType;
     }
 
     /**
@@ -179,4 +164,11 @@ public class Commentaire implements Serializable {
         this.userMail = userMail;
     }
 
+    public String getEntityType() {
+        return entityType;
+    }
+
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
+    }
 }

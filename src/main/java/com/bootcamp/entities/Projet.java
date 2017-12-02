@@ -16,16 +16,22 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "Id of the project", notes = "This id is automatically generated ,it doesn't required")
     private int id;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "Name of the Project", required = true)
     private String nom;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "Reference of the Project", required = true)
     private String reference;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "Description of the Project", required = true)
@@ -66,6 +72,8 @@ public class Projet implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @ApiModelProperty(value = "Objectif of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)

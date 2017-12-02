@@ -38,7 +38,7 @@ public class CommentaireTest {
             commentaire.setPseudo(pseudo[i]);
             commentaire.setDateCreation(15118908400L);
             commentaire.setDateMiseAJour(1511890840L);
-            commentaire.setEntityType(EntityType.PROJET);
+            commentaire.setEntityType("Projet");
             commentaireRepository.create(commentaire);
         }
         List<Commentaire> commentaires = commentaireRepository.findAll();

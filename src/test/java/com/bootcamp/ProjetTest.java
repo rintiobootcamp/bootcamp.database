@@ -36,7 +36,6 @@ public class ProjetTest {
             Projet projet = new Projet();
             projet.setNom(nom[i]);
             projet.setDescription("Description projet");
-            projet.setDescription("Description projet");
             projet.setReference("reference");
             projet.setObjectif("objectif");
             projet.setCoutReel(15118908400L);
