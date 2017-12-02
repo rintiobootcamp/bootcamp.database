@@ -31,7 +31,7 @@ public class AxeTest {
 
     private final AxeRepository axeRepository = new AxeRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test
+   @Test(priority = 0, groups = {"Axe Test"})
     public void createAxe() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Axe stratégique 1", "Axe stratégique 2", "Axe stratégique 3", "Axe stratégique 4", "Axe stratégique 5", "Axe stratégique 6", "Axe stratégique 7"};
         for (int i = 0; i < nom.length; i++) {
@@ -45,42 +45,36 @@ public class AxeTest {
             axe.setDateMiseAJour(1511890840L);
             axeRepository.create(axe);
         }
-
         List<Axe> axes = axeRepository.findAll();
-        //Assert.assertEquals(axes.size(), 7);
+        Assert.assertEquals(axes.size(), 7);
     }
 
-    @Test(priority = 2, groups = {"Axe Test"})
+    @Test(priority = 1, groups = {"Axe Test"})
     public void getAxeByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
         List<Axe> axes = axeRepository.getDataByCriteria(criterias, "be");
-
         Assert.assertNotEquals(axes.size(), 0);
-
     }
 
     @Test(priority = 3, groups = {"Axe Test"})
     public void getAxeWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
-
         List<String> fields = new ArrayList<String>() {
             {
                 add("id");
                 add("nom");
             }
         };
-
         List<Axe> axes = axeRepository.getDataByCriteria(criterias, "be", fields);
-
         for (Axe axe : axes) {
             Assert.assertNotNull(axe.getId());
             Assert.assertNull(axe.getDescription());
         }
     }
 
-    @Test
+    @Test(priority = 3, groups = {"Axe Test"})
     public void loadDataFromJsonFile() throws Exception {
         TestUtils testUtils = new TestUtils();
         File dataFile = testUtils.getFile("data-json" + File.separator + "axes.json");

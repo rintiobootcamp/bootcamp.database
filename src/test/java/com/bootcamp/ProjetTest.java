@@ -27,7 +27,7 @@ public class ProjetTest {
 
     private final ProjetRepository projetRepository = new ProjetRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test
+    //@Test
     public void createProjet() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Projet Projet 1", "Projet Projet 2", "Projet Projet 3", "Projet Projet 4", "Projet Projet 5", "Projet Projet 6", "Projet Projet 7"};
 //        int j=0;//number of sector incrementor
@@ -53,7 +53,7 @@ public class ProjetTest {
         //Assert.assertEquals(projets.size(), 7);
     }
 
-    @Test(priority = 2, groups = {"Projet Test"})
+    //@Test(priority = 2, groups = {"Projet Test"})
     public void getProjetByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
@@ -63,7 +63,7 @@ public class ProjetTest {
 
     }
 
-    @Test(priority = 3, groups = {"Projet Test"})
+    //@Test(priority = 3, groups = {"Projet Test"})
     public void getProjetWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));

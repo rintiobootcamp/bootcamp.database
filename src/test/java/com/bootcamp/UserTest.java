@@ -35,7 +35,7 @@ public class UserTest {
 
     private final UserRepository userRepository = new UserRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test
+    //@Test
     public void createUser() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"User User 1", "User User 2", "User User 3", "User User 4", "User User 5", "User User 6", "User User 7"};
 
@@ -53,7 +53,7 @@ public class UserTest {
         //Assert.assertEquals(users.size(), 7);
     }
 
-    @Test(priority = 2, groups = {"User Test"})
+    //@Test(priority = 2, groups = {"User Test"})
     public void getUserByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
@@ -63,7 +63,7 @@ public class UserTest {
 
     }
 
-    @Test(priority = 3, groups = {"User Test"})
+    //@Test(priority = 3, groups = {"User Test"})
     public void getUserWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));

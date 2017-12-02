@@ -5,6 +5,9 @@
  */
 package com.bootcamp;
 
+import com.bootcamp.commons.exceptions.DatabaseException;
+import com.bootcamp.commons.models.Criteria;
+import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.commons.utils.GsonUtils;
 import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.*;
@@ -16,7 +19,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,10 +36,9 @@ public class PilierTest {
 
     private final PilierRepository pilierRepository = new PilierRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test
+    @Test(priority = 1, groups = {"Pilier Pilier"})
     public void createPilier() throws SQLException, FileNotFoundException, IOException {
-        String nom[] = {"Pilier Pilier 1", "Pilier Pilier 2", "Pilier Pilier 3", "Pilier Pilier 4", "Pilier Pilier 5", "Pilier Pilier 6", "Pilier Pilier 7"};
-
+        String nom[] = {"Pilier 1", "Pilier 2", "Pilier 3", "Pilier 4", "Pilier 5", "Pilier 6", "Pilier 7"};
         for (int i = 0; i < nom.length; i++) {
             Pilier pilier = new Pilier();
             pilier.setNom(nom[i]);
@@ -43,9 +47,34 @@ public class PilierTest {
             pilier.setDateMiseAJour(15118908400L);
             pilierRepository.create(pilier);
         }
-
         List<Pilier> piliers = pilierRepository.findAll();
-        //Assert.assertEquals(piliers.size(), 7);
+        Assert.assertEquals(piliers.size(), 7);
+    }
+
+
+    @Test(priority = 1, groups = {"Pilier Test"})
+    public void getPilierByCriteria() throws SQLException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
+        List<Pilier> piliers = pilierRepository.getDataByCriteria(criterias, "be");
+        Assert.assertNotEquals(piliers.size(), 0);
+    }
+
+    //@Test(priority = 2, groups = {"Pilier Test"})
+    public void getPilierWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("nom", "<>", "Pilier 1"));
+        List<String> fields = new ArrayList<String>() {
+            {
+                add("id");
+                add("nom");
+            }
+        };
+        List<Pilier> piliers = pilierRepository.getDataByCriteria(criterias, "be", fields);
+        for (Pilier pilier : piliers) {
+            Assert.assertNotNull(pilier.getId());
+            Assert.assertNull(pilier.getNom());
+        }
     }
 
 }

@@ -13,26 +13,28 @@ import com.bootcamp.entities.Pilier;
 import com.bootcamp.entities.Secteur;
 import com.bootcamp.repositories.AxeRepository;
 import com.bootcamp.repositories.PilierRepository;
+import com.bootcamp.repositories.ProjetRepository;
 import com.bootcamp.repositories.SecteurRepository;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import com.google.gson.reflect.TypeToken;
+import org.testng.annotations.Test;
+
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.List;
-import org.testng.annotations.Test;
 
 /**
- *
  * @author Iso-Doss
  */
-public class loadDataFromJsonFile {
+public class loadDataFromJsonFileTest {
 
     private final AxeRepository axeRepository = new AxeRepository(AppConstants.PERSISTENCE_UNIT);
     private final SecteurRepository secteurRepository = new SecteurRepository(AppConstants.PERSISTENCE_UNIT);
     private final PilierRepository pilierRepository = new PilierRepository(AppConstants.PERSISTENCE_UNIT);
+    private final ProjetRepository projetRepository = new ProjetRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"load Data From JsonFile"})
+    @Test(priority = 0, groups = {"load Data From JsonFile Test"})
     public void loadDataAxeFromJsonFile() throws Exception {
         TestUtils testUtils = new TestUtils();
         File dataFile = testUtils.getFile("data-json" + File.separator + "axes.json");
@@ -50,7 +52,7 @@ public class loadDataFromJsonFile {
 
     }
 
-    //@Test(priority = 1, groups = {"load Data From JsonFile"})
+    @Test(priority = 1, groups = {"load Data From JsonFile Test"})
     public void loadDataSecteurFromJsonFile() throws Exception {
         TestUtils testUtils = new TestUtils();
         File dataFile = testUtils.getFile("data-json" + File.separator + "secteurs.json");
@@ -67,8 +69,8 @@ public class loadDataFromJsonFile {
         }
     }
 
-    //@Test(priority = 2, groups = {"load Data From JsonFile"})
-    public void loadDatalierFromJsonFile() throws Exception {
+    @Test(priority = 2, groups = {"load Data From JsonFile Test"})
+    public void loadDataPilierFromJsonFile() throws Exception {
         TestUtils testUtils = new TestUtils();
         File dataFile = testUtils.getFile("data-json" + File.separator + "piliers.json");
 
