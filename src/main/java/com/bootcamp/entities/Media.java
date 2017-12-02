@@ -38,8 +38,7 @@ public class Media implements Serializable {
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @Enumerated(EnumType.STRING)
-    private EntityType entityType;
+    private String entityType;
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
@@ -165,11 +164,11 @@ public class Media implements Serializable {
         this.dateMiseAJour = dateMiseAJour;
     }
 
-    public EntityType getEntityType() {
+    public String getEntityType() {
         return entityType;
     }
 
-    public void setEntityType(EntityType entityType) {
+    public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
 
