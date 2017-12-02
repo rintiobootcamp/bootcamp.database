@@ -108,6 +108,8 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
 
 
     public List<T> getDataByCriteria(Criterias criterias, String entityPrefix) {
+        criterias.setEntityClass(entityClass);
+
         String request = criterias.getAsStringQuery(entityPrefix);
         String className = entityClass.getSimpleName();
 
@@ -118,10 +120,14 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
     }
 
     public List<T> getDataByCriteria(Criterias criterias) {
+        criterias.setEntityClass(entityClass);
+
         return getDataByCriteria(criterias, QUERY_PREFIX);
     }
 
     public List<T> getDataByCriteria(Criterias criterias, String entityPrefix, int page, int size) {
+        criterias.setEntityClass(entityClass);
+
         String request = criterias.getAsStringQuery(entityPrefix);
         String className = entityClass.getSimpleName();
 
@@ -134,11 +140,15 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
     }
 
     public List<T> getDataByCriteria(Criterias criterias, int page, int size) {
+        criterias.setEntityClass(entityClass);
+
         return getDataByCriteria(criterias, QUERY_PREFIX, page, size);
     }
 
 
     public List<T> getDataByCriteria(Criterias criterias, String entityPrefix, List<String> fields) throws IllegalAccessException, DatabaseException, InvocationTargetException {
+        criterias.setEntityClass(entityClass);
+
         String request = criterias.getAsStringQuery(entityPrefix);
         String fullClassname = entityClass.getName();
         String className = entityClass.getSimpleName();
@@ -164,6 +174,8 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
     }
 
     public List<T> getDataByCriteria(Criterias criterias, List<String> fields) throws IllegalAccessException, DatabaseException, InvocationTargetException {
+        criterias.setEntityClass(entityClass);
+
         return getDataByCriteria(criterias, QUERY_PREFIX, fields);
     }
 
@@ -193,6 +205,8 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
     }
 
     public List<T> getDataByCriteria(Criterias criterias, String entityPrefix, List<String> fields ,int page, int size) throws IllegalAccessException, DatabaseException, InvocationTargetException {
+        criterias.setEntityClass(entityClass);
+
         String request = criterias.getAsStringQuery(entityPrefix);
         String className = entityClass.getSimpleName();
 
@@ -216,6 +230,8 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
     }
 
     public List<T> getDataByCriteria(Criterias criterias, List<String> fields, int page, int size) throws IllegalAccessException, DatabaseException, InvocationTargetException {
+        criterias.setEntityClass(entityClass);
+
         return getDataByCriteria(criterias,QUERY_PREFIX, fields, page, size);
     }
 
