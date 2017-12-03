@@ -12,7 +12,6 @@ import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.Media;
 import com.bootcamp.repositories.MediaRepository;
-import com.sun.javafx.scene.EnteredExitedHandler;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
