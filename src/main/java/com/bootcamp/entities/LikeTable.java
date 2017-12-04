@@ -15,12 +15,12 @@ import javax.persistence.Id;
  * Created by Archange on 04/12/2017.
  */
 @Entity
-@ApiModel(value = "Like", description = "Descripition of like")
-public class Like implements Serializable  {
+@ApiModel(value = "Like", description = "Descripition of a Like")
+public class LikeTable implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
@@ -33,6 +33,21 @@ public class Like implements Serializable  {
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String noteType;
+
+    @ApiModelProperty(value = "creation date of the Like")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateCreation;
+
+    @ApiModelProperty(value = "update date of the Like")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private long dateMiseAJour;
+
+    @ApiModelProperty(value = "like type")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
     private boolean likeType;
 
     public boolean isLikeType() {
@@ -43,6 +58,10 @@ public class Like implements Serializable  {
         this.likeType = likeType;
     }
 
+    
+
+
+       
     public int getId() {
         return id;
     }
@@ -67,8 +86,17 @@ public class Like implements Serializable  {
         this.entityId = entityId;
     }
 
+    public String getNoteType() {
+        return noteType;
+    }
+
+    public void setNoteType(String noteType) {
+        this.noteType = noteType;
+    }
+
     public long getDateCreation() {
         return dateCreation;
+
     }
 
     public void setDateCreation(long dateCreation) {
@@ -82,16 +110,5 @@ public class Like implements Serializable  {
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
-
-
-    @ApiModelProperty(value = "creation date of Axe")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @Column(nullable = false)
-    private long dateCreation;
-
-    @ApiModelProperty(value = "update date of Axe")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @Column(nullable = false)
-    private long dateMiseAJour;
 
 }
