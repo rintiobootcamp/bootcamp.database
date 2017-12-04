@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.lang.reflect.Type;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -54,26 +55,6 @@ public class loadDataFromJsonFileTest {
     }
 
     @Test(priority = 1, groups = {"load Data From JsonFile Test"})
-    public void loadDataAxeFromJsonFile() throws Exception {
-        TestUtils testUtils = new TestUtils();
-        File dataFile = testUtils.getFile("data-json" + File.separator + "axes.json");
-
-        String text = Files.toString(new File(dataFile.getAbsolutePath()), Charsets.UTF_8);
-
-        Type typeOfObjectsListNew = new TypeToken<List<Axe>>() {
-        }.getType();
-        List<Axe> axes = GsonUtils.getObjectFromJson(text, typeOfObjectsListNew);
-        List<Secteur> secteurs = secteurRepository.findAll();
-
-        for (int i = 0; i < axes.size(); i++) {
-            Axe get = axes.get(i);
-            get.setSecteurs(secteurs);
-            axeRepository.create(get);
-        }
-
-    }
-
-    @Test(priority = 2, groups = {"load Data From JsonFile Test"})
     public void loadDataSecteurFromJsonFile() throws Exception {
         TestUtils testUtils = new TestUtils();
         File dataFile = testUtils.getFile("data-json" + File.separator + "secteurs.json");
@@ -89,6 +70,48 @@ public class loadDataFromJsonFileTest {
         }
     }
 
+    @Test(priority = 2, groups = {"load Data From JsonFile Test"})
+    public void loadDataAxeFromJsonFile() throws Exception {
+        TestUtils testUtils = new TestUtils();
+        File dataFile = testUtils.getFile("data-json" + File.separator + "axes.json");
+
+        String text = Files.toString(new File(dataFile.getAbsolutePath()), Charsets.UTF_8);
+
+        Type typeOfObjectsListNew = new TypeToken<List<Axe>>() {
+        }.getType();
+        List<Axe> axes = GsonUtils.getObjectFromJson(text, typeOfObjectsListNew);
+        for (int i = 0; i < axes.size(); i++) {
+            Axe get = axes.get(i);
+            List<Secteur> secteurs = new LinkedList();
+            switch (i) {
+                case 0:
+                    secteurs.add(secteurRepository.findById(8));
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    secteurs.add(secteurRepository.findById(1));
+                    secteurs.add(secteurRepository.findById(2));
+                    secteurs.add(secteurRepository.findById(5));
+                    secteurs.add(secteurRepository.findById(9));
+                    break;
+                case 4:
+                    secteurs.add(secteurRepository.findById(3));
+                    break;
+                case 5:
+                    secteurs.add(secteurRepository.findById(8));
+                    break;
+                case 6:
+                    secteurs.add(secteurRepository.findById(6));
+                    break;
+            }
+            get.setSecteurs(secteurs);
+            axeRepository.create(get);
+        }
+    }
+
     @Test(priority = 3, groups = {"load Data From JsonFile Test"})
     public void loadDataPilierFromJsonFile() throws Exception {
         TestUtils testUtils = new TestUtils();
@@ -99,11 +122,28 @@ public class loadDataFromJsonFileTest {
         Type typeOfObjectsListNew = new TypeToken<List<Pilier>>() {
         }.getType();
         List<Pilier> piliers = GsonUtils.getObjectFromJson(text, typeOfObjectsListNew);
-        List<Axe> axes = axeRepository.findAll();
+        //List<Axe> axes = axeRepository.findAll();
         for (int i = 0; i < piliers.size(); i++) {
+            List<Axe> axes = new LinkedList();
             Pilier get = piliers.get(i);
+            switch (i) {
+                case 0:
+                    axes.add(axeRepository.findById(1));
+                    axes.add(axeRepository.findById(2));
+                    break;
+                case 1:
+                    axes.add(axeRepository.findById(3));
+                    axes.add(axeRepository.findById(4));
+                    axes.add(axeRepository.findById(5));
+                    break;
+                case 2:
+                    axes.add(axeRepository.findById(6));
+                    axes.add(axeRepository.findById(7));
+                    break;
+            }
             get.setAxes(axes);
             pilierRepository.create(get);
         }
     }
+
 }
