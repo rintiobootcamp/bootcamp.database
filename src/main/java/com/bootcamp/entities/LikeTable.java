@@ -31,10 +31,6 @@ public class LikeTable implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
 
-    @Column(nullable = false)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private String noteType;
-
     @ApiModelProperty(value = "creation date of the Like")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
@@ -58,10 +54,6 @@ public class LikeTable implements Serializable {
         this.likeType = likeType;
     }
 
-    
-
-
-       
     public int getId() {
         return id;
     }
@@ -84,14 +76,6 @@ public class LikeTable implements Serializable {
 
     public void setEntityId(int entityId) {
         this.entityId = entityId;
-    }
-
-    public String getNoteType() {
-        return noteType;
-    }
-
-    public void setNoteType(String noteType) {
-        this.noteType = noteType;
     }
 
     public long getDateCreation() {
