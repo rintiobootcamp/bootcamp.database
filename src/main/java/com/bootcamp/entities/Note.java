@@ -3,19 +3,24 @@ package com.bootcamp.entities;
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by Archange on 04/12/2017.
  */
 @Entity
 @ApiModel(value = "Note", description = "Note of Descripition")
-public class Note {
+public class Note implements Serializable {
 
-    @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)
@@ -24,7 +29,6 @@ public class Note {
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-
     private int entityId;
 
     @Column(nullable = false)
@@ -64,7 +68,6 @@ public class Note {
     public void setEntityId(int entityId) {
         this.entityId = entityId;
     }
-
 
     public String getNoteType() {
         return noteType;

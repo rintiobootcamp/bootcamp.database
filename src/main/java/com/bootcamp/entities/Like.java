@@ -3,18 +3,23 @@ package com.bootcamp.entities;
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by Archange on 04/12/2017.
  */
 @Entity
 @ApiModel(value = "Like", description = "Descripition of like")
-public class Like {
+public class Like implements Serializable  {
 
-    @Column(nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
@@ -24,8 +29,19 @@ public class Like {
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-
     private int entityId;
+
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean likeType;
+
+    public boolean isLikeType() {
+        return likeType;
+    }
+
+    public void setLikeType(boolean likeType) {
+        this.likeType = likeType;
+    }
 
     public int getId() {
         return id;
@@ -51,14 +67,6 @@ public class Like {
         this.entityId = entityId;
     }
 
-    public int getLikeType() {
-        return likeType;
-    }
-
-    public void setLikeType(int likeType) {
-        this.likeType = likeType;
-    }
-
     public long getDateCreation() {
         return dateCreation;
     }
@@ -75,9 +83,6 @@ public class Like {
         this.dateMiseAJour = dateMiseAJour;
     }
 
-    @Column(nullable = false)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private int likeType;
 
     @ApiModelProperty(value = "creation date of Axe")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
@@ -88,7 +93,5 @@ public class Like {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;
-
-
 
 }
