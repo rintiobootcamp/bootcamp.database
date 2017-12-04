@@ -5,15 +5,14 @@
  */
 package com.bootcamp.repositories;
 
-import com.bootcamp.entities.Commentaire;
 import com.bootcamp.entities.LikeTable;
 
 /**
  *
  * @author Archange
  */
-public class LikeRepository extends BaseRepository<LikeTable>{
-    public LikeRepository(String unitPersistence) {
+public class LikeTableRepository extends BaseRepository<LikeTable>{
+    public LikeTableRepository(String unitPersistence) {
         super(unitPersistence, LikeTable.class);
     }    
 }
