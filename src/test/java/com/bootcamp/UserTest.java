@@ -28,7 +28,7 @@ public class UserTest {
 
     private final UserRepository userRepository = new UserRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"User Test"})
+    //@Test(priority = 0, groups = {"User Test"})
     public void createUser() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"User User 1", "User User 2", "User User 3", "User User 4", "User User 5", "User User 6", "User User 7"};
 
@@ -46,7 +46,7 @@ public class UserTest {
         Assert.assertEquals(users.size(), 7);
     }
 
-    @Test(priority = 1, groups = {"User Test"})
+    //@Test(priority = 1, groups = {"User Test"})
     public void getUserByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));

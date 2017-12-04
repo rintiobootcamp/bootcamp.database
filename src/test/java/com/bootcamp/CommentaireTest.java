@@ -29,7 +29,7 @@ public class CommentaireTest {
 
     private final CommentaireRepository commentaireRepository = new CommentaireRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"Commentaire Test"})
+    //@Test(priority = 0, groups = {"Commentaire Test"})
     public void createCommentaire() throws SQLException, FileNotFoundException, IOException {
         String pseudo[] = {"peudo1", "peudo2", "peudo3", "peudo4", "peudo5", "peudo6", "peudo7"};
         for (int i = 0; i < pseudo.length; i++) {

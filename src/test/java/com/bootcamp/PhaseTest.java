@@ -28,7 +28,7 @@ public class PhaseTest {
 
     private final PhaseRepository phaseRepository = new PhaseRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"Phase Test"})
+    //@Test(priority = 0, groups = {"Phase Test"})
     public void createPhase() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Phase 1", "Phase 2", "Phase 3", "Phase 4", "Phase 5", "Phase 6", "Phase 7"};
         for (int i = 0; i < nom.length; i++) {

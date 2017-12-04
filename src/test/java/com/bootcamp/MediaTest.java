@@ -28,7 +28,7 @@ public class MediaTest {
 
     private final MediaRepository mediaRepository = new MediaRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"Media Test"})
+    //@Test(priority = 0, groups = {"Media Test"})
     public void createMedia() throws SQLException, FileNotFoundException, IOException {
         String internalName[] = {"internalName1", "internalName2", "internalName3", "internalName4", "internalName5", "internalName6", "internalName7"};
         for (int i = 0; i < internalName.length; i++) {

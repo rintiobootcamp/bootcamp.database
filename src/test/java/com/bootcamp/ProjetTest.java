@@ -29,7 +29,7 @@ public class ProjetTest {
 
     private final ProjetRepository projetRepository = new ProjetRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"Projet Test"})
+    //@Test(priority = 0, groups = {"Projet Test"})
     public void createProjet() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Projet 1", "Projet 2", "Projet 3", "Projet 4", "Projet 5", "Projet 6", "Projet 7"};
         for (int i = 0; i < nom.length; i++) {

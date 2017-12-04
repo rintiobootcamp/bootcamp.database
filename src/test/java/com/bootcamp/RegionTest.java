@@ -29,7 +29,7 @@ public class RegionTest {
 
     private final RegionRepository regionRepository = new RegionRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"Region Test"})
+    //@Test(priority = 0, groups = {"Region Test"})
     public void createRegion() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Region 1", "Region 2", "Region 3", "Region 4", "Region 5", "Region  6", "Region 7"};
 
@@ -46,7 +46,7 @@ public class RegionTest {
         Assert.assertEquals(regions.size(), 7);
     }
 
-    @Test(priority = 1, groups = {"Region Test"})
+    //@Test(priority = 1, groups = {"Region Test"})
     public void getRegionByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));

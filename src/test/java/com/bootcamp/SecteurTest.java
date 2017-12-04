@@ -35,7 +35,7 @@ public class SecteurTest {
 
     private final SecteurRepository secteurRepository = new SecteurRepository(AppConstants.PERSISTENCE_UNIT);
 
-    @Test(priority = 0, groups = {"Secteur Test"})
+    //@Test(priority = 0, groups = {"Secteur Test"})
     public void createSecteur() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Secteur 1", "Secteur 2", "Secteur 3", "Secteur 4", "Secteur 5", "Secteur 6", "Secteur 7"};
         for (int i = 0; i < nom.length; i++) {
@@ -52,7 +52,7 @@ public class SecteurTest {
         Assert.assertEquals(secteurs.size(), 7);
     }
 
-    @Test(priority = 1, groups = {"Secteur Test"})
+    //@Test(priority = 1, groups = {"Secteur Test"})
     public void getSecteurByCriteria() throws SQLException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));
@@ -60,7 +60,7 @@ public class SecteurTest {
         Assert.assertNotEquals(secteurs.size(), 0);
     }
 
-    @Test(priority = 2, groups = {"Secteur Test"})
+    //@Test(priority = 2, groups = {"Secteur Test"})
     public void getSecteurWithFields() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("nom", "<>", "TOTO"));

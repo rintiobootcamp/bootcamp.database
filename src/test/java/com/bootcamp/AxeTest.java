@@ -31,7 +31,7 @@ public class AxeTest {
 
     private final AxeRepository axeRepository = new AxeRepository(AppConstants.PERSISTENCE_UNIT);
 
-   @Test(priority = 0, groups = {"Axe Test"})
+   //@Test(priority = 0, groups = {"Axe Test"})
     public void createAxe() throws SQLException, FileNotFoundException, IOException {
         String nom[] = {"Axe stratégique 1", "Axe stratégique 2", "Axe stratégique 3", "Axe stratégique 4", "Axe stratégique 5", "Axe stratégique 6", "Axe stratégique 7"};
         for (int i = 0; i < nom.length; i++) {
