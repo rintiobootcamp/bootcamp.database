@@ -7,6 +7,7 @@ package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import javax.persistence.OneToMany;
  * @author leger
  */
 @Entity
-public class TypeReponse {
+public class TypeReponse implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
