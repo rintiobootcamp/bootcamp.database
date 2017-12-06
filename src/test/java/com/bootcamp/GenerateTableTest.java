@@ -19,6 +19,7 @@ public class GenerateTableTest {
     @Test
     public void generateTables(){
         Persistence.generateSchema(AppConstants.PERSISTENCE_UNIT, new Properties());
+        
 //        Criterias criterias = new Criterias();
 //        long k = 3;
 //        Criteria c1 = new Criteria("entityId", "=", k,"AND");
