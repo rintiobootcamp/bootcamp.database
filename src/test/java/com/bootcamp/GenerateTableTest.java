@@ -4,6 +4,8 @@ import com.bootcamp.commons.enums.EntityType;
 import com.bootcamp.commons.models.Criteria;
 import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.constants.AppConstants;
+import com.bootcamp.entities.Question;
+import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import javax.persistence.Persistence;
@@ -20,4 +22,5 @@ public class GenerateTableTest {
     public void generateTables(){
         Persistence.generateSchema(AppConstants.PERSISTENCE_UNIT, new Properties());
     }
+    
 }

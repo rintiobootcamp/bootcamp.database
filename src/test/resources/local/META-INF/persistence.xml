@@ -14,9 +14,7 @@
     <class>com.bootcamp.entities.Projet</class>
     <class>com.bootcamp.entities.Question</class>
     <class>com.bootcamp.entities.Region</class>
-    <class>com.bootcamp.entities.Reponse</class>
     <class>com.bootcamp.entities.Secteur</class>
-    <class>com.bootcamp.entities.TypeReponse</class>
     <class>com.bootcamp.entities.User</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/data_base?zeroDateTimeBehavior=convertToNull"/>

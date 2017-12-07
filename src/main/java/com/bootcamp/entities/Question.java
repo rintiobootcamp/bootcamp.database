@@ -8,8 +8,10 @@ package com.bootcamp.entities;
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,11 +33,9 @@ public class Question implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
-    @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
 
@@ -55,9 +55,11 @@ public class Question implements Serializable {
     @Column(nullable = false)
     private long dateMiseAJour;
     
-    @OneToMany
-    @ApiModelProperty(value = "list of type of question of Sondage", required = true)
-    private List<TypeReponse> typeReponses;
+//    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @ApiModelProperty(value = "list of type of question of Sondage", required = true)
+//    private List<TypeReponse> typeReponses;
+    
+    private List<HashMap<String,Long>> typeReponses; 
 
     public int getId() {
         return id;
@@ -107,13 +109,15 @@ public class Question implements Serializable {
         this.dateMiseAJour = dateMiseAJour;
     }
 
-    public List<TypeReponse> getTypeReponses() {
+    public List<HashMap<String, Long>> getTypeReponses() {
         return typeReponses;
     }
 
-    public void setTypeReponses(List<TypeReponse> typeReponses) {
+    public void setTypeReponses(List<HashMap<String, Long>> typeReponses) {
         this.typeReponses = typeReponses;
     }
+
+   
     
     
     
