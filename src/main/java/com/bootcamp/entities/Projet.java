@@ -83,7 +83,7 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
 
-    @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to",required = true)
+    @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to", required = true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int idSecteur;
@@ -91,184 +91,124 @@ public class Projet implements Serializable {
     @ManyToMany(mappedBy = "projets")
     private List<Region> regions = new ArrayList<Region>();
 
-    /**
-     * @return the id
-     */
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "financement", referencedColumnName = "id", insertable = false, updatable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private Financement financement;
+
+    @ApiModelProperty(value = "Id of programm", required = false)
+    @Column(nullable = true)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private int idProgramme;
+
+    public Financement getFinancement() {
+        return financement;
+    }
+
+    public void setFinancement(Financement financement) {
+        this.financement = financement;
+    }
+
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the nom
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * @param nom the nom to set
-     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * @return the reference
-     */
     public String getReference() {
         return reference;
     }
 
-    /**
-     * @param reference the reference to set
-     */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
-    /**
-     * @return the description
-     */
     public String getDescription() {
         return description;
     }
 
-    /**
-     * @param description the description to set
-     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    /**
-     * @return the dateDebutReel
-     */
     public long getDateDebutReel() {
         return dateDebutReel;
     }
 
-    /**
-     * @param dateDebutReel the dateDebutReel to set
-     */
     public void setDateDebutReel(long dateDebutReel) {
         this.dateDebutReel = dateDebutReel;
     }
 
-    /**
-     * @return the dateFinReel
-     */
     public long getDateFinReel() {
         return dateFinReel;
     }
 
-    /**
-     * @param dateFinReel the dateFinReel to set
-     */
     public void setDateFinReel(long dateFinReel) {
         this.dateFinReel = dateFinReel;
     }
 
-    /**
-     * @return the dateDebutPrevisionnel
-     */
     public long getDateDebutPrevisionnel() {
         return dateDebutPrevisionnel;
     }
 
-    /**
-     * @param dateDebutPrevisionnel the dateDebutPrevisionnel to set
-     */
     public void setDateDebutPrevisionnel(long dateDebutPrevisionnel) {
         this.dateDebutPrevisionnel = dateDebutPrevisionnel;
     }
 
-    /**
-     * @return the dateFinPrevisionnel
-     */
     public long getDateFinPrevisionnel() {
         return dateFinPrevisionnel;
     }
 
-    /**
-     * @param dateFinPrevisionnel the dateFinPrevisionnel to set
-     */
     public void setDateFinPrevisionnel(long dateFinPrevisionnel) {
         this.dateFinPrevisionnel = dateFinPrevisionnel;
     }
 
-    /**
-     * @return the budgetPrevisionnel
-     */
     public double getBudgetPrevisionnel() {
         return budgetPrevisionnel;
     }
 
-    /**
-     * @param budgetPrevisionnel the budgetPrevisionnel to set
-     */
     public void setBudgetPrevisionnel(double budgetPrevisionnel) {
         this.budgetPrevisionnel = budgetPrevisionnel;
     }
 
-    /**
-     * @return the budgetReel
-     */
     public double getBudgetReel() {
         return budgetReel;
     }
 
-    /**
-     * @param budgetReel the budgetReel to set
-     */
     public void setBudgetReel(double budgetReel) {
         this.budgetReel = budgetReel;
     }
 
-    /**
-     * @return the coutReel
-     */
     public double getCoutReel() {
         return coutReel;
     }
 
-    /**
-     * @param coutReel the coutReel to set
-     */
     public void setCoutReel(double coutReel) {
         this.coutReel = coutReel;
     }
 
-    /**
-     * @return the objectif
-     */
     public String getObjectif() {
         return objectif;
     }
 
-    /**
-     * @param objectif the objectif to set
-     */
     public void setObjectif(String objectif) {
         this.objectif = objectif;
     }
 
-    /**
-     * @return the phases
-     */
     public List<Phase> getPhases() {
         return phases;
     }
 
-    /**
-     * @param phases the phases to set
-     */
     public void setPhases(List<Phase> phases) {
         this.phases = phases;
     }
@@ -281,18 +221,21 @@ public class Projet implements Serializable {
         this.idSecteur = idSecteur;
     }
 
-    /**
-     * @return the regions
-     */
     public List<Region> getRegions() {
         return regions;
     }
 
-    /**
-     * @param regions the regions to set
-     */
     public void setRegions(List<Region> regions) {
         this.regions = regions;
     }
 
+    public int getIdProgramme() {
+        return idProgramme;
+    }
+
+    public void setIdProgramme(int idProgramme) {
+        this.idProgramme = idProgramme;
+    }
+
+    
 }
