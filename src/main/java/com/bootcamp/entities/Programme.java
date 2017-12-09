@@ -61,9 +61,9 @@ public class Programme implements Serializable {
     private long dateMiseAJour;
 
     @ManyToOne
-    @ApiModelProperty(value = "The pilier of Axe", required = true)
-    @JoinColumn(name = "pilier", referencedColumnName = "id", insertable = false, updatable = false)
+    @ApiModelProperty(value = "The programm of project", required = true)
+    @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
-    private Pilier pilier;
+    private Projet projet;
 
 }
