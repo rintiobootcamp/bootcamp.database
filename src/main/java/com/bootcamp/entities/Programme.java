@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
+
 
 
 /**
@@ -26,44 +26,31 @@ public class Programme implements Serializable {
     @Lob
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "Name of the Project", required = true)
+    @ApiModelProperty(value = "Name of the programme", required = true)
     private String nom;
 
     @Lob
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "Description of the Project", required = true)
+    @ApiModelProperty(value = "Description of the programme", required = true)
     private String description;
 
     @Lob
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "Description of the Project", required = true)
+    @ApiModelProperty(value = "Description of the programme", required = true)
     private String focus;
 
-    @ApiModelProperty(value = "Real started date of the project")
+
+
+    @ApiModelProperty(value = "Estimate started date of the programme")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
-    private long dateDebutReel;
+    private long dateDebut;
 
-    @ApiModelProperty(value = "Real ended date of the project")
+    @ApiModelProperty(value = "Estimate ended date of the programme")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
-    private long dateFinReel;
-
-    @ApiModelProperty(value = "Estimate started date of the project")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @Column(nullable = false)
-    private long dateDebutPrevisionnel;
-
-    @ApiModelProperty(value = "Estimate ended date of the project")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @Column(nullable = false)
-    private long dateFinPrevisionnel;
-
-    @OneToMany(mappedBy = "programme", cascade = CascadeType.ALL)
-    @ApiModelProperty(value = "List of the project phases")
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    private List<Projet> projetList;
+    private long dateFin;
 
     public int getId() {
         return id;
@@ -97,45 +84,19 @@ public class Programme implements Serializable {
         this.focus = focus;
     }
 
-    public long getDateDebutReel() {
-        return dateDebutReel;
+    public long getDateDebut() {
+        return dateDebut;
     }
 
-    public void setDateDebutReel(long dateDebutReel) {
-        this.dateDebutReel = dateDebutReel;
+    public void setDateDebut(long dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
-    public long getDateFinReel() {
-        return dateFinReel;
+    public long getDateFin() {
+        return dateFin;
     }
 
-    public void setDateFinReel(long dateFinReel) {
-        this.dateFinReel = dateFinReel;
+    public void setDateFin(long dateFin) {
+        this.dateFin = dateFin;
     }
-
-    public long getDateDebutPrevisionnel() {
-        return dateDebutPrevisionnel;
-    }
-
-    public void setDateDebutPrevisionnel(long dateDebutPrevisionnel) {
-        this.dateDebutPrevisionnel = dateDebutPrevisionnel;
-    }
-
-    public long getDateFinPrevisionnel() {
-        return dateFinPrevisionnel;
-    }
-
-    public void setDateFinPrevisionnel(long dateFinPrevisionnel) {
-        this.dateFinPrevisionnel = dateFinPrevisionnel;
-    }
-
-    public List<Projet> getProjetList() {
-        return projetList;
-    }
-
-    public void setProjetList(List<Projet> projetList) {
-        this.projetList = projetList;
-    }
-
-
 }
