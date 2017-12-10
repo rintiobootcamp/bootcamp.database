@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author leger
+ * @author Moh
  */
 @Entity
 @ApiModel(value = "Programme", description = "Description of a program")
@@ -20,7 +20,6 @@ public class Programme implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-
     @ApiModelProperty(value = "Id of the programme", notes = "This id is automatically generated ,it doesn't required")
     private int id;
 
