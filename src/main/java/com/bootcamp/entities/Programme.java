@@ -1,18 +1,26 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
+
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ *
+ * @author leger
+ */
 @Entity
+@ApiModel(value = "Programme", description = "Description of a program")
 public class Programme implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+
     @ApiModelProperty(value = "Id of the programme", notes = "This id is automatically generated ,it doesn't required")
     private int id;
 
@@ -129,4 +137,6 @@ public class Programme implements Serializable {
     public void setProjetList(List<Projet> projetList) {
         this.projetList = projetList;
     }
+
+
 }

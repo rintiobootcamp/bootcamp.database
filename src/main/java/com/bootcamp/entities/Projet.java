@@ -71,7 +71,7 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
 
-    @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to",required = true)
+    @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to", required = true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int idSecteur;
@@ -104,6 +104,9 @@ public class Projet implements Serializable {
     @JoinColumn(name = "programme", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Programme programme;
+
+
+
 
     public int getId() {
         return id;
@@ -177,75 +180,4 @@ public class Projet implements Serializable {
         this.budgetPrevisionnel = budgetPrevisionnel;
     }
 
-    public double getCoutReel() {
-        return coutReel;
-    }
-
-    public void setCoutReel(double coutReel) {
-        this.coutReel = coutReel;
-    }
-
-    public List<Phase> getPhases() {
-        return phases;
-    }
-
-    public void setPhases(List<Phase> phases) {
-        this.phases = phases;
-    }
-
-    public int getIdSecteur() {
-        return idSecteur;
-    }
-
-    public void setIdSecteur(int idSecteur) {
-        this.idSecteur = idSecteur;
-    }
-
-    public List<Region> getRegions() {
-        return regions;
-    }
-
-    public void setRegions(List<Region> regions) {
-        this.regions = regions;
-    }
-
-    public List<Impact> getImpactList() {
-        return impactList;
-    }
-
-    public void setImpactList(List<Impact> impactList) {
-        this.impactList = impactList;
-    }
-
-    public List<Objectif> getObjectifList() {
-        return objectifList;
-    }
-
-    public void setObjectifList(List<Objectif> objectifList) {
-        this.objectifList = objectifList;
-    }
-
-    public double getFinancementPrive() {
-        return financementPrive;
-    }
-
-    public void setFinancementPrive(double financementPrive) {
-        this.financementPrive = financementPrive;
-    }
-
-    public double getFinancementPublic() {
-        return financementPublic;
-    }
-
-    public void setFinancementPublic(double financementPublic) {
-        this.financementPublic = financementPublic;
-    }
-
-    public Programme getProgramme() {
-        return programme;
-    }
-
-    public void setProgramme(Programme programme) {
-        this.programme = programme;
-    }
 }
