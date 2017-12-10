@@ -24,14 +24,12 @@ public class Projet implements Serializable {
     private String nom;
 
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "Reference of the Project", required = true)
     private String reference;
 
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "Description of the Project", required = true)
@@ -62,24 +60,14 @@ public class Projet implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double budgetPrevisionnel;
 
-    @Column(nullable = false)
-    @ApiModelProperty(value = "Real cost of the project")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private double budgetReel;
 
-    @Column(nullable = false)
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Objectif of the project")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private String objectif;
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+    @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
 
@@ -89,186 +77,118 @@ public class Projet implements Serializable {
     private int idSecteur;
 
     @ManyToMany(mappedBy = "projets")
+    @Basic(fetch = FetchType.LAZY, optional = false)
     private List<Region> regions = new ArrayList<Region>();
 
-    /**
-     * @return the id
-     */
+    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @ApiModelProperty(value = "List of the impacts of the project")
+    private List<Impact> impactList;
+
+    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @ApiModelProperty(value = "List of the objectives of the project")
+    private List<Objectif> objectifList;
+
+
+    @ApiModelProperty(value = "Part of the financing obtained from the Prive")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private double financementPrive;
+
+
+    @ApiModelProperty(value = "Part of the financing obtained from the Public")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private double financementPublic;
+
+    @ManyToOne
+    @JoinColumn(name = "programme", referencedColumnName = "id", insertable = false, updatable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
+    private Programme programme;
+
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the nom
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * @param nom the nom to set
-     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * @return the reference
-     */
     public String getReference() {
         return reference;
     }
 
-    /**
-     * @param reference the reference to set
-     */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
-    /**
-     * @return the description
-     */
     public String getDescription() {
         return description;
     }
 
-    /**
-     * @param description the description to set
-     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    /**
-     * @return the dateDebutReel
-     */
     public long getDateDebutReel() {
         return dateDebutReel;
     }
 
-    /**
-     * @param dateDebutReel the dateDebutReel to set
-     */
     public void setDateDebutReel(long dateDebutReel) {
         this.dateDebutReel = dateDebutReel;
     }
 
-    /**
-     * @return the dateFinReel
-     */
     public long getDateFinReel() {
         return dateFinReel;
     }
 
-    /**
-     * @param dateFinReel the dateFinReel to set
-     */
     public void setDateFinReel(long dateFinReel) {
         this.dateFinReel = dateFinReel;
     }
 
-    /**
-     * @return the dateDebutPrevisionnel
-     */
     public long getDateDebutPrevisionnel() {
         return dateDebutPrevisionnel;
     }
 
-    /**
-     * @param dateDebutPrevisionnel the dateDebutPrevisionnel to set
-     */
     public void setDateDebutPrevisionnel(long dateDebutPrevisionnel) {
         this.dateDebutPrevisionnel = dateDebutPrevisionnel;
     }
 
-    /**
-     * @return the dateFinPrevisionnel
-     */
     public long getDateFinPrevisionnel() {
         return dateFinPrevisionnel;
     }
 
-    /**
-     * @param dateFinPrevisionnel the dateFinPrevisionnel to set
-     */
     public void setDateFinPrevisionnel(long dateFinPrevisionnel) {
         this.dateFinPrevisionnel = dateFinPrevisionnel;
     }
 
-    /**
-     * @return the budgetPrevisionnel
-     */
     public double getBudgetPrevisionnel() {
         return budgetPrevisionnel;
     }
 
-    /**
-     * @param budgetPrevisionnel the budgetPrevisionnel to set
-     */
     public void setBudgetPrevisionnel(double budgetPrevisionnel) {
         this.budgetPrevisionnel = budgetPrevisionnel;
     }
 
-    /**
-     * @return the budgetReel
-     */
-    public double getBudgetReel() {
-        return budgetReel;
-    }
-
-    /**
-     * @param budgetReel the budgetReel to set
-     */
-    public void setBudgetReel(double budgetReel) {
-        this.budgetReel = budgetReel;
-    }
-
-    /**
-     * @return the coutReel
-     */
     public double getCoutReel() {
         return coutReel;
     }
 
-    /**
-     * @param coutReel the coutReel to set
-     */
     public void setCoutReel(double coutReel) {
         this.coutReel = coutReel;
     }
 
-    /**
-     * @return the objectif
-     */
-    public String getObjectif() {
-        return objectif;
-    }
-
-    /**
-     * @param objectif the objectif to set
-     */
-    public void setObjectif(String objectif) {
-        this.objectif = objectif;
-    }
-
-    /**
-     * @return the phases
-     */
     public List<Phase> getPhases() {
         return phases;
     }
 
-    /**
-     * @param phases the phases to set
-     */
     public void setPhases(List<Phase> phases) {
         this.phases = phases;
     }
@@ -281,18 +201,51 @@ public class Projet implements Serializable {
         this.idSecteur = idSecteur;
     }
 
-    /**
-     * @return the regions
-     */
     public List<Region> getRegions() {
         return regions;
     }
 
-    /**
-     * @param regions the regions to set
-     */
     public void setRegions(List<Region> regions) {
         this.regions = regions;
     }
 
+    public List<Impact> getImpactList() {
+        return impactList;
+    }
+
+    public void setImpactList(List<Impact> impactList) {
+        this.impactList = impactList;
+    }
+
+    public List<Objectif> getObjectifList() {
+        return objectifList;
+    }
+
+    public void setObjectifList(List<Objectif> objectifList) {
+        this.objectifList = objectifList;
+    }
+
+    public double getFinancementPrive() {
+        return financementPrive;
+    }
+
+    public void setFinancementPrive(double financementPrive) {
+        this.financementPrive = financementPrive;
+    }
+
+    public double getFinancementPublic() {
+        return financementPublic;
+    }
+
+    public void setFinancementPublic(double financementPublic) {
+        this.financementPublic = financementPublic;
+    }
+
+    public Programme getProgramme() {
+        return programme;
+    }
+
+    public void setProgramme(Programme programme) {
+        this.programme = programme;
+    }
 }
