@@ -158,4 +158,9 @@ public class Notification implements Serializable {
     public void setContenuMail(String contenuMail) {
         this.contenuMail = contenuMail;
     }
+
+    @Override
+    public String toString() {
+        return "Notification{" + "id=" + id + ", action=" + action + ", dateCreation=" + dateCreation + ", dateMiseAJour=" + dateMiseAJour + ", contenuGsm=" + contenuGsm + ", contenuWebApp=" + contenuWebApp + ", contenuMobileApp=" + contenuMobileApp + ", contenuMail=" + contenuMail + ", entityType=" + entityType + ", entityId=" + entityId + ", libelle=" + libelle + '}';
+    }
 }
