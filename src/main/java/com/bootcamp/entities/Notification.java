@@ -13,7 +13,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- *
  * @author Moh
  */
 @Entity
@@ -70,6 +69,56 @@ public class Notification implements Serializable {
     @ApiModelProperty(value = "gives the libelle of the notification")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String libelle;
+
+
+    @ApiModelProperty(value = "verifie if sms is send")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean sendSms;
+
+
+    @ApiModelProperty(value = "verifie if mail is send")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean sendMail;
+
+    @ApiModelProperty(value = "verifie if webApp; is send")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean sendWebApp;
+
+    @ApiModelProperty(value = "verifie if Mobil is send")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean sendMobil;
+
+    public boolean isSendSms() {
+        return sendSms;
+    }
+
+    public void setSendSms(boolean sendSms) {
+        this.sendSms = sendSms;
+    }
+
+    public boolean isSendMail() {
+        return sendMail;
+    }
+
+    public void setSendMail(boolean sendMail) {
+        this.sendMail = sendMail;
+    }
+
+    public boolean isSendWebApp() {
+        return sendWebApp;
+    }
+
+    public void setSendWebApp(boolean sendWebApp) {
+        this.sendWebApp = sendWebApp;
+    }
+
+    public boolean isSendMobil() {
+        return sendMobil;
+    }
+
+    public void setSendMobil(boolean sendMobil) {
+        this.sendMobil = sendMobil;
+    }
 
     public String getLibelle() {
         return libelle;
