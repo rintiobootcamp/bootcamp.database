@@ -60,6 +60,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <config.home>/home/config/dev</config.home>
     </properties>
     <distributionManagement>
         <repository>
@@ -70,7 +71,8 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
-    <profiles>
+
+<profiles>
         <!-- en local -->
         <profile>
             <!--profil de production a publier-->
@@ -85,7 +87,7 @@
                         <filtering>true</filtering>
                     </resource>
                     <resource>
-                        <directory>src/main/resources/local</directory>
+                        <directory>${config.home}</directory>
                     </resource>
 
                 </resources>
@@ -102,7 +104,7 @@
                         <filtering>true</filtering>
                     </resource>
                     <resource>
-                        <directory>src/main/resources/dev</directory>
+                        <directory>${config.home}</directory>
                     </resource>
 
                 </resources>
