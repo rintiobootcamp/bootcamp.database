@@ -60,6 +60,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <config.home>/home/config/dev</config.home>
+
     </properties>
     <distributionManagement>
         <repository>
@@ -70,6 +73,7 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
+
     <profiles>
         <!-- en local -->
         <profile>
@@ -85,7 +89,7 @@
                         <filtering>true</filtering>
                     </resource>
                     <resource>
-                        <directory>src/main/resources/local</directory>
+                        <directory>${config.home}</directory>
                     </resource>
 
                 </resources>
@@ -102,7 +106,7 @@
                         <filtering>true</filtering>
                     </resource>
                     <resource>
-                        <directory>src/main/resources/dev</directory>
+                        <directory>${config.home}</directory>
                     </resource>
 
                 </resources>
@@ -149,9 +153,9 @@
                     </descriptorRefs>
                     <!-- MainClass in mainfest make a executable jar -->
                     <!--<archive>-->
-                        <!--<manifest>-->
-                            <!--<mainClass>com.mkyong.core.utils.App</mainClass>-->
-                        <!--</manifest>-->
+                    <!--<manifest>-->
+                    <!--<mainClass>com.mkyong.core.utils.App</mainClass>-->
+                    <!--</manifest>-->
                     <!--</archive>-->
 
                 </configuration>
