@@ -70,6 +70,11 @@ public class Projet implements Serializable {
     @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
+    
+    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @ApiModelProperty(value = "List of the project phases that are on going")
+    private List<Phase> phasesActuelles;
 
     @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to", required = true)
     @Column(nullable = false)
@@ -249,4 +254,13 @@ public class Projet implements Serializable {
     public void setIdProgramme(int idProgramme) {
         this.idProgramme = idProgramme;
     }
+
+    public List<Phase> getPhasesActuelles() {
+        return phasesActuelles;
+    }
+
+    public void setPhasesActuelles(List<Phase> phasesActuelles) {
+        this.phasesActuelles = phasesActuelles;
+    }
+    
 }
