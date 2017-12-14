@@ -179,4 +179,5 @@ public class Media implements Serializable {
     public void setEntityId(int entityId) {
         this.entityId = entityId;
     }
+
 }
