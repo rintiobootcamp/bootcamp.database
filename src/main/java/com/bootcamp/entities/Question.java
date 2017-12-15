@@ -116,16 +116,11 @@ public class Question implements Serializable {
         this.dateMiseAJour = dateMiseAJour;
     }
 
-    public List<HashMap<String, Long>> getTypeReponses() {
+    public HashMap<String, Long> getTypeReponses() {
         return typeReponses;
     }
 
-    public void setTypeReponses(List<HashMap<String, Long>> typeReponses) {
+    public void setTypeReponses(HashMap<String, Long> typeReponses) {
         this.typeReponses = typeReponses;
     }
-
-   
-    
-    
-    
 }
