@@ -22,13 +22,16 @@ public class Censure implements Serializable {
 
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Id
+	@ApiModelProperty(value = "Id of the censure", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+	
+	@ApiModelProperty(value = "Name of censured entity", required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
+	@ApiModelProperty(value = "Id of censured entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
@@ -42,7 +45,8 @@ public class Censure implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;
-
+	
+	@ApiModelProperty(value = "message Censure")
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)

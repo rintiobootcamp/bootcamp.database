@@ -15,22 +15,23 @@ import javax.persistence.*;
 public class Impact implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the impact", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
 
     @Basic(fetch = FetchType.LAZY, optional = false)
-    @ApiModelProperty(value = "Type of the impact of the project", required = true)
+    @ApiModelProperty(value = "Type of the project's impact", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private TypeImpact typeImpact;
 
 
-    @ApiModelProperty(value = "description of the objectif", required = true)
+    @ApiModelProperty(value = "define the impact unite")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String unite;
 
-    @ApiModelProperty(value = "gives the type of Objectif", required = true)
+    @ApiModelProperty(value = "set the value of the unite")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double value;
 
@@ -38,6 +39,7 @@ public class Impact implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
+	@ApiModelProperty(value = "for the non quantifiable impact")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String autres;
 

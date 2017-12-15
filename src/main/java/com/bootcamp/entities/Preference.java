@@ -15,28 +15,32 @@ import java.io.Serializable;
 public class Preference implements Serializable {
     @Id
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+	@ApiModelProperty(value = "Id of Preference Model", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ApiModelProperty(value = "Name of prefered entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
-
+	
+	@ApiModelProperty(value = "Id of prefered entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
 
 
+	@ApiModelProperty(value = "Id of the preference's user",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int userId;
 
-    @ApiModelProperty(value = "creation date of Axe")
+    @ApiModelProperty(value = "creation date of Preference")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateCreation;
 
-    @ApiModelProperty(value = "update date of Axe")
+    @ApiModelProperty(value = "update date of Preference")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;

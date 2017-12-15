@@ -17,22 +17,22 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @ApiModelProperty(value = "Id of the User", required = true)
+    @ApiModelProperty(value = "Id of the user", notes = "This id is automatically generated ,it doesn't required")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Login of the User", required = true)
+    @ApiModelProperty(value = "Login of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String login;
 
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Password of the User", required = true)
+    @ApiModelProperty(value = "Password of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String password;
 
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Password of the User", required = true)
+    @ApiModelProperty(value = "name of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 

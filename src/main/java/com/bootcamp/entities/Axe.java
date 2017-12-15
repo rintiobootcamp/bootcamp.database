@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Axe implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the axe", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;

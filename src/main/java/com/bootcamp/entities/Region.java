@@ -15,6 +15,7 @@ import java.util.List;
 public class Region implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the Region", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -39,6 +40,7 @@ public class Region implements Serializable {
     private long latitude;
 
     @ManyToMany
+	@ApiModelProperty(value = "List of projets in the region")
     private List<Projet> projets = new ArrayList<Projet>();
 
     /**

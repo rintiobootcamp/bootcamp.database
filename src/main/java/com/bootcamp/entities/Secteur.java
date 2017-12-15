@@ -27,7 +27,7 @@ import javax.persistence.ManyToOne;
 public class Secteur implements Serializable {
 
     @Id
-    @ApiModelProperty(value = "Id of the Sector", required = true)
+    @ApiModelProperty(value = "Id of the sector", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -58,7 +58,7 @@ public class Secteur implements Serializable {
     private long dateMiseAJour;
 
     @ManyToOne
-    @ApiModelProperty(value = "The Axe of Secteur", required = true)
+    @ApiModelProperty(value = "The Axe of Sector", required = true)
     @JoinColumn(name = "axe", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Axe axe;

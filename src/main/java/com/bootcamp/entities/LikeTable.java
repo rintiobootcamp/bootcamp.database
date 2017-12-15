@@ -20,13 +20,16 @@ public class LikeTable implements Serializable {
 
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Id
+	@ApiModelProperty(value = "Id of the likeTable", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+	@ApiModelProperty(value = "Name of liked entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
-
+	
+	@ApiModelProperty(value = "Id of liked entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;

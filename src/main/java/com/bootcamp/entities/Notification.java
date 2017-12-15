@@ -19,12 +19,13 @@ import javax.persistence.*;
 public class Notification implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the notification", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "gives the action trigger of the notification")
+    @ApiModelProperty(value = "gives an action about a notification can be generated or not")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String action;
 
@@ -43,27 +44,30 @@ public class Notification implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenuGsm;
 
-    @ApiModelProperty(value = "the deails gsm of the the notification")
+    @ApiModelProperty(value = "the deails webApp of the the notification")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenuWebApp;
 
 
-    @ApiModelProperty(value = "the deails gsm of the the notification")
+    @ApiModelProperty(value = "the deails mobileApp of the the notification")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenuMobileApp;
 
 
-    @ApiModelProperty(value = "the deails gsm of the the notification")
+    @ApiModelProperty(value = "the deails mail of the the notification")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenuMail;
 
+    @ApiModelProperty(value = "Name of the Note entity concerned")
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
+	@ApiModelProperty(value = "Id of the Note entity concerned")
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
+
 
 
     @ApiModelProperty(value = "gives the libelle of the notification")
@@ -80,11 +84,11 @@ public class Notification implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean sendMail;
 
-    @ApiModelProperty(value = "verifie if webApp; is send")
+    @ApiModelProperty(value = "verifie if web msg is send")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean sendWebApp;
 
-    @ApiModelProperty(value = "verifie if Mobil is send")
+    @ApiModelProperty(value = "verifie if Mobil msg is send")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean sendMobil;
 

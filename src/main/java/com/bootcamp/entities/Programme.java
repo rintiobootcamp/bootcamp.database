@@ -37,9 +37,8 @@ public class Programme implements Serializable {
 
     @Lob
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "Description of the programme", required = true)
+    @ApiModelProperty(value = "Description of the programme's focus", required = true)
     private String focus;
-
 
 
     @ApiModelProperty(value = "Estimate started date of the programme")

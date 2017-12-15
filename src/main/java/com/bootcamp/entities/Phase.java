@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class Phase implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the phase", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -21,26 +22,27 @@ public class Phase implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "name of state", required = true)
+    @ApiModelProperty(value = "name of phase", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "creation date of state")
+    @ApiModelProperty(value = "started date of phase")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateDebut;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "update date of state")
+    @ApiModelProperty(value = "ended date of phase")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateFin;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "check if the state is enable or not", required = true)
+    @ApiModelProperty(value = "check if the phase is enable", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean actif;
 
     @ManyToOne
+	@ApiModelProperty(value = "The project the phase is linked with", required = true)
     @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Projet projet;

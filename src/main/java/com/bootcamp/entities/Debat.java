@@ -25,14 +25,17 @@ import javax.persistence.Lob;
 public class Debat implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the debat", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
+	@ApiModelProperty(value = "Name of debated entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
+	@ApiModelProperty(value = "Id of debated entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
@@ -40,6 +43,7 @@ public class Debat implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false)
+	@ApiModelProperty(value = "Debate subject",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String sujet;
 

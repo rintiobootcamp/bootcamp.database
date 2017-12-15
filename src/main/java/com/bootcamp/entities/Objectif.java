@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Objectif implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the objective", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -22,23 +23,24 @@ public class Objectif implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "name of the objectif", required = true)
+    @ApiModelProperty(value = "name of the objective", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "description of the objectif", required = true)
+    @ApiModelProperty(value = "description of the objective", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
 
-    @ApiModelProperty(value = "gives the type of Objectif", required = true)
+    @ApiModelProperty(value = "objective type", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private TypeObjectif typeObjectif;
 
 
     @ManyToOne
+	@ApiModelProperty(value = "The project the objective is linked with", required = true)
     @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Projet projet;

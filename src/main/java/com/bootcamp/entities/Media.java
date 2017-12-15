@@ -20,6 +20,7 @@ import javax.persistence.*;
 public class Media implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the media", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -27,19 +28,23 @@ public class Media implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "originalName", length = 45, nullable = false)
+	@ApiModelProperty(value = "Original Name of the file",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String originalName;
 
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "internalName", length = 45, nullable = false)
+	@ApiModelProperty(value = "Internal Name of the file")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String internalName;
 
+	@ApiModelProperty(value = "Name of the file entity concerned",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
+	@ApiModelProperty(value = "Id of the file entity concerned",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
@@ -47,21 +52,23 @@ public class Media implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "type", length = 45, nullable = false)
+	@ApiModelProperty(value = "Media type")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String type;
 
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(name = "link", nullable = false)
+	@ApiModelProperty(value = "Media link",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String lien;
 
-    @ApiModelProperty(value = "creation date of Axe")
+    @ApiModelProperty(value = "creation date of Media")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateCreation;
 
-    @ApiModelProperty(value = "update date of Axe")
+    @ApiModelProperty(value = "update date of Media")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;

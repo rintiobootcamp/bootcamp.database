@@ -50,13 +50,13 @@ public class Projet implements Serializable {
     @Column(nullable = false)
     private long dateDebutPrevisionnel;
 
-    @ApiModelProperty(value = "Estimate ended date of the project")
+    @ApiModelProperty(value = "Estimate ended date of the project",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateFinPrevisionnel;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "Estimate funds of the project")
+    @ApiModelProperty(value = "Estimate funds of the project",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double budgetPrevisionnel;
 
@@ -82,6 +82,7 @@ public class Projet implements Serializable {
     private int idSecteur;
 
     @ManyToMany(mappedBy = "projets")
+	@ApiModelProperty(value = "List of the regions concerned by the project")
     @Basic(fetch = FetchType.LAZY, optional = false)
     private List<Region> regions = new ArrayList<Region>();
 

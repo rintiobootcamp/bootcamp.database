@@ -20,14 +20,17 @@ import javax.persistence.*;
 public class Commentaire implements Serializable {
 
     @Id
+	@ApiModelProperty(value = "Id of the comment", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
+	@ApiModelProperty(value = "Name of comment entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
+	@ApiModelProperty(value = "Id of comment entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
@@ -35,21 +38,34 @@ public class Commentaire implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
+	@ApiModelProperty(value = "comment's content",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenu;
 
-    @ApiModelProperty(value = "creation date of Axe")
+    @ApiModelProperty(value = "creation date of Comment")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateCreation;
 
-    @ApiModelProperty(value = "update date of Axe")
+    @ApiModelProperty(value = "update date of comment")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;
 
+	@Basic(fetch = FetchType.LAZY, optional = false)
+    @Column(nullable = false, length = 1024)
+	@ApiModelProperty(value = "comment's pseudo")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String pseudo;
+	
+	@ApiModelProperty(value = "Id of comment's user",required=true)
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int userId;
+	
+	@ApiModelProperty(value = "mail of comment's user")
+    @Column(nullable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String userMail;
 
     /**

@@ -40,6 +40,7 @@ public class Pilier implements Serializable {
     private long dateMiseAJour;
 
     @OneToMany
+	@ApiModelProperty(value = "the axes the pilar is linked with")
     @NotNull(message = "The list of axes field must not be empty")
     private List<Axe> axes;
 

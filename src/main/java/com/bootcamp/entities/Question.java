@@ -29,19 +29,25 @@ import javax.persistence.OneToMany;
 public class Question implements Serializable {
     
     @Id
+	@ApiModelProperty(value = "Id of the question", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
+    @ApiModelProperty(value = "Name of the Question entity concerned")
+    @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
+	@ApiModelProperty(value = "Id of the Question entity concerned")
+    @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
 
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false)
+	@ApiModelProperty(value = "Question subject",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String sujet;
 
@@ -59,6 +65,7 @@ public class Question implements Serializable {
 //    @ApiModelProperty(value = "list of type of question of Sondage", required = true)
 //    private List<TypeReponse> typeReponses;
     
+	@ApiModelProperty(value = "list type of the attended response of the sondage")
     private List<HashMap<String,Long>> typeReponses; 
 
     public int getId() {
