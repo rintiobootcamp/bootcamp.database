@@ -12,6 +12,12 @@ import com.bootcamp.entities.Region;
  * @author Bello
  */
 public class RegionRepository extends BaseRepository<Region> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public RegionRepository(String unitPersistence) {
         super(unitPersistence, Region.class);
     }

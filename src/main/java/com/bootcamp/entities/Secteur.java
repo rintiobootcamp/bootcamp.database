@@ -9,7 +9,6 @@ import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +26,7 @@ import javax.persistence.ManyToOne;
 public class Secteur implements Serializable {
 
     @Id
-    @ApiModelProperty(value = "Id of the sector", notes = "This id is automatically generated ,it doesn't required")
+    @ApiModelProperty(value = "Id of the Sector", required = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -42,7 +41,7 @@ public class Secteur implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String description;
 
-    @Column(nullable = false, length = 1024)
+    @Column(length = 1024)
     @ApiModelProperty(value = "Icone of the sector", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String icone;
@@ -58,12 +57,14 @@ public class Secteur implements Serializable {
     private long dateMiseAJour;
 
     @ManyToOne
-    @ApiModelProperty(value = "The Axe of Sector", required = true)
+    @ApiModelProperty(value = "The Axe of Secteur", required = true)
     @JoinColumn(name = "axe", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Axe axe;
 
     /**
+     * Get the sector id
+     *
      * @return the id
      */
     public int getId() {
@@ -71,6 +72,8 @@ public class Secteur implements Serializable {
     }
 
     /**
+     * Set the sector id
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -78,20 +81,26 @@ public class Secteur implements Serializable {
     }
 
     /**
-     * @return the nom
+     * Get the sector name
+     *
+     * @return the name
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @param nom the nom to set
+     * Set the sector name
+     *
+     * @param nom the name to set
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
+     * Get the sector description
+     *
      * @return the description
      */
     public String getDescription() {
@@ -99,6 +108,8 @@ public class Secteur implements Serializable {
     }
 
     /**
+     * Set the sector description
+     *
      * @param description the description to set
      */
     public void setDescription(String description) {
@@ -106,6 +117,8 @@ public class Secteur implements Serializable {
     }
 
     /**
+     * Get the sector icone
+     *
      * @return the icone
      */
     public String getIcone() {
@@ -113,6 +126,8 @@ public class Secteur implements Serializable {
     }
 
     /**
+     * Set the sector icone
+     *
      * @param icone the icone to set
      */
     public void setIcone(String icone) {
@@ -120,34 +135,44 @@ public class Secteur implements Serializable {
     }
 
     /**
-     * @return the dateCreation
+     * Get the sector creation date
+     *
+     * @return the creation date
      */
     public long getDateCreation() {
         return dateCreation;
     }
 
     /**
-     * @param dateCreation the dateCreation to set
+     * Set the sector creation date
+     *
+     * @param dateCreation the creation date to set
      */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
     /**
-     * @return the dateMiseAJour
+     * Get the sector update date
+     *
+     * @return the update date
      */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
     /**
-     * @param dateMiseAJour the dateMiseAJour to set
+     * Set the sector update date
+     *
+     * @param dateMiseAJour the date to set
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
 
     /**
+     * Get the sector axe
+     *
      * @return the axe
      */
     public Axe getAxe() {
@@ -155,6 +180,8 @@ public class Secteur implements Serializable {
     }
 
     /**
+     * Set the sector axe
+     *
      * @param axe the axe to set
      */
     public void setAxe(Axe axe) {

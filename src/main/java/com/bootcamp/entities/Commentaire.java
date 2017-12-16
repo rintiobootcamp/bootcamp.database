@@ -6,7 +6,6 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
-import com.bootcamp.commons.enums.EntityType;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -20,17 +19,14 @@ import javax.persistence.*;
 public class Commentaire implements Serializable {
 
     @Id
-	@ApiModelProperty(value = "Id of the comment", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-	@ApiModelProperty(value = "Name of comment entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String entityType;
 
-	@ApiModelProperty(value = "Id of comment entity",required=true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
@@ -38,37 +34,26 @@ public class Commentaire implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
-	@ApiModelProperty(value = "comment's content",required=true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenu;
 
-    @ApiModelProperty(value = "creation date of Comment")
+    @ApiModelProperty(value = "creation date of Axe")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateCreation;
 
-    @ApiModelProperty(value = "update date of comment")
+    @ApiModelProperty(value = "update date of Axe")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;
 
-	@Basic(fetch = FetchType.LAZY, optional = false)
-    @Column(nullable = false, length = 1024)
-	@ApiModelProperty(value = "comment's pseudo")
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String pseudo;
-	
-	@ApiModelProperty(value = "Id of comment's user",required=true)
-    @Column(nullable = false)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int userId;
-	
-	@ApiModelProperty(value = "mail of comment's user")
-    @Column(nullable = false)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String userMail;
 
     /**
+     * Get the comment id
+     *
      * @return the id
      */
     public int getId() {
@@ -76,6 +61,8 @@ public class Commentaire implements Serializable {
     }
 
     /**
+     * Set the comment id
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -83,34 +70,44 @@ public class Commentaire implements Serializable {
     }
 
     /**
-     * @return the entityId
+     * Get the comment entity Id
+     *
+     * @return the entity Id
      */
     public int getEntityId() {
         return entityId;
     }
 
     /**
-     * @param entityId the entityId to set
+     * Set the comment entity Id
+     *
+     * @param entityId the entity Id to set
      */
     public void setEntityId(int entityId) {
         this.entityId = entityId;
     }
 
     /**
-     * @return the contenu
+     * Get the comment text
+     *
+     * @return the comment text
      */
     public String getContenu() {
         return contenu;
     }
 
     /**
-     * @param contenu the contenu to set
+     * Set the comment text
+     *
+     * @param contenu the text to set
      */
     public void setContenu(String contenu) {
         this.contenu = contenu;
     }
 
     /**
+     * Get the comment creation date
+     *
      * @return the dateCreation
      */
     public long getDateCreation() {
@@ -118,13 +115,17 @@ public class Commentaire implements Serializable {
     }
 
     /**
-     * @param dateCreation the dateCreation to set
+     * Set the comment creation date
+     *
+     * @param dateCreation the date to set
      */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
     /**
+     * Get the comment update date
+     *
      * @return the dateMiseAJour
      */
     public long getDateMiseAJour() {
@@ -132,58 +133,82 @@ public class Commentaire implements Serializable {
     }
 
     /**
-     * @param dateMiseAJour the dateMiseAJour to set
+     * Set the comment update date
+     *
+     * @param dateMiseAJour the date to set
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
 
     /**
-     * @return the pseudo
+     * Get the comment author login
+     *
+     * @return the author login
      */
     public String getPseudo() {
         return pseudo;
     }
 
     /**
-     * @param pseudo the pseudo to set
+     * Set the comment author login
+     *
+     * @param pseudo the author login to set
      */
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
 
     /**
-     * @return the userId
+     * Get the comment author id
+     *
+     * @return the author Id
      */
     public int getUserId() {
         return userId;
     }
 
     /**
-     * @param userId the userId to set
+     * Set the comment author id
+     *
+     * @param userId the author id to set
      */
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
     /**
-     * @return the userMail
+     * Get the comment author mail
+     *
+     * @return the author mail
      */
     public String getUserMail() {
         return userMail;
     }
 
     /**
-     * @param userMail the userMail to set
+     * Set the comment author mail
+     *
+     * @param userMail the author mail to set
      */
     public void setUserMail(String userMail) {
         this.userMail = userMail;
     }
 
+    /**
+     * Get the comment entity Type
+     *
+     * @return the entity Type
+     */
     public String getEntityType() {
         return entityType;
     }
 
+    /**
+     * Set the comment entity Type
+     *
+     * @param entityType the entity Type to set
+     */
     public void setEntityType(String entityType) {
         this.entityType = entityType;
     }

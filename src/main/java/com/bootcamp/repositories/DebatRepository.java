@@ -12,6 +12,12 @@ import com.bootcamp.entities.Debat;
  * @author Bello
  */
 public class DebatRepository extends BaseRepository<Debat> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public DebatRepository(String unitPersistence) {
         super(unitPersistence, Debat.class);
     }

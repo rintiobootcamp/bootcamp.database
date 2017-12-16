@@ -5,15 +5,20 @@
  */
 package com.bootcamp.repositories;
 
-
 import com.bootcamp.entities.Programme;
 
 /**
  *
-
+ *
  * @author Moh
  */
 public class ProgrammeRepository extends BaseRepository<Programme> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public ProgrammeRepository(String unitPersistence) {
         super(unitPersistence, Programme.class);
     }

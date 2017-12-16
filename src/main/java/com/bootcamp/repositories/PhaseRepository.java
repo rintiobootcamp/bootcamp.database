@@ -12,6 +12,12 @@ import com.bootcamp.entities.Phase;
  * @author Bello
  */
 public class PhaseRepository extends BaseRepository<Phase> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public PhaseRepository(String unitPersistence) {
         super(unitPersistence, Phase.class);
     }

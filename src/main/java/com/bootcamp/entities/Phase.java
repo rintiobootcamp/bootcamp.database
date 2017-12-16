@@ -14,7 +14,6 @@ import javax.persistence.*;
 public class Phase implements Serializable {
 
     @Id
-	@ApiModelProperty(value = "Id of the phase", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -22,32 +21,33 @@ public class Phase implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "name of phase", required = true)
+    @ApiModelProperty(value = "name of state", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "started date of phase")
+    @ApiModelProperty(value = "creation date of state")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateDebut;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "ended date of phase")
+    @ApiModelProperty(value = "update date of state")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateFin;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "check if the phase is enable", required = true)
+    @ApiModelProperty(value = "check if the state is enable or not", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean actif;
 
     @ManyToOne
-	@ApiModelProperty(value = "The project the phase is linked with", required = true)
     @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Projet projet;
 
     /**
+     * Get the phase id
+     *
      * @return the id
      */
     public int getId() {
@@ -55,6 +55,8 @@ public class Phase implements Serializable {
     }
 
     /**
+     * Set the phase id
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -62,73 +64,90 @@ public class Phase implements Serializable {
     }
 
     /**
-     * @return the nom
+     * Get the phase name
+     *
+     * @return the name
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @param nom the nom to set
+     * Set the phase name
+     *
+     * @param nom the name to set
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
-     * @return the dateDebut
+     * Get the phase started date
+     *
+     * @return the started date
      */
     public long getDateDebut() {
         return dateDebut;
     }
 
     /**
-     * @param dateDebut the dateDebut to set
+     * Set the phase started date
+     *
+     * @param dateDebut the date to set
      */
     public void setDateDebut(long dateDebut) {
         this.dateDebut = dateDebut;
     }
 
     /**
-     * @return the dateFin
+     * Get the phase ended date
+     *
+     * @return the ended date
      */
     public long getDateFin() {
         return dateFin;
     }
 
     /**
-     * @param dateFin the dateFin to set
+     * Set the phase ended date
+     *
+     * @param dateFin the date to set
      */
     public void setDateFin(long dateFin) {
         this.dateFin = dateFin;
     }
 
     /**
-     * @return the actif
+     * Check if the phase is enable
      */
     public boolean isActif() {
         return actif;
     }
 
     /**
-     * @param actif the actif to set
+     * Enable or Disable the phase
+     *
+     * @param actif
      */
     public void setActif(boolean actif) {
         this.actif = actif;
     }
 
     /**
-     * @return the projet
+     * Get the phase project
+     *
+     * @return the project
      */
     public Projet getProjet() {
         return projet;
     }
 
     /**
-     * @param projet the projet to set
+     * Set the phase project
+     *
+     * @param projet the project to set
      */
     public void setProjet(Projet projet) {
         this.projet = projet;
     }
-
 }

@@ -11,7 +11,13 @@ import com.bootcamp.entities.Media;
  *
  * @author rosius
  */
-public class MediaRepository extends BaseRepository<Media>{
+public class MediaRepository extends BaseRepository<Media> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public MediaRepository(String unitPersistence) {
         super(unitPersistence, Media.class);
     }

@@ -10,40 +10,44 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Bello
+ */
 @Entity
-@ApiModel(value = "Region", description = "Description of region service")
+@ApiModel(value = "location", description = "Description of location service")
 public class Region implements Serializable {
 
     @Id
-	@ApiModelProperty(value = "Id of the Region", notes = "This id is automatically generated ,it doesn't required")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "Name of the region", required = true)
+    @ApiModelProperty(value = "Name of the location", required = true)
     private String nom;
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "The type of the region", required = true)
+    @ApiModelProperty(value = "The type of the location", required = true)
     private RegionType type;
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "The longitude of the region", required = true)
+    @ApiModelProperty(value = "The longitude of the location", required = true)
     private long longitude;
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    @ApiModelProperty(value = "The latitude of the region", required = true)
+    @ApiModelProperty(value = "The latitude of the location", required = true)
     private long latitude;
 
     @ManyToMany
-	@ApiModelProperty(value = "List of projets in the region")
     private List<Projet> projets = new ArrayList<Projet>();
 
     /**
+     * Get the location id
+     *
      * @return the id
      */
     public int getId() {
@@ -51,6 +55,8 @@ public class Region implements Serializable {
     }
 
     /**
+     * Set the location id
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -58,20 +64,26 @@ public class Region implements Serializable {
     }
 
     /**
-     * @return the nom
+     * Get the location name
+     *
+     * @return the name
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @param nom the nom to set
+     * Set the location name
+     *
+     * @param nom the name to set
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
+     * Get the location type
+     *
      * @return the type
      */
     public RegionType getType() {
@@ -79,6 +91,8 @@ public class Region implements Serializable {
     }
 
     /**
+     * Set the location type
+     *
      * @param type the type to set
      */
     public void setType(RegionType type) {
@@ -86,6 +100,8 @@ public class Region implements Serializable {
     }
 
     /**
+     * Get the location longitude
+     *
      * @return the longitude
      */
     public long getLongitude() {
@@ -93,6 +109,8 @@ public class Region implements Serializable {
     }
 
     /**
+     * Set the location longitude
+     *
      * @param longitude the longitude to set
      */
     public void setLongitude(long longitude) {
@@ -100,6 +118,8 @@ public class Region implements Serializable {
     }
 
     /**
+     * Get the location latitude
+     *
      * @return the latitude
      */
     public long getLatitude() {
@@ -107,6 +127,8 @@ public class Region implements Serializable {
     }
 
     /**
+     * Set the location latitude
+     *
      * @param latitude the latitude to set
      */
     public void setLatitude(long latitude) {
@@ -114,14 +136,18 @@ public class Region implements Serializable {
     }
 
     /**
-     * @return the projets
+     * Get the location projects list
+     *
+     * @return the projects
      */
     public List<Projet> getProjets() {
         return projets;
     }
 
     /**
-     * @param projets the projets to set
+     * Set the location projects list
+     *
+     * @param projets the projects to set
      */
     public void setProjets(List<Projet> projets) {
         this.projets = projets;

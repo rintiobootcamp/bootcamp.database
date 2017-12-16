@@ -7,6 +7,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Bello
+ */
 @Entity
 public class Projet implements Serializable {
 
@@ -50,27 +54,25 @@ public class Projet implements Serializable {
     @Column(nullable = false)
     private long dateDebutPrevisionnel;
 
-    @ApiModelProperty(value = "Estimate ended date of the project",required=true)
+    @ApiModelProperty(value = "Estimate ended date of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateFinPrevisionnel;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "Estimate funds of the project",required=true)
+    @ApiModelProperty(value = "Estimate funds of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double budgetPrevisionnel;
-
 
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
 
-
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
     @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
-    
+
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
     @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the project phases that are on going")
@@ -82,7 +84,6 @@ public class Projet implements Serializable {
     private int idSecteur;
 
     @ManyToMany(mappedBy = "projets")
-	@ApiModelProperty(value = "List of the regions concerned by the project")
     @Basic(fetch = FetchType.LAZY, optional = false)
     private List<Region> regions = new ArrayList<Region>();
 
@@ -96,172 +97,361 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "List of the objectives of the project")
     private List<Objectif> objectifList;
 
-
     @ApiModelProperty(value = "Part of the financing obtained from the Prive")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
     private double financementPrive;
-
 
     @ApiModelProperty(value = "Part of the financing obtained from the Public")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
     private double financementPublic;
-
 
     @ApiModelProperty(value = "Id of the Unique Programme in which the projet is allocated to", required = true)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int idProgramme;
 
+    /**
+     * Get the project id
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Set the project id
+     *
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Get the project name
+     *
+     * @return the name
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Set the project name
+     *
+     * @param nom the name to set
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Get the project reference
+     *
+     * @return the reference
+     */
     public String getReference() {
         return reference;
     }
 
+    /**
+     * Set the project reference
+     *
+     * @param reference the reference to set
+     */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
+    /**
+     * Get the project description
+     *
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Set the project description
+     *
+     * @param description the description to set
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Get the project real started date
+     *
+     * @return the real started date
+     */
     public long getDateDebutReel() {
         return dateDebutReel;
     }
 
+    /**
+     * Set the project real started date
+     *
+     * @param dateDebutReel the date to set
+     */
     public void setDateDebutReel(long dateDebutReel) {
         this.dateDebutReel = dateDebutReel;
     }
 
+    /**
+     * Get the project real ended date
+     *
+     * @return the real ended date
+     */
     public long getDateFinReel() {
         return dateFinReel;
     }
 
+    /**
+     * Set the project real ended date
+     *
+     * @param dateFinReel the date to set
+     */
     public void setDateFinReel(long dateFinReel) {
         this.dateFinReel = dateFinReel;
     }
 
+    /**
+     * Get the project estimate started date
+     *
+     * @return the estimate started date
+     */
     public long getDateDebutPrevisionnel() {
         return dateDebutPrevisionnel;
     }
 
+    /**
+     * Set the project estimate started date
+     *
+     * @param dateDebutPrevisionnel the date to set
+     */
     public void setDateDebutPrevisionnel(long dateDebutPrevisionnel) {
         this.dateDebutPrevisionnel = dateDebutPrevisionnel;
     }
 
+    /**
+     * Get the project estimate ended date
+     *
+     * @return the estimate ended date
+     */
     public long getDateFinPrevisionnel() {
         return dateFinPrevisionnel;
     }
 
+    /**
+     * Set the project estimate ended date
+     *
+     * @param dateFinPrevisionnel the date to set
+     */
     public void setDateFinPrevisionnel(long dateFinPrevisionnel) {
         this.dateFinPrevisionnel = dateFinPrevisionnel;
     }
 
+    /**
+     * Get the project estimate funds
+     *
+     * @return the estimate funds
+     */
     public double getBudgetPrevisionnel() {
         return budgetPrevisionnel;
     }
 
+    /**
+     * Set the project estimate funds
+     *
+     * @param budgetPrevisionnel the funds to set
+     */
     public void setBudgetPrevisionnel(double budgetPrevisionnel) {
         this.budgetPrevisionnel = budgetPrevisionnel;
     }
 
+    /**
+     * Get the project real cost
+     *
+     * @return the real cost
+     */
     public double getCoutReel() {
         return coutReel;
     }
 
+    /**
+     * Set the project real cost
+     *
+     * @param coutReel the cost to set
+     */
     public void setCoutReel(double coutReel) {
         this.coutReel = coutReel;
     }
 
+    /**
+     * Get the project step list
+     *
+     * @return the step list
+     */
     public List<Phase> getPhases() {
         return phases;
     }
 
+    /**
+     * Set the project step list
+     *
+     * @param phases the step list to set
+     */
     public void setPhases(List<Phase> phases) {
         this.phases = phases;
     }
 
+    /**
+     * Get the project sector id
+     *
+     * @return the sector id
+     */
     public int getIdSecteur() {
         return idSecteur;
     }
 
+    /**
+     * Set the project sector id
+     *
+     * @param idSecteur the project sector id to set
+     */
     public void setIdSecteur(int idSecteur) {
         this.idSecteur = idSecteur;
     }
 
+    /**
+     * Get the project location list
+     *
+     * @return the location list
+     */
     public List<Region> getRegions() {
         return regions;
     }
 
+    /**
+     * Set the project location list
+     *
+     * @param regions the location list to set
+     */
     public void setRegions(List<Region> regions) {
         this.regions = regions;
     }
 
+    /**
+     * Get the project impact list
+     *
+     * @return the impact list
+     */
     public List<Impact> getImpactList() {
         return impactList;
     }
 
+    /**
+     * Set the project impact list
+     *
+     * @param impactList the impact list to set
+     */
     public void setImpactList(List<Impact> impactList) {
         this.impactList = impactList;
     }
 
+    /**
+     * Get the project goal list
+     *
+     * @return the goal list
+     */
     public List<Objectif> getObjectifList() {
         return objectifList;
     }
 
+    /**
+     * Set the project goal list
+     *
+     * @param objectifList the goal list to set
+     */
     public void setObjectifList(List<Objectif> objectifList) {
         this.objectifList = objectifList;
     }
 
+    /**
+     * Get the project private originate funds
+     *
+     * @return the private originate funds
+     */
     public double getFinancementPrive() {
         return financementPrive;
     }
 
+    /**
+     * Set the project private originate funds
+     *
+     * @param financementPrive the funds to set
+     */
     public void setFinancementPrive(double financementPrive) {
         this.financementPrive = financementPrive;
     }
 
+    /**
+     * Get the project public originate funds
+     *
+     * @return the public originate funds
+     */
     public double getFinancementPublic() {
         return financementPublic;
     }
 
+    /**
+     * Set the project public originate funds
+     *
+     * @param financementPublic the funds to set
+     */
     public void setFinancementPublic(double financementPublic) {
         this.financementPublic = financementPublic;
     }
 
+    /**
+     * Get the project program id
+     *
+     * @return the program id
+     */
     public int getIdProgramme() {
         return idProgramme;
     }
 
+    /**
+     * Set the project program id
+     *
+     * @param idProgramme the program id to set
+     */
     public void setIdProgramme(int idProgramme) {
         this.idProgramme = idProgramme;
     }
 
+    /**
+     * Get the project actual step list
+     *
+     * @return the actual step list
+     */
     public List<Phase> getPhasesActuelles() {
         return phasesActuelles;
     }
 
+    /**
+     * Set the project actual step list
+     *
+     * @param phasesActuelles the actual step list to set
+     */
     public void setPhasesActuelles(List<Phase> phasesActuelles) {
         this.phasesActuelles = phasesActuelles;
     }
-    
+
 }

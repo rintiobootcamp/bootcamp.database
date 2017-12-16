@@ -13,6 +13,11 @@ import com.bootcamp.entities.Secteur;
  */
 public class SecteurRepository extends BaseRepository<Secteur> {
 
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public SecteurRepository(String persistUnit) {
         super(persistUnit, Secteur.class);
     }

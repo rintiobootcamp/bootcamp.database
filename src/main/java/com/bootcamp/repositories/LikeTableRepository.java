@@ -11,8 +11,14 @@ import com.bootcamp.entities.LikeTable;
  *
  * @author Archange
  */
-public class LikeTableRepository extends BaseRepository<LikeTable>{
+public class LikeTableRepository extends BaseRepository<LikeTable> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public LikeTableRepository(String unitPersistence) {
         super(unitPersistence, LikeTable.class);
-    }    
+    }
 }
