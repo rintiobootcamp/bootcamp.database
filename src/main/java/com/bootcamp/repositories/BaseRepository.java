@@ -32,7 +32,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
     public BaseRepository(String persistUnit, Class entityClass) {
         this.persistUnit = persistUnit;
         emf = Persistence.createEntityManagerFactory(this.persistUnit);
-        this.em = getEntityManager();
+        this.em = getEm();
         this.entityClass = entityClass;
     }
 
@@ -41,7 +41,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
      *
      * @return the repository entity manager
      */
-    public final EntityManager getEntityManager() {
+    public final EntityManager getEm() {
         em = emf.createEntityManager();
         return em;
     }
@@ -102,7 +102,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
         String className = entityClass.getSimpleName();
 
         String request = "select t from " + className + " t where t.id =:param";
-        Query query = getEntityManager().createQuery(request);
+        Query query = getEm().createQuery(request);
         query.setParameter("param", id);
         return (T) query.getSingleResult();
     }
@@ -117,7 +117,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
         String className = entityClass.getSimpleName();
 
         String req = "select t from " + className + " t";
-        Query query = getEntityManager().createQuery(req);
+        Query query = getEm().createQuery(req);
         return query.getResultList();
     }
 
@@ -135,7 +135,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
         String className = entityClass.getSimpleName();
 
         String s = "SELECT " + entityPrefix + " FROM " + className + " " + entityPrefix + " WHERE " + request;
-        Query query = getEntityManager().createQuery(s);
+        Query query = getEm().createQuery(s);
         List<T> result = query.getResultList();
         return result;
     }
@@ -169,7 +169,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
         String className = entityClass.getSimpleName();
 
         String s = "SELECT " + entityPrefix + " FROM " + className + " " + entityPrefix + " WHERE " + request;
-        Query query = getEntityManager().createQuery(s);
+        Query query = getEm().createQuery(s);
         query.setFirstResult(page);
         query.setMaxResults(size);
         List<T> result = query.getResultList();
@@ -223,7 +223,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
 
         selectedFields = selectedFields + " FROM " + className + " " + entityPrefix + " WHERE " + request;
 
-        Query query = getEntityManager().createQuery(selectedFields);
+        Query query = getEm().createQuery(selectedFields);
         List<Object[]> objects = query.getResultList();
 
         List<T> results = NativeQueryResultsMapper.map(objects, fields, entityClass);
@@ -270,7 +270,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
 
         selectedFields = selectedFields + " FROM " + className + " " + entityPrefix;
 
-        Query query = getEntityManager().createQuery(selectedFields);
+        Query query = getEm().createQuery(selectedFields);
         List<Object[]> objects = query.getResultList();
 
         List<T> results = NativeQueryResultsMapper.map(objects, fields, entityClass);
@@ -319,7 +319,7 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
 
         selectedFields = selectedFields + " FROM " + className + " " + entityPrefix + " WHERE " + request;
 
-        Query query = getEntityManager().createQuery(selectedFields);
+        Query query = getEm().createQuery(selectedFields);
         query.setFirstResult(page);
         query.setMaxResults(size);
         List<Object[]> objects = query.getResultList();
