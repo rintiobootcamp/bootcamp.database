@@ -6,37 +6,37 @@ package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
 
-/**
- *
- * @author Bello
- */
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-public class User {
+public class PagUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @ApiModelProperty(value = "Id of the User", required = true)
+    @ApiModelProperty(value = "Id of the user", notes = "This id is automatically generated ,it doesn't required")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Login of the User", required = true)
+    @ApiModelProperty(value = "Login of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private String login;
+    private String username;
 
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Password of the User", required = true)
+    @ApiModelProperty(value = "Password of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String password;
 
     @Column(nullable = false, length = 1024)
-    @ApiModelProperty(value = "Password of the User", required = true)
+    @ApiModelProperty(value = "Email of the User")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String email;
+
+    @Column(nullable = false, length = 1024)
+    @ApiModelProperty(value = "name of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
 
@@ -50,112 +50,70 @@ public class User {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    /**
-     * Get the user id
-     *
-     * @return the id
-     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
+    private List<UserRole> userRoles = new ArrayList<>();
+
     public int getId() {
         return id;
     }
 
-    /**
-     * Set the user id
-     *
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * Get the user login
-     *
-     * @return the login
-     */
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    /**
-     * Set the user login
-     *
-     * @param login the login to set
-     */
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    /**
-     * Get the user password
-     *
-     * @return the password
-     */
     public String getPassword() {
         return password;
     }
 
-    /**
-     * Set the user password
-     *
-     * @param password the password to set
-     */
     public void setPassword(String password) {
         this.password = password;
     }
 
-    /**
-     * Get the user name
-     *
-     * @return the name
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * Set the user name
-     *
-     * @param nom the name to set
-     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * Get the user creation date
-     *
-     * @return the creation date
-     */
     public long getDateCreation() {
         return dateCreation;
     }
 
-    /**
-     * Set the user creation date
-     *
-     * @param dateCreation the date to set
-     */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    /**
-     * Get the user update date
-     *
-     * @return the update date
-     */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
-    /**
-     * Set the user update date
-     *
-     * @param dateMiseAJour the date to set
-     */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
 
+    public List<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<UserRole> userRoles) {
+        this.userRoles = userRoles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

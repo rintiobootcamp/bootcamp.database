@@ -1,19 +1,12 @@
+
 package com.bootcamp.repositories;
 
-import com.bootcamp.entities.User;
+import com.bootcamp.entities.PagUser;
 
-/**
- *
- * @author Bello
- */
-public class UserRepository extends BaseRepository<User> {
 
-    /**
-     * Initialize the repository with the wanted persistence unit
-     *
-     * @param unitPersistence
-     */
+public class UserRepository extends BaseRepository<PagUser>{
+  
     public UserRepository(String unitPersistence) {
-        super(unitPersistence, User.class);
+        super(unitPersistence, PagUser.class);
     }
 }
