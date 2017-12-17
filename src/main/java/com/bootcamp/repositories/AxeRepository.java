@@ -12,6 +12,12 @@ import com.bootcamp.entities.Axe;
  * @author Bello
  */
 public class AxeRepository extends BaseRepository<Axe> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public AxeRepository(String unitPersistence) {
         super(unitPersistence, Axe.class);
     }

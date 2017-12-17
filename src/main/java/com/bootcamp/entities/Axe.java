@@ -75,6 +75,8 @@ public class Axe implements Serializable {
     private Pilier pilier;
 
     /**
+     * Get the id of the axe
+     *
      * @return the id
      */
     public int getId() {
@@ -82,6 +84,8 @@ public class Axe implements Serializable {
     }
 
     /**
+     * Set the id of the axe
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -89,27 +93,35 @@ public class Axe implements Serializable {
     }
 
     /**
-     * @return the nom
+     * Get the name of the axe
+     *
+     * @return the name
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @param nom the nom to set
+     * Set the name of the axe
+     *
+     * @param nom the name to set
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
-     * @return the description
+     * Get the description of the axe
+     *
+     * @return the description of the axe
      */
     public String getDescription() {
         return description;
     }
 
     /**
+     * Set the description of the axe
+     *
      * @param description the description to set
      */
     public void setDescription(String description) {
@@ -117,99 +129,126 @@ public class Axe implements Serializable {
     }
 
     /**
-     * @return the titre
+     * Get the axe title
+     *
+     * @return the title of the axe
      */
     public String getTitre() {
         return titre;
     }
 
     /**
-     * @param titre the titre to set
+     * Set the axe title
+     *
+     * @param titre the title to set
      */
     public void setTitre(String titre) {
         this.titre = titre;
     }
 
     /**
-     * @return the titreFocus
+     * Get the axe focus title
+     *
+     * @return the axe focus title
      */
     public String getTitreFocus() {
         return titreFocus;
     }
 
     /**
-     * @param titreFocus the titreFocus to set
+     * Set the axe focus title
+     *
+     * @param titreFocus the axe focus title to set
      */
     public void setTitreFocus(String titreFocus) {
         this.titreFocus = titreFocus;
     }
 
     /**
-     * @return the descriptionFocus
+     * Get the axe focus description
+     *
+     * @return the axe focus description
      */
     public String getDescriptionFocus() {
         return descriptionFocus;
     }
 
     /**
-     * @param descriptionFocus the descriptionFocus to set
+     * Set the axe focus description
+     *
+     * @param descriptionFocus the axe focus description to set
      */
     public void setDescriptionFocus(String descriptionFocus) {
         this.descriptionFocus = descriptionFocus;
     }
 
     /**
-     * @return the dateCreation
+     * Get the axe creation date
+     *
+     * @return the creation date of the axe
      */
     public long getDateCreation() {
         return dateCreation;
     }
 
     /**
-     * @param dateCreation the dateCreation to set
+     * Set the axe creation date
+     *
+     * @param dateCreation the axe creation date to set
      */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
     /**
-     * @return the dateMiseAJour
+     * Get the axe update date
+     *
+     * @return the axe update date
      */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
     /**
-     * @param dateMiseAJour the dateMiseAJour to set
+     * Set the axe update date
+     *
+     * @param dateMiseAJour the axe update date to set
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
 
     /**
-     * @return the secteurs
+     * Get the axe sector list
+     *
+     * @return the axe sector list
      */
     public List<Secteur> getSecteurs() {
         return secteurs;
     }
 
     /**
-     * @param secteurs the secteurs to set
+     * Set the axe sector list
+     *
+     * @param secteurs the axe sector list to set
      */
     public void setSecteurs(List<Secteur> secteurs) {
         this.secteurs = secteurs;
     }
 
-
     /**
-     * @return the pilier
+     * Get the axe pillar
+     *
+     * @return the axe pillar
      */
     public Pilier getPilier() {
         return pilier;
     }
 
     /**
-     * @param pilier the pilier to set
+     * Set the axe pillar
+     *
+     * @param pilier the axe pillar to set
      */
     public void setPilier(Pilier pilier) {
         this.pilier = pilier;

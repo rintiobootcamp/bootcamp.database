@@ -19,12 +19,11 @@ public class Impact implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-
     @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "Type of the impact of the project", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
     private TypeImpact typeImpact;
-
 
     @ApiModelProperty(value = "description of the objectif", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
@@ -34,49 +33,98 @@ public class Impact implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double value;
 
-
     @Lob
     @Basic(fetch = FetchType.LAZY, optional = false)
-    @Column(nullable = false, length = 1024)
+    @Column(length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String autres;
 
+    /**
+     * Get the impact id
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Set the impact id
+     *
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Get the impact type
+     *
+     * @return the impact type
+     */
     public TypeImpact getTypeImpact() {
         return typeImpact;
     }
 
+    /**
+     * Set the impact type
+     *
+     * @param typeImpact impact type to set
+     */
     public void setTypeImpact(TypeImpact typeImpact) {
         this.typeImpact = typeImpact;
     }
 
+    /**
+     * Get the impact unit
+     *
+     * @return the unit
+     */
     public String getUnite() {
         return unite;
     }
 
+    /**
+     * Set the impact unit
+     *
+     * @param unite the unit to set
+     */
     public void setUnite(String unite) {
         this.unite = unite;
     }
 
+    /**
+     * Get the impact value
+     *
+     * @return the value
+     */
     public double getValue() {
         return value;
     }
 
+    /**
+     * Set the impact value
+     *
+     * @param value the value to set
+     */
     public void setValue(double value) {
         this.value = value;
     }
 
+    /**
+     * Get the other impact
+     *
+     * @return the other impact
+     */
     public String getAutres() {
         return autres;
     }
 
+    /**
+     * Set the other impact
+     *
+     * @param autres the other impact to set
+     */
     public void setAutres(String autres) {
         this.autres = autres;
     }

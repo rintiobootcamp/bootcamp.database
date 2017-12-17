@@ -5,15 +5,20 @@
  */
 package com.bootcamp.repositories;
 
-import com.bootcamp.entities.Commentaire;
 import com.bootcamp.entities.Note;
 
 /**
  *
  * @author Archange
  */
-public class NoteRepository extends BaseRepository<Note>{
+public class NoteRepository extends BaseRepository<Note> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public NoteRepository(String unitPersistence) {
         super(unitPersistence, Note.class);
-    }    
+    }
 }

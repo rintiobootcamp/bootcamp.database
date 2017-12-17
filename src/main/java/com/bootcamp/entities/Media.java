@@ -6,7 +6,6 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
-import com.bootcamp.commons.enums.EntityType;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -67,6 +66,8 @@ public class Media implements Serializable {
     private long dateMiseAJour;
 
     /**
+     * Get the media id
+     *
      * @return the id
      */
     public int getId() {
@@ -74,6 +75,8 @@ public class Media implements Serializable {
     }
 
     /**
+     * Get the media id
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -81,34 +84,44 @@ public class Media implements Serializable {
     }
 
     /**
-     * @return the originalName
+     * Get the media original name
+     *
+     * @return the original name
      */
     public String getOriginalName() {
         return originalName;
     }
 
     /**
-     * @param originalName the originalName to set
+     * Set the media original name
+     *
+     * @param originalName the original name to set
      */
     public void setOriginalName(String originalName) {
         this.originalName = originalName;
     }
 
     /**
-     * @return the internalName
+     * Get the media internal name
+     *
+     * @return the internal name
      */
     public String getInternalName() {
         return internalName;
     }
 
     /**
-     * @param internalName the internalName to set
+     * Set the media internal name
+     *
+     * @param internalName the internal name to set
      */
     public void setInternalName(String internalName) {
         this.internalName = internalName;
     }
 
     /**
+     * Get the media type
+     *
      * @return the type
      */
     public String getType() {
@@ -116,6 +129,8 @@ public class Media implements Serializable {
     }
 
     /**
+     * Set the media type
+     *
      * @param type the type to set
      */
     public void setType(String type) {
@@ -123,59 +138,89 @@ public class Media implements Serializable {
     }
 
     /**
-     * @return the lien
+     * Get the media link
+     *
+     * @return the link
      */
     public String getLien() {
         return lien;
     }
 
     /**
-     * @param lien the lien to set
+     * Set the media link
+     *
+     * @param lien the link to set
      */
     public void setLien(String lien) {
         this.lien = lien;
     }
 
     /**
-     * @return the dateCreation
+     * Get the media creation date
+     *
+     * @return the creation date
      */
     public long getDateCreation() {
         return dateCreation;
     }
 
     /**
-     * @param dateCreation the dateCreation to set
+     * @param dateCreation the date to set
      */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
     /**
-     * @return the dateMiseAJour
+     * Get the media update date
+     *
+     * @return the update date
      */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
     /**
-     * @param dateMiseAJour the dateMiseAJour to set
+     * Set the media update date
+     *
+     * @param dateMiseAJour the date to set
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
 
+    /**
+     * Get the media entity type
+     *
+     * @return the entity type
+     */
     public String getEntityType() {
         return entityType;
     }
 
+    /**
+     * Set the media entity type
+     *
+     * @param entityType the entity type to set
+     */
     public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
 
+    /**
+     * Get the media entity id
+     *
+     * @return the entity id
+     */
     public int getEntityId() {
         return entityId;
     }
 
+    /**
+     * Set the media entity id
+     *
+     * @param entityId the entity id to set
+     */
     public void setEntityId(int entityId) {
         this.entityId = entityId;
     }

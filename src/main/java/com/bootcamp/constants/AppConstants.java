@@ -10,5 +10,9 @@ package com.bootcamp.constants;
  * @author Bignon
  */
 public class AppConstants {
+
+    /**
+     *
+     */
     public static String  PERSISTENCE_UNIT="databasePU";
 }

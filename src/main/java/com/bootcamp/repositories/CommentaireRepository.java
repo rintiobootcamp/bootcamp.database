@@ -11,8 +11,14 @@ import com.bootcamp.entities.Commentaire;
  *
  * @author rosius
  */
-public class CommentaireRepository extends BaseRepository<Commentaire>{
+public class CommentaireRepository extends BaseRepository<Commentaire> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public CommentaireRepository(String unitPersistence) {
         super(unitPersistence, Commentaire.class);
-    }    
+    }
 }

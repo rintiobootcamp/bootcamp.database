@@ -12,6 +12,12 @@ import com.bootcamp.entities.Censure;
  * @author Bello
  */
 public class CensureRepository extends BaseRepository<Censure> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public CensureRepository(String unitPersistence) {
         super(unitPersistence, Censure.class);
     }

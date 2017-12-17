@@ -9,6 +9,10 @@ import java.io.Serializable;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 
+/**
+ *
+ * @author Bello
+ */
 @Entity
 @ApiModel(value = "pilier", description = "the pilier model of the PAG")
 public class Pilier implements Serializable {
@@ -44,6 +48,8 @@ public class Pilier implements Serializable {
     private List<Axe> axes;
 
     /**
+     * Get the Pillar id
+     *
      * @return the id
      */
     public int getId() {
@@ -51,6 +57,8 @@ public class Pilier implements Serializable {
     }
 
     /**
+     * Set the Pillar id
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -58,20 +66,26 @@ public class Pilier implements Serializable {
     }
 
     /**
-     * @return the nom
+     * Get the Pillar name
+     *
+     * @return the name
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @param nom the nom to set
+     * Set the Pillar name
+     *
+     * @param nom the name to set
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
+     * Get the Pillar description
+     *
      * @return the description
      */
     public String getDescription() {
@@ -79,6 +93,8 @@ public class Pilier implements Serializable {
     }
 
     /**
+     * Set the Pillar description
+     *
      * @param description the description to set
      */
     public void setDescription(String description) {
@@ -86,34 +102,44 @@ public class Pilier implements Serializable {
     }
 
     /**
-     * @return the dateCreation
+     * Get the Pillar creation date
+     *
+     * @return the creation date
      */
     public long getDateCreation() {
         return dateCreation;
     }
 
     /**
-     * @param dateCreation the dateCreation to set
+     * Set the Pillar creation date
+     *
+     * @param dateCreation the creation date to set
      */
     public void setDateCreation(long dateCreation) {
         this.dateCreation = dateCreation;
     }
 
     /**
-     * @return the dateMiseAJour
+     * Get the Pillar update date
+     *
+     * @return the update date
      */
     public long getDateMiseAJour() {
         return dateMiseAJour;
     }
 
     /**
-     * @param dateMiseAJour the dateMiseAJour to set
+     * Set the Pillar update date
+     *
+     * @param dateMiseAJour the date to set
      */
     public void setDateMiseAJour(long dateMiseAJour) {
         this.dateMiseAJour = dateMiseAJour;
     }
 
     /**
+     * Get the Pillar axes list
+     *
      * @return the axes
      */
     public List<Axe> getAxes() {
@@ -121,6 +147,8 @@ public class Pilier implements Serializable {
     }
 
     /**
+     * Set the Pillar axes list
+     *
      * @param axes the axes to set
      */
     public void setAxes(List<Axe> axes) {

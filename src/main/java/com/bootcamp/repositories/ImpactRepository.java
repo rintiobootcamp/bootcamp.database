@@ -5,15 +5,20 @@
  */
 package com.bootcamp.repositories;
 
-
 import com.bootcamp.entities.Impact;
 
 /**
  *
  * @author Moh
  */
-public class ImpactRepository extends BaseRepository<Impact>{
+public class ImpactRepository extends BaseRepository<Impact> {
+
+    /**
+     * Initialize the repository with the wanted persistence unit
+     *
+     * @param unitPersistence
+     */
     public ImpactRepository(String unitPersistence) {
         super(unitPersistence, Impact.class);
-    }    
+    }
 }
