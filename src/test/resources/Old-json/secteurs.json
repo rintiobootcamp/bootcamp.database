@@ -3,7 +3,7 @@
     "nom": "Agriculture",
     "description": "",
     "objectif": "",
-    "icone": "tractor-side-view",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
@@ -11,7 +11,7 @@
     "nom": "Numerique",
     "description": "",
     "objectif": "",
-    "icone": "laptop-1",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
@@ -19,7 +19,7 @@
     "nom": "Infrastructure",
     "description": "",
     "objectif": "",
-    "icone": "highway",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
@@ -27,7 +27,7 @@
     "nom": "CIIS",
     "description": "",
     "objectif": "",
-    "icone": "open-book",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
@@ -35,15 +35,15 @@
     "nom": "Electricité",
     "description": "",
     "objectif": "",
-    "icone": "light-bulb",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
   {
-    "nom": "Cadre de vie",
+    "nom": "CadreDeVie",
     "description": "",
     "objectif": "",
-    "icone": "appartment",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
@@ -51,15 +51,15 @@
     "nom": "Eau",
     "description": "",
     "objectif": "",
-    "icone": "drop-silhouette",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
   {
-    "nom": "Protection sociale",
+    "nom": "ProtectionSociale",
     "description": "",
     "objectif": "",
-    "icone": "shield",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   },
@@ -67,7 +67,7 @@
     "nom": "Tourisme",
     "description": "",
     "objectif": "",
-    "icone": "nature",
+    "icone": "",
     "dateCreation": "1511890840",
     "dateMiseAJour": "1511890840"
   }
