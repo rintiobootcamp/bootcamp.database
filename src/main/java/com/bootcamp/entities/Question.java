@@ -56,6 +56,9 @@ public class Question implements Serializable {
     private long dateMiseAJour;
 
 
+    @Basic(fetch = FetchType.LAZY, optional = false)
+    @Column
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private HashMap<String,Long> typeReponses;
 
     public int getId() {

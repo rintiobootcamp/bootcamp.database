@@ -64,6 +64,8 @@ public abstract class BaseRepository<T> implements DatabaseConstants {
      */
     public boolean delete(T object) throws SQLException {
         em.getTransaction().begin();
+        if(!em.contains( object ))
+           object = em.merge( object );
         em.remove(object);
         em.getTransaction().commit();
 
