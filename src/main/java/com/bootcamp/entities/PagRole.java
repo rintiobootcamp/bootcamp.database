@@ -22,9 +22,7 @@ public class PagRole implements java.io.Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String name;
     
-    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "role")
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="pagRole")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagRole")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public Integer getId() {
