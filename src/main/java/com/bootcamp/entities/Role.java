@@ -19,7 +19,7 @@ public class Role implements java.io.Serializable {
 	private Integer id;
 	@NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
 	private String name;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role",cascade = CascadeType.ALL)
 	private List<UserRole> userRoles = new ArrayList<>();
 
 

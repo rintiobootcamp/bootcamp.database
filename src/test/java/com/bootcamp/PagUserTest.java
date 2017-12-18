@@ -38,12 +38,25 @@ public class PagUserTest {
 
         Assert.assertNotNull(role.getId());
 
+        Role role0 = new Role();
+        role0.setName("admin");
+        roleRepository.create(role0);
+
+        Assert.assertNotNull(role0.getId());
+
         UserRole userRole = new UserRole();
         userRole.setRole(role);
         userRole.setPagUser(pagUser);
         userRoleRepository.create(userRole);
 
         Assert.assertNotNull(userRole.getId());
+
+        UserRole userRole0 = new UserRole();
+        userRole0.setRole(role0);
+        userRole0.setPagUser(pagUser);
+        userRoleRepository.create(userRole0);
+
+        Assert.assertNotNull(userRole0.getId());
     }
 
 
