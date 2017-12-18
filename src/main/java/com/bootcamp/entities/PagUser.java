@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class PagUser implements java.io.Serializable{
+public class PagUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,7 +50,7 @@ public class PagUser implements java.io.Serializable{
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser",cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public int getId() {

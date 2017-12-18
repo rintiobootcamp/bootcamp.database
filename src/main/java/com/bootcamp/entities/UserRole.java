@@ -1,11 +1,9 @@
 package com.bootcamp.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by darextossa on 12/16/17.
- * Modified by bignonfebron on 12/18/17.
  */
 
 @Entity
