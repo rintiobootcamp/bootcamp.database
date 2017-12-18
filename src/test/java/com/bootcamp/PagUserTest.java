@@ -27,6 +27,7 @@ public class PagUserTest {
        PagUser pagUser = new PagUser();
        pagUser.setNom("TOSSA Gildas");
        pagUser.setUsername("username");
+        pagUser.setEmail("email");
        pagUser.setPassword("password");
        userRepository.create(pagUser);
 
@@ -54,5 +55,7 @@ public class PagUserTest {
         PagUser pagUser = userRepository.getDataByCriteria(criterias).get(0);
 
         Assert.assertEquals(pagUser.getUsername(), "username");
+
+        System.out.println(pagUser.getUserRoles());
     }
 }

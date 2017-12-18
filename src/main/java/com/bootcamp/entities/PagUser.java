@@ -50,7 +50,7 @@ public class PagUser {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pagUser")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public int getId() {
