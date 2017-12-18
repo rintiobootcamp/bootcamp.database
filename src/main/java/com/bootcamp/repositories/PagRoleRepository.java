@@ -5,14 +5,14 @@
  */
 package com.bootcamp.repositories;
 
-import com.bootcamp.entities.Role;
+import com.bootcamp.entities.PagRole;
 
 /**
  *
  * @author Bello
  */
-public class RoleRepository extends BaseRepository<Role> {
-    public RoleRepository(String unitPersistence) {
-        super(unitPersistence, Role.class);
+public class PagRoleRepository extends BaseRepository<PagRole> {
+    public PagRoleRepository(String unitPersistence) {
+        super(unitPersistence, PagRole.class);
     }
 }

@@ -2,16 +2,18 @@ package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
-public class PagUser {
+public class PagUser implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value = "Id of the user", notes = "This id is automatically generated ,it doesn't required")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
@@ -46,7 +48,8 @@ public class PagUser {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pagUser")
+    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "pagUser")
+    @OneToMany(cascade = ALL, mappedBy = "pagUser")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public int getId() {

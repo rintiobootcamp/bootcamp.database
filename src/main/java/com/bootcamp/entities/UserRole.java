@@ -1,5 +1,6 @@
 package com.bootcamp.entities;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -7,12 +8,18 @@ import javax.persistence.*;
  */
 
 @Entity
-public class UserRole {
+public class UserRole implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @ManyToOne
+    @JoinColumn(name = "pagUser")
     private PagUser pagUser;
-    private Role role;
+    
+    @ManyToOne
+    @JoinColumn(name = "pagRole")
+    private PagRole pagRole;
 
     public Integer getId() {
         return id;
@@ -30,11 +37,12 @@ public class UserRole {
         this.pagUser = pagUser;
     }
 
-    public Role getRole() {
-        return role;
+    public PagRole getPagRole() {
+        return pagRole;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setPagRole(PagRole pagRole) {
+        this.pagRole = pagRole;
     }
+    
 }
