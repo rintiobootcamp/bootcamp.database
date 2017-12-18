@@ -13,12 +13,8 @@ public class UserRole implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @ManyToOne
-    @JoinColumn(name = "pagUser")
     private PagUser pagUser;
     
-    @ManyToOne
-    @JoinColumn(name = "pagRole")
     private PagRole pagRole;
 
     public Integer getId() {

@@ -6,8 +6,8 @@
 package com.bootcamp.loadDataFromJsonFile;
 
 import com.bootcamp.TestUtils;
+import com.bootcamp.commons.constants.DatabaseConstants;
 import com.bootcamp.commons.utils.GsonUtils;
-import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.*;
 import com.bootcamp.repositories.*;
 import com.google.common.base.Charsets;
@@ -25,12 +25,12 @@ import java.util.List;
  */
 public class loadDataFromJsonFileTest {
 
-    private final AxeRepository axeRepository = new AxeRepository(AppConstants.PERSISTENCE_UNIT);
-    private final SecteurRepository secteurRepository = new SecteurRepository(AppConstants.PERSISTENCE_UNIT);
-    private final PilierRepository pilierRepository = new PilierRepository(AppConstants.PERSISTENCE_UNIT);
-    private final ProjetRepository projetRepository = new ProjetRepository(AppConstants.PERSISTENCE_UNIT);
-    private final PhaseRepository phaseRepository = new PhaseRepository(AppConstants.PERSISTENCE_UNIT);
-    private final ObjectifRepository objectifRepository = new ObjectifRepository(AppConstants.PERSISTENCE_UNIT);
+    private final AxeRepository axeRepository = new AxeRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final SecteurRepository secteurRepository = new SecteurRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final PilierRepository pilierRepository = new PilierRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final ProjetRepository projetRepository = new ProjetRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final PhaseRepository phaseRepository = new PhaseRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final ObjectifRepository objectifRepository = new ObjectifRepository(DatabaseConstants.PERSISTENCE_UNIT);
 
     @Test(priority = 1, groups = {"load Data From JsonFile Test"})
     public void loadDataObjectifFromJsonFile() throws Exception {

@@ -49,7 +49,8 @@ public class PagUser implements Serializable {
     private long dateMiseAJour;
 
     //@OneToMany(fetch = FetchType.EAGER, mappedBy = "pagUser")
-    @OneToMany(cascade = ALL, mappedBy = "pagUser")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="pagUser")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public int getId() {
