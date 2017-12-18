@@ -35,3 +35,6 @@ hs_err_pid*
 nb-configuration.xml
 db-access.iml
 /src/main/resources/local/
+/src/main/resources/dev/
+/src/test/resources/local/
+/src/test/resources/dev/
