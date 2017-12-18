@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by Archange on 04/12/2017.
+ * @author Archange
  */
 @Entity
 @ApiModel(value = "Preference", description = "Preference of the user")

@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Created by Archange on 04/12/2017.
+ * @author Archange
  */
 @Entity
 @ApiModel(value = "Note", description = "Note of Descripition")

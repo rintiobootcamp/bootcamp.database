@@ -1,7 +1,3 @@
-/**
- *
- * @author Bignon
- */
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;

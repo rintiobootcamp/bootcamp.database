@@ -9,15 +9,15 @@
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
-            <groupId>com.bootcamp</groupId>
-            <artifactId>commons</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.11</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.bootcamp</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -60,9 +60,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <config.home>/home/config/dev</config.home>
-
     </properties>
     <distributionManagement>
         <repository>
@@ -73,7 +70,6 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
-
     <profiles>
         <!-- en local -->
         <profile>
@@ -85,11 +81,11 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>src/main/resources/local</directory>
+                        <directory>src/main/resources</directory>
                         <filtering>true</filtering>
                     </resource>
                     <resource>
-                        <directory>${config.home}</directory>
+                        <directory>src/main/resources/local</directory>
                     </resource>
 
                 </resources>
@@ -106,7 +102,7 @@
                         <filtering>true</filtering>
                     </resource>
                     <resource>
-                        <directory>${config.home}</directory>
+                        <directory>src/main/resources/dev</directory>
                     </resource>
 
                 </resources>
@@ -153,9 +149,9 @@
                     </descriptorRefs>
                     <!-- MainClass in mainfest make a executable jar -->
                     <!--<archive>-->
-                    <!--<manifest>-->
-                    <!--<mainClass>com.mkyong.core.utils.App</mainClass>-->
-                    <!--</manifest>-->
+                        <!--<manifest>-->
+                            <!--<mainClass>com.mkyong.core.utils.App</mainClass>-->
+                        <!--</manifest>-->
                     <!--</archive>-->
 
                 </configuration>
