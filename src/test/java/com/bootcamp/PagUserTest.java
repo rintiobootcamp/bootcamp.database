@@ -1,8 +1,8 @@
 package com.bootcamp;
 
+import com.bootcamp.commons.constants.DatabaseConstants;
 import com.bootcamp.commons.models.Criteria;
 import com.bootcamp.commons.models.Criterias;
-import com.bootcamp.constants.AppConstants;
 import com.bootcamp.entities.PagRole;
 import com.bootcamp.entities.PagUser;
 import com.bootcamp.entities.UserRole;
@@ -17,9 +17,10 @@ import org.testng.annotations.Test;
  */
 public class PagUserTest {
 
-    private final UserRepository userRepository = new UserRepository(AppConstants.PERSISTENCE_UNIT);
-    private final PagRoleRepository roleRepository = new PagRoleRepository(AppConstants.PERSISTENCE_UNIT);
-    private final UserRoleRepository userPagRoleRepository = new UserRoleRepository(AppConstants.PERSISTENCE_UNIT);
+    private final UserRepository userRepository = new UserRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final PagRoleRepository roleRepository = new PagRoleRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private final UserRoleRepository userPagRoleRepository = new UserRoleRepository(DatabaseConstants.PERSISTENCE_UNIT);
+    private int userId = 0;
 
     @Test(priority = 0, groups = {"User Test"})
     public void namageUser() throws Exception {
@@ -30,6 +31,7 @@ public class PagUserTest {
         pagUser.setEmail("email");
         pagUser.setPassword("password");
         userRepository.create(pagUser);
+        userId = pagUser.getId();
 
         Assert.assertNotNull(pagUser.getId());
 
@@ -43,8 +45,10 @@ public class PagUserTest {
         userRole.setPagRole(role);
         userRole.setPagUser(pagUser);
         userPagRoleRepository.create(userRole);
+        
+        //userId = userRole.getId();
 
-        Assert.assertNotNull(userRole.getId());
+        Assert.assertNotNull(userId);
     }
 
     @Test(priority = 1, groups = {"User Test"})
@@ -55,6 +59,6 @@ public class PagUserTest {
 
         Assert.assertEquals(pagUser.getUsername(), "username");
 
-        System.out.println(pagUser.getUserRoles());
+        System.out.println(pagUser.getUserRoles().size());
     }
 }

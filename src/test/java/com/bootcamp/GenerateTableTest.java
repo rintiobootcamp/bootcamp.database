@@ -1,11 +1,6 @@
 package com.bootcamp;
 
-import com.bootcamp.commons.enums.EntityType;
-import com.bootcamp.commons.models.Criteria;
-import com.bootcamp.commons.models.Criterias;
-import com.bootcamp.constants.AppConstants;
-import com.bootcamp.entities.Question;
-import java.util.HashMap;
+import com.bootcamp.commons.constants.DatabaseConstants;
 import org.testng.annotations.Test;
 
 import javax.persistence.Persistence;
@@ -20,7 +15,7 @@ public class GenerateTableTest {
 
     @Test
     public void generateTables(){
-        Persistence.generateSchema(AppConstants.PERSISTENCE_UNIT, new Properties());
+        Persistence.generateSchema(DatabaseConstants.PERSISTENCE_UNIT, new Properties());
     }
     
 }
