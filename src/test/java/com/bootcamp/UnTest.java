@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
  */
 public class UnTest {
     
-    @Test
+    //@Test
     public void unTesttr(){
         UserRepository userRepository = new UserRepository(DatabaseConstants.PERSISTENCE_UNIT);
         

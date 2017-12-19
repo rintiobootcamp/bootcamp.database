@@ -1,6 +1,7 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
+import com.bootcamp.commons.enums.EtatProjet;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.persistence.*;
@@ -67,16 +68,16 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
+	
+	@ApiModelProperty(value = "Current state of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private EtatProjet etat;
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
     @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the project phases")
     private List<Phase> phases;
 
-    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @ApiModelProperty(value = "List of the project phases that are on going")
-    private List<Phase> phasesActuelles;
 
     @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to", required = true)
     @Column(nullable = false)
@@ -100,12 +101,22 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "Part of the financing obtained from the Prive")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
-    private double financementPrive;
+    private double financementPrivePrevisionnel;
 
     @ApiModelProperty(value = "Part of the financing obtained from the Public")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
-    private double financementPublic;
+    private double financementPublicPrevisionnel;
+
+    @ApiModelProperty(value = "Part of the financing obtained from the Prive")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private double financementPriveReel;
+
+    @ApiModelProperty(value = "Part of the financing obtained from the Public")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
+    private double financementPublicReel;
 
     @ApiModelProperty(value = "Id of the Unique Programme in which the projet is allocated to", required = true)
     @Column(nullable = false)
@@ -382,40 +393,36 @@ public class Projet implements Serializable {
         this.objectifList = objectifList;
     }
 
-    /**
-     * Get the project private originate funds
-     *
-     * @return the private originate funds
-     */
-    public double getFinancementPrive() {
-        return financementPrive;
+    public double getFinancementPrivePrevisionnel() {
+        return financementPrivePrevisionnel;
     }
 
-    /**
-     * Set the project private originate funds
-     *
-     * @param financementPrive the funds to set
-     */
-    public void setFinancementPrive(double financementPrive) {
-        this.financementPrive = financementPrive;
+    public void setFinancementPrivePrevisionnel(double financementPrivePrevisionnel) {
+        this.financementPrivePrevisionnel = financementPrivePrevisionnel;
     }
 
-    /**
-     * Get the project public originate funds
-     *
-     * @return the public originate funds
-     */
-    public double getFinancementPublic() {
-        return financementPublic;
+    public double getFinancementPublicPrevisionnel() {
+        return financementPublicPrevisionnel;
     }
 
-    /**
-     * Set the project public originate funds
-     *
-     * @param financementPublic the funds to set
-     */
-    public void setFinancementPublic(double financementPublic) {
-        this.financementPublic = financementPublic;
+    public void setFinancementPublicPrevisionnel(double financementPublicPrevisionnel) {
+        this.financementPublicPrevisionnel = financementPublicPrevisionnel;
+    }
+
+    public double getFinancementPriveReel() {
+        return financementPriveReel;
+    }
+
+    public void setFinancementPriveReel(double financementPriveReel) {
+        this.financementPriveReel = financementPriveReel;
+    }
+
+    public double getFinancementPublicReel() {
+        return financementPublicReel;
+    }
+
+    public void setFinancementPublicReel(double financementPublicReel) {
+        this.financementPublicReel = financementPublicReel;
     }
 
     /**
@@ -436,22 +443,11 @@ public class Projet implements Serializable {
         this.idProgramme = idProgramme;
     }
 
-    /**
-     * Get the project actual step list
-     *
-     * @return the actual step list
-     */
-    public List<Phase> getPhasesActuelles() {
-        return phasesActuelles;
+    public EtatProjet getEtat() {
+        return etat;
     }
 
-    /**
-     * Set the project actual step list
-     *
-     * @param phasesActuelles the actual step list to set
-     */
-    public void setPhasesActuelles(List<Phase> phasesActuelles) {
-        this.phasesActuelles = phasesActuelles;
+    public void setEtat(EtatProjet etat) {
+        this.etat = etat;
     }
-
 }
