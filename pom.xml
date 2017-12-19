@@ -71,7 +71,7 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
-    <profiles>
+        <profiles>
         <!-- en local -->
         <profile>
             <!--profil de production a publier-->
