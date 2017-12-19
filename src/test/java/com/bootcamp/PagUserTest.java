@@ -31,6 +31,7 @@ public class PagUserTest {
         pagUser.setEmail("email");
         pagUser.setPassword("password");
         userRepository.create(pagUser);
+        userId = pagUser.getId();
 
         Assert.assertNotNull(pagUser.getId());
 
@@ -45,7 +46,7 @@ public class PagUserTest {
         userRole.setPagUser(pagUser);
         userPagRoleRepository.create(userRole);
         
-        userId = userRole.getId();
+        //userId = userRole.getId();
 
         Assert.assertNotNull(userId);
     }
@@ -53,11 +54,11 @@ public class PagUserTest {
     @Test(priority = 1, groups = {"User Test"})
     public void getUserRole() {
         Criterias criterias = new Criterias();
-        criterias.addCriteria(new Criteria("id", "=", userId));
+        criterias.addCriteria(new Criteria("id", "=", 1));
         PagUser pagUser = userRepository.getDataByCriteria(criterias).get(0);
 
         Assert.assertEquals(pagUser.getUsername(), "username");
 
-        System.out.println(pagUser.getUserRoles());
+        System.out.println(pagUser.getUserRoles().size());
     }
 }
