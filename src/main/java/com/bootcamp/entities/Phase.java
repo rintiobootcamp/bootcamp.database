@@ -26,14 +26,24 @@ public class Phase implements Serializable {
     private String nom;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "creation date of state")
+    @ApiModelProperty(value = "creation estimated date of state")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private long dateDebut;
+    private long dateDebutPrevisionnel;
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "update date of state")
+    @ApiModelProperty(value = "update estimated date of state")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private long dateFin;
+    private long dateFinPrevisionnel;
+
+    @Column(nullable = false)
+    @ApiModelProperty(value = "creation real date of state")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private long dateDebutReel;
+
+    @Column(nullable = false)
+    @ApiModelProperty(value = "update real date of state")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private long dateFinReel;
 
     @Column(nullable = false)
     @ApiModelProperty(value = "check if the state is enable or not", required = true)
@@ -81,45 +91,38 @@ public class Phase implements Serializable {
         this.nom = nom;
     }
 
-    /**
-     * Get the phase started date
-     *
-     * @return the started date
-     */
-    public long getDateDebut() {
-        return dateDebut;
+    public long getDateDebutPrevisionnel() {
+        return dateDebutPrevisionnel;
     }
 
-    /**
-     * Set the phase started date
-     *
-     * @param dateDebut the date to set
-     */
-    public void setDateDebut(long dateDebut) {
-        this.dateDebut = dateDebut;
+    public void setDateDebutPrevisionnel(long dateDebutPrevisionnel) {
+        this.dateDebutPrevisionnel = dateDebutPrevisionnel;
     }
 
-    /**
-     * Get the phase ended date
-     *
-     * @return the ended date
-     */
-    public long getDateFin() {
-        return dateFin;
+    public long getDateFinPrevisionnel() {
+        return dateFinPrevisionnel;
     }
 
-    /**
-     * Set the phase ended date
-     *
-     * @param dateFin the date to set
-     */
-    public void setDateFin(long dateFin) {
-        this.dateFin = dateFin;
+    public void setDateFinPrevisionnel(long dateFinPrevisionnel) {
+        this.dateFinPrevisionnel = dateFinPrevisionnel;
     }
 
-    /**
-     * Check if the phase is enable
-     */
+    public long getDateDebutReel() {
+        return dateDebutReel;
+    }
+
+    public void setDateDebutReel(long dateDebutReel) {
+        this.dateDebutReel = dateDebutReel;
+    }
+
+    public long getDateFinReel() {
+        return dateFinReel;
+    }
+
+    public void setDateFinReel(long dateFinReel) {
+        this.dateFinReel = dateFinReel;
+    }
+
     public boolean isActif() {
         return actif;
     }
