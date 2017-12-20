@@ -52,6 +52,11 @@ public class PagUser implements Serializable {
     //@OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name="pagUser_id")
     private List<UserRole> userRoles = new ArrayList<>();
+    
+    @Column(nullable = false, length = 1024)
+    @ApiModelProperty(value = "Numero of the User")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String numero;
 
     public int getId() {
         return id;
@@ -115,5 +120,13 @@ public class PagUser implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 }

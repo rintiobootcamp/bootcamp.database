@@ -26,10 +26,11 @@ public class PagUserTest {
     public void namageUser() throws Exception {
 
         PagUser pagUser = new PagUser();
-        pagUser.setNom("TOSSA Gildas");
-        pagUser.setUsername("username");
-        pagUser.setEmail("email");
-        pagUser.setPassword("password");
+        pagUser.setNom("BELLO Mouhoutassim");
+        pagUser.setUsername("Baom");
+        pagUser.setEmail("mboabello@yahoo.fr");
+        pagUser.setNumero("94759067");
+        pagUser.setPassword("cacapa");
         userRepository.create(pagUser);
         userId = pagUser.getId();
 
@@ -57,7 +58,7 @@ public class PagUserTest {
         criterias.addCriteria(new Criteria("id", "=", 1));
         PagUser pagUser = userRepository.getDataByCriteria(criterias).get(0);
 
-        Assert.assertEquals(pagUser.getUsername(), "username");
+        Assert.assertEquals(pagUser.getUsername(), "Baom");
 
         System.out.println(pagUser.getUserRoles().size());
     }
