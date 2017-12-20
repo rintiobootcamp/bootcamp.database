@@ -71,7 +71,7 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
-    <profiles>
+        <profiles>
         <!-- en local -->
         <profile>
             <!--profil de production a publier-->
@@ -114,7 +114,6 @@
     <build>
         <finalName>db-access</finalName>
         <plugins>
-
             <!-- download source code in Eclipse, best practice -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

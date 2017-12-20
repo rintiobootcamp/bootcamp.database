@@ -23,6 +23,8 @@ public class PagRole implements java.io.Serializable {
     private String name;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagRole")
+    //@OneToMany(fetch = FetchType.LAZY)
+    //@JoinColumn(name="pagRole_id")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public Integer getId() {
