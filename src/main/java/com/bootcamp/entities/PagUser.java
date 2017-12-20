@@ -48,7 +48,7 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pagUser")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
     //@OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name="pagUser_id")
     private List<UserRole> userRoles = new ArrayList<>();
