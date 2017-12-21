@@ -58,14 +58,20 @@ public class Question implements Serializable {
     @ApiModelProperty(value = "List of responses")
     private HashMap<String,Long> typeReponses;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
+    }
+
     /**
      * Get the question id
      *
      * @return the id
 
-    public int getId() {
-        return id;
-    }
+
 
     /**
      * Set the question id
