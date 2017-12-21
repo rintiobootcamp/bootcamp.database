@@ -36,7 +36,6 @@ public class Debat implements Serializable {
     private int entityId;
 
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String sujet;

@@ -18,7 +18,11 @@ public class PagRole implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private Integer id;
-    
+    /**
+     * nom de l'axe rendu unique pour eviter les doublons et gerer les axes uniques
+     * pas bessoin de strategie Lazy dans ce cas, puisque ce n'est pas une liste
+     */
+    @Column(nullable = false, length = 2000,unique = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String name;
     

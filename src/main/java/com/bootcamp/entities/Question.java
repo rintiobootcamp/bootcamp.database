@@ -36,9 +36,11 @@ public class Question implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
 
+    /**
+     * les sujets de sondage doivent etre unique pour faciliter la recherche
+     */
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @Column(nullable = false)
+    @Column(nullable = false,length = 2000)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String sujet;
 

@@ -31,7 +31,10 @@ public class Secteur implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 1024)
+    /**
+     * pas de doublon possible dans les secteurs
+     */
+    @Column(nullable = false, length = 1024,unique = true)
     @ApiModelProperty(value = "Name of the sector", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;
