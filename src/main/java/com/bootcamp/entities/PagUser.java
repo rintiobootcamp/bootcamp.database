@@ -47,6 +47,11 @@ public class PagUser implements Serializable {
     @ApiModelProperty(value = "Update date of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
+    
+    @Column
+    @ApiModelProperty(value = "Reset Password")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean reset;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
     //@OneToMany(fetch = FetchType.LAZY)
@@ -128,5 +133,13 @@ public class PagUser implements Serializable {
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public boolean isReset() {
+        return reset;
+    }
+
+    public void setReset(boolean reset) {
+        this.reset = reset;
     }
 }
