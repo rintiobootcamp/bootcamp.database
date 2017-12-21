@@ -18,7 +18,7 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false, length = 1024,unique = true)
     @ApiModelProperty(value = "Login of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String username;
@@ -28,7 +28,7 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String password;
 
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false, length = 1024,unique = true)
     @ApiModelProperty(value = "Email of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String email;
