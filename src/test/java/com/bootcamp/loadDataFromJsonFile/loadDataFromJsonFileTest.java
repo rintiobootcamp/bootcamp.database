@@ -78,8 +78,14 @@ public class loadDataFromJsonFileTest {
         Type typeOfObjectsListNew = new TypeToken<List<Projet>>() {
         }.getType();
         List<Projet> projets = GsonUtils.getObjectFromJson(text, typeOfObjectsListNew);
-        setProjetPhase(projets);
-
+        for (int i = 0; i < projets.size(); i++) {
+            Projet get = projets.get(i);
+            List<Objectif> objectifs = new LinkedList();
+            objectifs.add(objectifRepository.findById(i+1));
+            get.setObjectifList(objectifs);
+            projetRepository.create(get);
+        }
+    setProjetPhase(projetRepository.findAll());
     }
 
     @Test(priority = 4, groups = {"load Data From JsonFile Test"})
@@ -188,239 +194,330 @@ public class loadDataFromJsonFileTest {
     private void setProjetPhase(List<Projet> projets) throws Exception {
         for (int i = 0; i < projets.size(); i++) {
             Projet get = projets.get(i);
-            List<Objectif> objectifs = new LinkedList();
-            objectifs.add(objectifRepository.findById(i+1));
-            get.setObjectifList(objectifs);
-            List<Phase> phases = new LinkedList();
+//            List<Objectif> objectifs = new LinkedList();
+//            objectifs.add(objectifRepository.findById(i+1));
+//            get.setObjectifList(objectifs);
+//            List<Phase> phases = new LinkedList();
+            Phase laPhase=new Phase();
             switch (i) {
                 case 0:
                     for (int j = 0; j < 8; j++) {
-                        phases.add(phaseRepository.findById(j+1));
+                        laPhase=phaseRepository.findById(j+1);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+1));
                     }
                     break;
                 case 1:
                     for (int j = 0; j < 8; j++) {
-                        phases.add(phaseRepository.findById(j+9));
+//                        phases.add(phaseRepository.findById(j+9));
+                        laPhase=phaseRepository.findById(j+9);
+                        laPhase.setProjet(get);
                     }
                     break;
                 case 2:
                     for (int j = 0; j < 7; j++) {
-                        phases.add(phaseRepository.findById(j+16));
+//                        phases.add(phaseRepository.findById(j+16));
+                        laPhase=phaseRepository.findById(j+16);
+                        laPhase.setProjet(get);
                     }
                     break;
                 case 3:
                     for (int j = 0; j < 7; j++) {
-                        phases.add(phaseRepository.findById(j+23));
+//                        phases.add(phaseRepository.findById(j+23));
+                        laPhase=phaseRepository.findById(j+23);
+                        laPhase.setProjet(get);
                     }
                     break;
                 case 4:
                     for (int j = 0; j < 8; j++) {
-                        phases.add(phaseRepository.findById(j+31));
+                        laPhase=phaseRepository.findById(j+31);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+31));
                     }
                     break;
                 case 5:
                     for (int j = 0; j < 7; j++) {
-                        phases.add(phaseRepository.findById(j+38));
+                        laPhase=phaseRepository.findById(j+38);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+38));
                     }
                     break;
                 case 6:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+43));
+                        laPhase=phaseRepository.findById(j+43);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+43));
                     }
                     break;
                 case 7:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+48));
+                        laPhase=phaseRepository.findById(j+48);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+48));
                     }
                     break;
                 case 8:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+53));
+                        laPhase=phaseRepository.findById(j+53);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+53));
                     }
                     break;
                 case 9:
                     for (int j = 0; j < 6; j++) {
-                        phases.add(phaseRepository.findById(j+59));
+                        laPhase=phaseRepository.findById(j+59);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+59));
                     }
                     break;
                 case 10:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+64));
+                        laPhase=phaseRepository.findById(j+64);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+64));
                     }
                     break;
                 case 11:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+67));
+                        laPhase=phaseRepository.findById(j+67);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+67));
                     }
                     break;
                 case 12:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+70));
+                        laPhase=phaseRepository.findById(j+70);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+70));
                     }
                     break;
                 case 13:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+73));
+                        laPhase=phaseRepository.findById(j+73);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+73));
                     }
                     break;
                 case 14:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+76));
+                        laPhase=phaseRepository.findById(j+76);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+76));
                     }
                     break;
                 case 15:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+79));
+                        laPhase=phaseRepository.findById(j+79);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+79));
                     }
                     break;
                 case 16:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+82));
+                        laPhase=phaseRepository.findById(j+82);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+82));
                     }
                     break;
                 case 17:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+85));
+                        laPhase=phaseRepository.findById(j+85);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+85));
                     }
                     break;
                 case 18:
                     for (int j = 0; j < 6; j++) {
-                        phases.add(phaseRepository.findById(j+91));
+                        laPhase=phaseRepository.findById(j+91);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+91));
                     }
                     break;
                 case 19:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+96));
+                        laPhase=phaseRepository.findById(j+96);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+96));
                     }
                     break;
                 case 20:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+100));
+                        laPhase=phaseRepository.findById(j+100);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+100));
                     }
                     break;
                 case 21:
                     for (int j = 0; j < 7; j++) {
-                        phases.add(phaseRepository.findById(j+107));
+                        laPhase=phaseRepository.findById(j+107);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+107));
                     }
                     break;
                 case 22:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+112));
+                        laPhase=phaseRepository.findById(j+112);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+112));
                     }
                     break;
                 case 23:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+117));
+                        laPhase=phaseRepository.findById(j+117);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+117));
                     }
                     break;
                 case 24:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+122));
+                        laPhase=phaseRepository.findById(j+122);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+122));
                     }
                     break;
                 case 25:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+126));
+                        laPhase=phaseRepository.findById(j+126);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+126));
                     }
                     break;
                 case 26:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+130));
+                        laPhase=phaseRepository.findById(j+130);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+130));
                     }
                     break;
                 case 27:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+134));
+                        laPhase=phaseRepository.findById(j+134);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+134));
                     }
                     break;
                 case 28:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+138));
+                        laPhase=phaseRepository.findById(j+138);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+138));
                     }
                     break;
                 case 29:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+143));
+                        laPhase=phaseRepository.findById(j+143);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+143));
                     }
                     break;
                 case 30:
                     for (int j = 0; j < 3; j++) {
-                        phases.add(phaseRepository.findById(j+146));
+                        laPhase=phaseRepository.findById(j+146);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+146));
                     }
                     break;
                 case 31:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+151));
+                        laPhase=phaseRepository.findById(j+151);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+151));
                     }
                     break;
                 case 32:
                     for (int j = 0; j < 6; j++) {
-                        phases.add(phaseRepository.findById(j+157));
+                        laPhase=phaseRepository.findById(j+157);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+157));
                     }
                     break;
                 case 33:
                     for (int j = 0; j < 7; j++) {
-                        phases.add(phaseRepository.findById(j+164));
+                        laPhase=phaseRepository.findById(j+164);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+164));
                     }
                     break;
                 case 34:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+68));
+                        laPhase=phaseRepository.findById(j+168);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+68));
                     }
                     break;
                 case 35:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+172));
+                        laPhase=phaseRepository.findById(j+172);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+172));
                     }
                     break;
                 case 36:
                     for (int j = 0; j < 6; j++) {
-                        phases.add(phaseRepository.findById(j+178));
+                        laPhase=phaseRepository.findById(j+178);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+178));
                     }
                     break;
                 case 37:
                     for (int j = 0; j < 2; j++) {
-                        phases.add(phaseRepository.findById(j+180));
+                        laPhase=phaseRepository.findById(j+180);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+180));
                     }
                     break;
                 case 38:
                     for (int j = 0; j < 5; j++) {
-                        phases.add(phaseRepository.findById(j+185));
+                        laPhase=phaseRepository.findById(j+185);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+185));
                     }
                     break;
                 case 39:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+189));
+                        laPhase=phaseRepository.findById(j+189);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+189));
                     }
                     break;
                 case 40:
                     for (int j = 0; j < 6; j++) {
-                        phases.add(phaseRepository.findById(j+195));
+                        laPhase=phaseRepository.findById(j+195);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+195));
                     }
                     break;
                 case 41:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+199));
+                        laPhase=phaseRepository.findById(j+199);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+199));
                     }
                     break;
                 case 42:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+203));
+                        laPhase=phaseRepository.findById(j+203);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+203));
                     }
                     break;
                 case 43:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+207));
+                        laPhase=phaseRepository.findById(j+207);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+207));
                     }
                     break;
                 case 44:
                     for (int j = 0; j < 4; j++) {
-                        phases.add(phaseRepository.findById(j+211));
+                        laPhase=phaseRepository.findById(j+211);
+                        laPhase.setProjet(get);
+//                        phases.add(phaseRepository.findById(j+211));
                     }
                     break;
             }
-            get.setPhases(phases);
-            projetRepository.create(get);
+//            get.setPhases(phases);
+            projetRepository.update(get);
         }
 
     }

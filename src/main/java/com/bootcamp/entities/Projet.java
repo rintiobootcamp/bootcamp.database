@@ -22,7 +22,6 @@ public class Projet implements Serializable {
     private int id;
 
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 1024)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "Name of the Project", required = true)

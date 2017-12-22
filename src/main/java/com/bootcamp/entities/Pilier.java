@@ -23,7 +23,7 @@ public class Pilier implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false, length = 1024,unique = true)
     @ApiModelProperty(value = "the name of this particular pilier", notes = "this name is required during the creation of a pilier", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String nom;

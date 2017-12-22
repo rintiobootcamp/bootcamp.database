@@ -18,7 +18,7 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false, length = 1024,unique = true)
     @ApiModelProperty(value = "Login of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String username;
@@ -28,7 +28,7 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String password;
 
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false, length = 1024,unique = true)
     @ApiModelProperty(value = "Email of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String email;
@@ -47,8 +47,13 @@ public class PagUser implements Serializable {
     @ApiModelProperty(value = "Update date of the User", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
+    
+    @Column
+    @ApiModelProperty(value = "Reset Password")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean reset;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pagUser")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
     //@OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name="pagUser_id")
     private List<UserRole> userRoles = new ArrayList<>();
@@ -128,5 +133,13 @@ public class PagUser implements Serializable {
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public boolean isReset() {
+        return reset;
+    }
+
+    public void setReset(boolean reset) {
+        this.reset = reset;
     }
 }

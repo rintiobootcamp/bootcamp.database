@@ -12,6 +12,7 @@ import javax.persistence.*;
  */
 @Entity
 @ApiModel(value = "Axe", description = "Description of axe service")
+//@Table(uniqueConstraints=@UniqueConstraint(columnNames="NOM"))
 public class Axe implements Serializable {
 
     @Id
@@ -19,8 +20,11 @@ public class Axe implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
+    /**
+     * nom de l'axe rendu unique pour eviter les doublons et gerer les axes uniques
+     * plus de strategie lazy parce que ce n'est pas une liste
+     */
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
     @Column(nullable = false, length = 2000)
     @ApiModelProperty(value = "name of Axe", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)

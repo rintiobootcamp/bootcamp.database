@@ -36,9 +36,11 @@ public class Question implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int entityId;
 
+    /**
+     * les sujets de sondage doivent etre unique pour faciliter la recherche
+     */
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @Column(nullable = false)
+    @Column(nullable = false,length = 2000)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String sujet;
 
@@ -56,14 +58,20 @@ public class Question implements Serializable {
     @ApiModelProperty(value = "List of responses")
     private HashMap<String,Long> typeReponses;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
+    }
+
     /**
      * Get the question id
      *
      * @return the id
 
-    public int getId() {
-        return id;
-    }
+
 
     /**
      * Set the question id
