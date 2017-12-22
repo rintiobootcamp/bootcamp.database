@@ -43,7 +43,7 @@ public class Pilier implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @NotNull(message = "The list of axes field must not be empty")
     private List<Axe> axes;
 

@@ -64,7 +64,7 @@ public class Axe implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @ApiModelProperty(value = "list of sectors of Axe", required = true)
     private List<Secteur> secteurs;
 

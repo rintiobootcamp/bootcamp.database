@@ -27,7 +27,7 @@ public class Secteur implements Serializable {
 
     @Id
     @ApiModelProperty(value = "Id of the Sector", required = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 

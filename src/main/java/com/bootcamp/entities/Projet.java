@@ -68,8 +68,8 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
-	
-	@ApiModelProperty(value = "Current state of the project")
+
+    @ApiModelProperty(value = "Current state of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private EtatProjet etat;
 
