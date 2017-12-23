@@ -37,12 +37,12 @@ public class Commentaire implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String contenu;
 
-    @ApiModelProperty(value = "creation date of Axe")
+    @ApiModelProperty(value = "creation date of Commentaire")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateCreation;
 
-    @ApiModelProperty(value = "update date of Axe")
+    @ApiModelProperty(value = "update date of Commentaire")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @Column(nullable = false)
     private long dateMiseAJour;

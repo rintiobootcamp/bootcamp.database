@@ -25,11 +25,11 @@ public class Impact implements Serializable {
     @Column(nullable = false)
     private TypeImpact typeImpact;
 
-    @ApiModelProperty(value = "description of the objectif", required = true)
+    @ApiModelProperty(value = "description of the impact", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String unite;
 
-    @ApiModelProperty(value = "gives the type of Objectif", required = true)
+    @ApiModelProperty(value = "gives the type of impact", required = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double value;
 
