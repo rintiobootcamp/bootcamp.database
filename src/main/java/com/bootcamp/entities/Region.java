@@ -35,12 +35,12 @@ public class Region implements Serializable {
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "The longitude of the location", required = true)
-    private long longitude;
+    private double longitude;
 
     @Column(nullable = false)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     @ApiModelProperty(value = "The latitude of the location", required = true)
-    private long latitude;
+    private double latitude;
 
     @ManyToMany
     private List<Projet> projets = new ArrayList<Projet>();
@@ -104,7 +104,7 @@ public class Region implements Serializable {
      *
      * @return the longitude
      */
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
@@ -113,7 +113,7 @@ public class Region implements Serializable {
      *
      * @param longitude the longitude to set
      */
-    public void setLongitude(long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -122,7 +122,7 @@ public class Region implements Serializable {
      *
      * @return the latitude
      */
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
@@ -131,7 +131,7 @@ public class Region implements Serializable {
      *
      * @param latitude the latitude to set
      */
-    public void setLatitude(long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
