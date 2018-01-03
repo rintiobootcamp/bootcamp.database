@@ -83,13 +83,9 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>src/main/resources</directory>
+                        <directory>src/main/resources/local</directory>
                         <filtering>true</filtering>
                     </resource>
-                    <resource>
-                        <directory>${config.home}</directory>
-                    </resource>
-
                 </resources>
             </build>
         </profile>
@@ -100,13 +96,8 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>src/main/resources</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                    <resource>
                         <directory>${config.home}</directory>
                     </resource>
-
                 </resources>
             </build>
         </profile>

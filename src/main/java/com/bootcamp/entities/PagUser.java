@@ -53,7 +53,7 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean reset;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser", cascade = CascadeType.ALL)
     //@OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name="pagUser_id")
     private List<UserRole> userRoles = new ArrayList<>();

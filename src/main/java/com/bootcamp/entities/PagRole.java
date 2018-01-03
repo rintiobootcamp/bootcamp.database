@@ -26,7 +26,7 @@ public class PagRole implements java.io.Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String name;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagRole")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagRole", cascade = CascadeType.ALL)
     //@OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name="pagRole_id")
     private List<UserRole> userRoles = new ArrayList<>();
