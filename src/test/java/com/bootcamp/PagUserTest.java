@@ -26,6 +26,7 @@ public class PagUserTest {
     public void namageUser() throws Exception {
 
         PagUser pagUser = new PagUser();
+//        pagUser.setId(1);
         pagUser.setNom("BELLO Mouhoutassim");
         pagUser.setUsername("Baom");
         pagUser.setEmail("mboabello@yahoo.fr");
@@ -52,7 +53,7 @@ public class PagUserTest {
         Assert.assertNotNull(userId);
     }
 
-    @Test(priority = 1, groups = {"User Test"})
+    //@Test(priority = 1, groups = {"User Test"})
     public void getUserRole() {
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria("id", "=", 1));
@@ -61,5 +62,16 @@ public class PagUserTest {
         Assert.assertEquals(pagUser.getUsername(), "Baom");
 
         System.out.println(pagUser.getUserRoles().size());
+    }
+    
+    //@Test(priority = 2, groups = {"User Test"})
+    public void deleteUserRole() {
+//        Criterias criterias = new Criterias();
+//        criterias.addCriteria(new Criteria("id", "=", 1));
+//        PagUser pagUser = userRepository.getDataByCriteria(criterias).get(0);
+
+//        Assert.assertEquals(pagUser.getUsername(), "Baom");
+//
+//        System.out.println(pagUser.getUserRoles().size());
     }
 }
