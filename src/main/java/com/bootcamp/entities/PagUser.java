@@ -18,17 +18,17 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int id;
 
-    @Column(nullable = false, length = 1024,unique = true)
+    @Column(nullable = false, unique = true)
     @ApiModelProperty(value = "Login of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String username;
 
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false)
     @ApiModelProperty(value = "Password of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String password;
 
-    @Column(nullable = false, length = 1024,unique = true)
+    @Column(nullable = false, unique = true)
     @ApiModelProperty(value = "Email of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String email;
@@ -48,17 +48,15 @@ public class PagUser implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private long dateMiseAJour;
     
-    @Column
+    @Column(nullable = false)
     @ApiModelProperty(value = "Reset Password")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean reset;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser", cascade = CascadeType.ALL)
-    //@OneToMany(fetch = FetchType.LAZY)
-    //@JoinColumn(name="pagUser_id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagUser")
     private List<UserRole> userRoles = new ArrayList<>();
     
-    @Column(nullable = false, length = 1024)
+    @Column(nullable = false)
     @ApiModelProperty(value = "Numero of the User")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String numero;

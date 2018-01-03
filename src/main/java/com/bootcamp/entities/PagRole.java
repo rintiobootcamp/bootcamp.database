@@ -18,17 +18,12 @@ public class PagRole implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private Integer id;
-    /**
-     * nom de l'axe rendu unique pour eviter les doublons et gerer les axes uniques
-     * pas bessoin de strategie Lazy dans ce cas, puisque ce n'est pas une liste
-     */
-    @Column(nullable = false, length = 2000,unique = true)
+    
+	@Column(nullable = false, unique = true)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String name;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pagRole", cascade = CascadeType.ALL)
-    //@OneToMany(fetch = FetchType.LAZY)
-    //@JoinColumn(name="pagRole_id")
     private List<UserRole> userRoles = new ArrayList<>();
 
     public Integer getId() {
