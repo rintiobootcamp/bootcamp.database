@@ -174,7 +174,7 @@ public class loadDataFromJsonFileTest {
             switch (i) {
                 case 0:
                     axes.add(axeRepository.findById(1));
-                    axes.add(axeRepository.findById(2));
+//                    axes.add(axeRepository.findById(2));
                     break;
                 case 1:
                     axes.add(axeRepository.findById(3));
