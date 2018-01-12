@@ -19,7 +19,7 @@ public class PagRole implements java.io.Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private Integer id;
     
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true,length = 190)
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String name;
     

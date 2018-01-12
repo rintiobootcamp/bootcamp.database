@@ -67,6 +67,10 @@ public class Projet implements Serializable {
     @ApiModelProperty(value = "Real cost of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private double coutReel;
+	
+	@ApiModelProperty(value = "Current cusumed cost of the project")
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private double coutConsomme;
 
     @ApiModelProperty(value = "Current state of the project")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
@@ -299,6 +303,24 @@ public class Projet implements Serializable {
      */
     public void setCoutReel(double coutReel) {
         this.coutReel = coutReel;
+    }
+	
+	/**
+     * Get the project current consummed cost
+     *
+     * @return the current consummed cost
+     */
+    public double getConsummedCost() {
+        return coutConsomme;
+    }
+
+    /**
+     * Set the project current consummed cost
+     *
+     * @param current consummed the cost to set
+     */
+    public void setCoutConsomme(double coutConsomme) {
+        this.coutConsomme = coutConsomme;
     }
 
     /**
