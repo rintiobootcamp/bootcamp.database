@@ -58,6 +58,29 @@ public class Question implements Serializable {
     @ApiModelProperty(value = "List of responses")
     private HashMap<String,Long> typeReponses;
 
+
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private String cover;
+
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    private boolean une;
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public boolean isUne() {
+        return une;
+    }
+
+    public void setUne(boolean une) {
+        this.une = une;
+    }
+
     public int getId() {
         return id;
     }
