@@ -63,7 +63,7 @@ public class Question implements Serializable {
     private String cover;
 
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
-    private boolean une;
+    private boolean une=false;
 
     public String getCover() {
         return cover;
