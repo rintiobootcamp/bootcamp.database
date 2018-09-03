@@ -9,14 +9,7 @@ import com.bootcamp.commons.annotations.NativeQueryResultColumn;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.HashMap;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 /**
  *
@@ -54,15 +47,17 @@ public class Question implements Serializable {
     @Column(nullable = false)
     private long dateMiseAJour;
 
+    @ElementCollection(fetch=FetchType.LAZY)
     @Column
     @ApiModelProperty(value = "List of responses")
     private HashMap<String,Long> typeReponses;
 
-
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String cover;
 
+    @ApiModelProperty(value = "prime question")
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
+    @Column(nullable = false)
     private boolean une=false;
 
     public String getCover() {
