@@ -6,6 +6,7 @@
 package com.bootcamp.entities;
 
 import com.bootcamp.commons.annotations.NativeQueryResultColumn;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -47,6 +48,7 @@ public class Question implements Serializable {
     @Column(nullable = false)
     private long dateMiseAJour;
 
+    @JsonIgnore
     @ElementCollection(fetch=FetchType.LAZY)
     @Column
     @ApiModelProperty(value = "List of responses")
