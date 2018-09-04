@@ -87,16 +87,16 @@ public class Projet implements Serializable {
     private int idSecteur;
 
     @ManyToMany(mappedBy = "projets")
-    @Basic(fetch = FetchType.LAZY, optional = false)
+//    @Basic(fetch = FetchType.LAZY, optional = false)
     private List<Region> regions = new ArrayList<Region>();
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-    @Basic(fetch = FetchType.LAZY, optional = false)
+//    @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the impacts of the project")
     private List<Impact> impactList;
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-    @Basic(fetch = FetchType.LAZY, optional = false)
+//    @Basic(fetch = FetchType.LAZY, optional = false)
     @ApiModelProperty(value = "List of the objectives of the project")
     private List<Objectif> objectifList;
 
