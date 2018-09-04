@@ -48,8 +48,7 @@ public class Question implements Serializable {
     @Column(nullable = false)
     private long dateMiseAJour;
 
-    @JsonIgnore
-    @ElementCollection(fetch=FetchType.LAZY)
+    @Lob
     @Column
     @ApiModelProperty(value = "List of responses")
     private HashMap<String,Long> typeReponses;
