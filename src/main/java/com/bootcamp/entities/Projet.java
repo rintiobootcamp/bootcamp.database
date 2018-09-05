@@ -86,8 +86,9 @@ public class Projet implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private int idSecteur;
 
-    @ManyToMany(mappedBy = "projets")
-    @Basic(fetch = FetchType.LAZY, optional = false)
+//    @ManyToMany(mappedBy = "projets")
+//    @Basic(fetch = FetchType.LAZY, optional = false)
+    @ManyToMany
     private List<Region> regions = new ArrayList<Region>();
 
 //    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
