@@ -49,9 +49,10 @@ public class Phase implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private boolean actif;
 
+//    @ManyToOne
+//    @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
+//    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     @ManyToOne
-    @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Projet projet;
 
     /**

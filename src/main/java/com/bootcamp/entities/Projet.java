@@ -76,9 +76,10 @@ public class Projet implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private EtatProjet etat;
 
-    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @ApiModelProperty(value = "List of the project phases")
+//    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+//    @Basic(fetch = FetchType.LAZY, optional = false)
+//    @ApiModelProperty(value = "List of the project phases")
+    @OneToMany
     private List<Phase> phases;
 
     @ApiModelProperty(value = "Id of the Unique sector in which the projet is allocated to", required = true)
