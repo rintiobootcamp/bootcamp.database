@@ -39,6 +39,20 @@ public class Impact implements Serializable {
     @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.SIMPLE)
     private String autres;
 
+    @ManyToOne
+    @ApiModelProperty(value = "The projet of Impact", required = true)
+    @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
+    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
+    private Projet projet;
+
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
+    }
+
     /**
      * Get the impact id
      *
