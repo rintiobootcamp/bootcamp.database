@@ -39,8 +39,8 @@ public class Objectif implements Serializable {
     private TypeObjectif typeObjectif;
 
     @ManyToOne
-    @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
-    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
+//    @JoinColumn(name = "projet", referencedColumnName = "id", insertable = false, updatable = false)
+//    @NativeQueryResultColumn(columnType = NativeQueryResultColumn.COLUMNTYPE.COMPLEX)
     private Projet projet;
 
     /**

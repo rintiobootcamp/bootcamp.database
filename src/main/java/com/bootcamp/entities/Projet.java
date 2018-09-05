@@ -96,9 +96,10 @@ public class Projet implements Serializable {
     @OneToMany
     private List<Impact> impactList;
 
-    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @ApiModelProperty(value = "List of the objectives of the project")
+//    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+//    @Basic(fetch = FetchType.LAZY, optional = false)
+//    @ApiModelProperty(value = "List of the objectives of the project")
+    @OneToMany
     private List<Objectif> objectifList;
 
     @ApiModelProperty(value = "Part of the financing obtained from the Prive")
