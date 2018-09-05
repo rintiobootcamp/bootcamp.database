@@ -82,7 +82,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>/src/main/resources</directory>
+                        <directory>${config.home}</directory>
                         <filtering>true</filtering>
                     </resource>
                 </resources>
@@ -95,7 +95,6 @@
             <build>
                 <resources>
                     <resource>
-                        <!--<directory>/src/main/resources</directory>-->
                         <directory>${config.home}</directory>
                     </resource>
                 </resources>
